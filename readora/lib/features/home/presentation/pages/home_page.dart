@@ -8,6 +8,7 @@ import 'package:readora/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:readora/features/library/data/models/library_models.dart';
 import 'package:readora/features/library/domain/entities/library_book.dart';
 import 'package:readora/features/library/presentation/bloc/library_bloc.dart';
+import 'package:readora/features/library/presentation/widgets/progress_update_sheet.dart';
 
 /// Home answers one question: *what should I do right now?*
 ///
@@ -120,6 +121,7 @@ class _CurrentBookCard extends StatelessWidget {
     final theme = Theme.of(context);
 
     return PaperCard(
+      onTap: () => ProgressUpdateSheet.show(context, book: book),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

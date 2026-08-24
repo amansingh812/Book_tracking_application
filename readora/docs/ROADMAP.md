@@ -25,7 +25,7 @@ weight.
 - [x] Email/password + guest auth, router with the five tabs
 - [x] Library list, status filter, progress model
 - [x] Add-book flow wired to `book-search` (search → tap → in library)
-- [ ] Progress update sheet writing through the outbox
+- [x] Progress update sheet writing through the outbox
 - [ ] Replace placeholder tokens with the real Claude Design export
 
 **Done when:** in airplane mode you can add a book, set progress, kill the app, reopen

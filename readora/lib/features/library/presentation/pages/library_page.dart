@@ -8,6 +8,7 @@ import 'package:readora/design_system/widgets/progress_ring.dart';
 import 'package:readora/features/library/data/models/library_models.dart';
 import 'package:readora/features/library/domain/entities/library_book.dart';
 import 'package:readora/features/library/presentation/bloc/library_bloc.dart';
+import 'package:readora/features/library/presentation/widgets/progress_update_sheet.dart';
 
 class LibraryPage extends StatelessWidget {
   const LibraryPage({super.key});
@@ -95,7 +96,7 @@ class _LibraryTile extends StatelessWidget {
 
     return PaperCard.flat(
       padding: const EdgeInsets.all(Spacing.md),
-      onTap: () {}, // TODO(readora): route to book detail once M2 lands
+      onTap: () => ProgressUpdateSheet.show(context, book: book),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -120,19 +121,26 @@ class _LibraryTile extends StatelessWidget {
                       ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
                 ),
                 const SizedBox(height: Spacing.sm),
-                Text(
-                  book.pageCount == null
-                      ? book.status.label
-                      : '${book.currentPage} / ${book.pageCount} pages',
-                  style: theme.textTheme.labelSmall
-                      ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+                Row(
+                  children: [
+                    Text(
+                      book.pageCount == null
+                          ? book.status.label
+                          : '${book.currentPage} / ${book.pageCount} pages',
+                      style: theme.textTheme.labelSmall
+                          ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
           if (book.status == ReadingStatus.reading && book.pageCount != null) ...[
             const SizedBox(width: Spacing.sm),
-            ProgressRing(progress: book.progress, size: 44),
+            GestureDetector(
+              onTap: () => ProgressUpdateSheet.show(context, book: book),
+              child: ProgressRing(progress: book.progress, size: 44),
+            ),
           ],
         ],
       ),
