@@ -1,0 +1,8 @@
+{
+  "FLAVOR": "dev",
+  "SUPABASE_URL": "https://YOUR-DEV-REF.supabase.co",
+  "SUPABASE_ANON_KEY": "your-dev-anon-key-here",
+  "REVENUECAT_ANDROID_KEY": "goog_...",
+  "REVENUECAT_IOS_KEY": "appl_...",
+  "FREE_AI_INTERACTIONS": 5
+}

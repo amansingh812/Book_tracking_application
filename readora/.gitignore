@@ -1,0 +1,32 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock.bak
+*.g.dart.bak
+
+# Generated code IS committed for Isar so CI does not need build_runner:
+# (delete the next two lines if you prefer generating in CI)
+# **/*.g.dart
+
+# Secrets — never commit these
+env/*.json
+!env/*.example.json
+.env
+*.jks
+*.keystore
+key.properties
+ios/Runner/GoogleService-Info.plist
+android/app/google-services.json
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Supabase CLI
+supabase/.branches/
+supabase/.temp/

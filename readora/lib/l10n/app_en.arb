@@ -1,0 +1,44 @@
+{
+  "@@locale": "en",
+
+  "appName": "Readora",
+  "tagline": "Read more. Remember more.",
+
+  "navHome": "Home",
+  "navLibrary": "Library",
+  "navDiscover": "Discover",
+  "navAi": "AI",
+  "navProfile": "Profile",
+
+  "greetingMorning": "Good morning",
+  "greetingAfternoon": "Good afternoon",
+  "greetingEvening": "Good evening",
+
+  "continueReading": "Continue reading",
+  "pagesOfTotal": "{current} / {total} pages",
+  "@pagesOfTotal": {
+    "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } }
+  },
+
+  "streakDays": "{count, plural, =0{No streak yet} one{1-day streak} other{{count}-day streak}}",
+  "@streakDays": { "placeholders": { "count": { "type": "int" } } },
+
+  "statusWantToRead": "Want to read",
+  "statusReading": "Reading",
+  "statusFinished": "Finished",
+  "statusDnf": "Did not finish",
+  "statusPaused": "Paused",
+
+  "syncSaved": "Saved",
+  "syncSyncing": "Syncing",
+  "syncOffline": "Offline",
+  "syncWillRetry": "Will retry",
+
+  "emptyLibraryTitle": "Nothing here yet",
+  "emptyLibraryBody": "Search for a book or scan its barcode to start tracking it.",
+
+  "signIn": "Sign in",
+  "createAccount": "Create account",
+  "continueAsGuest": "Start without an account",
+  "guestReassurance": "You can create an account later — nothing you track will be lost."
+}

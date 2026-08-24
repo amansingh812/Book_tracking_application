@@ -1,0 +1,21 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "lib/l10n/generated/**"
+  errors:
+    # Sync + AI code deals with dynamic JSON at the edges; these stay warnings.
+    avoid_dynamic_calls: warning
+    # Public API docs are enforced in core/ and design_system/ by review, not by CI noise.
+    public_member_api_docs: ignore
+
+linter:
+  rules:
+    # Readora conventions (see docs/ARCHITECTURE.md and the readora-conventions skill)
+    prefer_single_quotes: true
+    always_use_package_imports: true
+    avoid_print: true
+    require_trailing_commas: true
+    sort_pub_dependencies: false
