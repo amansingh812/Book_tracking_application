@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/swarom-design-system-524c921d-3e7b-4c5a-a3d3-bb142ded07fc/colors_and_type.css">
+<link rel="stylesheet" href="_ds/swarom-design-system-524c921d-3e7b-4c5a-a3d3-bb142ded07fc/reference/swarom_globals.css">
+<link rel="stylesheet" href="readora.css">
+<script src="_ds/swarom-design-system-524c921d-3e7b-4c5a-a3d3-bb142ded07fc/_ds_bundle.js"></script>
+</helmet>
+<template id="__bundler_thumbnail" data-bg-color="#F6F1EA"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#F6F1EA"/><g transform="translate(64 58)"><rect x="0" y="14" width="20" height="70" rx="2" fill="#2E3A2C"/><rect x="24" y="0" width="17" height="84" rx="2" fill="#B8956A"/><rect x="45" y="8" width="22" height="76" rx="2" fill="#1F1B16"/></g><text x="100" y="164" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#1F1B16">Readora</text></svg></template>
+<div style="min-height:100%;background:#F6F1EA;font-family:var(--font-sans);padding:48px 56px 72px;box-sizing:border-box;display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(31,27,22,.5)">Readora · pass one · interactive</span>
+    <h1 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:44px;line-height:1.1;color:#1F1B16">Read more. Remember more.</h1>
+    <p style="margin:0;font-weight:300;font-size:15px;line-height:1.65;color:rgba(31,27,22,.65);text-wrap:pretty">Both frames are live and independent — tap through them. Built on the Swarom system: cream paper, charcoal ink, gold hairline accent, Playfair over Montserrat, with a muted indigo reserved for the AI companion. Onboarding → home → library → add by ISBN → book detail → reading session → notes → companion.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
+      <sc-for list="{{flows}}" as="f" hint-placeholder-count="5">
+        <span style="border:1px solid rgba(31,27,22,.15);border-radius:999px;padding:8px 14px;font-size:11px;letter-spacing:.06em;color:rgba(31,27,22,.72)">{{f.name}}</span>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(31,27,22,.5)">Light — paper</span>
+      <dc-import name="ReadoraApp" dark="{{false}}" hint-size="402px,874px"></dc-import>
+    </div>
+    <div class="rd-dark" style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(31,27,22,.5)">Dark — night library</span>
+      <dc-import name="ReadoraApp" dark="{{true}}" hint-size="402px,874px"></dc-import>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:8px;max-width:640px;border-top:1px solid rgba(31,27,22,.15);padding-top:22px">
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(31,27,22,.5)">Next, on your word</span>
+    <p style="margin:0;font-size:13px;font-weight:300;line-height:1.7;color:rgba(31,27,22,.65)">Still open from the spec: Reading Wrapped, share cards, book comparison and practical-actions output as their own screens, Goodreads CSV import as a real flow, widgets, and sign-in. Book covers are typographic stands-in until real artwork arrives.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      flows: ['A · Onboarding','B · Add by ISBN','C · Session & progress','D · Notes & highlights','E · AI companion','F · Discover → TBR','G · Goals & stats','H · Knowledge & Ask my library','I · Quiz & flashcards','J · Paywall & trial','K · Settings & sync']
+        .map(name => ({ name }))
+    };
+  }
+}
+</script>
+</body>
+</html>

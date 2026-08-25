@@ -1,0 +1,193 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "reference/**",
+              "ui_kits/website/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Playfair Display|Montserrat|Great Vibes))/i]",
+        "message": "Font not provided by the design system. Available: Playfair Display, Montserrat, Great Vibes."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--background",
+      "--bg",
+      "--bg-elev",
+      "--bg-warm",
+      "--charcoal",
+      "--charcoal-700",
+      "--charcoal-800",
+      "--cream",
+      "--cream-100",
+      "--cream-200",
+      "--cream-50",
+      "--dur-ambient",
+      "--dur-base",
+      "--dur-fast",
+      "--dur-slow",
+      "--ease-in-out",
+      "--ease-out",
+      "--error",
+      "--fg-inverse",
+      "--fg1",
+      "--fg2",
+      "--fg3",
+      "--fg4",
+      "--fg5",
+      "--font-mono",
+      "--font-sans",
+      "--font-script",
+      "--font-serif",
+      "--foreground",
+      "--gold",
+      "--gold-soft",
+      "--hairline",
+      "--hairline-strong",
+      "--radius-0",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--radius-xl",
+      "--s-1",
+      "--s-10",
+      "--s-12",
+      "--s-16",
+      "--s-2",
+      "--s-20",
+      "--s-24",
+      "--s-3",
+      "--s-4",
+      "--s-5",
+      "--s-6",
+      "--s-8",
+      "--shadow-card",
+      "--shadow-hairline",
+      "--shadow-lift",
+      "--shadow-soft",
+      "--silver",
+      "--silver-dark",
+      "--silver-light",
+      "--success",
+      "--tracking-normal",
+      "--tracking-tight",
+      "--tracking-wide",
+      "--tracking-wider",
+      "--tracking-widest"
+    ],
+    "tokenKinds": {
+      "--cream": "color",
+      "--cream-50": "color",
+      "--cream-100": "color",
+      "--cream-200": "color",
+      "--charcoal": "color",
+      "--charcoal-800": "color",
+      "--charcoal-700": "color",
+      "--silver": "color",
+      "--silver-light": "color",
+      "--silver-dark": "color",
+      "--gold": "color",
+      "--gold-soft": "color",
+      "--success": "color",
+      "--error": "color",
+      "--bg": "color",
+      "--bg-elev": "shadow",
+      "--bg-warm": "color",
+      "--fg1": "color",
+      "--fg2": "color",
+      "--fg3": "color",
+      "--fg4": "color",
+      "--fg5": "color",
+      "--fg-inverse": "color",
+      "--hairline": "color",
+      "--hairline-strong": "color",
+      "--font-serif": "font",
+      "--font-sans": "font",
+      "--font-script": "font",
+      "--font-mono": "font",
+      "--tracking-tight": "font",
+      "--tracking-normal": "font",
+      "--tracking-wide": "font",
+      "--tracking-wider": "font",
+      "--tracking-widest": "font",
+      "--radius-0": "radius",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-xl": "radius",
+      "--radius-pill": "radius",
+      "--shadow-hairline": "shadow",
+      "--shadow-soft": "shadow",
+      "--shadow-card": "shadow",
+      "--shadow-lift": "shadow",
+      "--s-1": "spacing",
+      "--s-2": "spacing",
+      "--s-3": "spacing",
+      "--s-4": "spacing",
+      "--s-5": "spacing",
+      "--s-6": "spacing",
+      "--s-8": "spacing",
+      "--s-10": "spacing",
+      "--s-12": "spacing",
+      "--s-16": "spacing",
+      "--s-20": "spacing",
+      "--s-24": "spacing",
+      "--ease-out": "other",
+      "--ease-in-out": "other",
+      "--dur-fast": "other",
+      "--dur-base": "other",
+      "--dur-slow": "other",
+      "--dur-ambient": "other",
+      "--background": "color",
+      "--foreground": "color"
+    },
+    "fontFamilies": [
+      "Great Vibes",
+      "Montserrat",
+      "Playfair Display"
+    ]
+  }
+}

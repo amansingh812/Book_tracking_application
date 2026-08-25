@@ -1,0 +1,44 @@
+/* Readora — theme layer on top of Swarom tokens.
+   Light is the default; .rd-dark scopes the night-library palette. */
+.rd-app {
+  --rd-bg: #F6F1EA;
+  --rd-surface: #FBF8F4;
+  --rd-surface2: #EDE3D4;
+  --rd-ink: #1F1B16;
+  --rd-ink2: rgba(31, 27, 22, 0.72);
+  --rd-ink3: rgba(31, 27, 22, 0.50);
+  --rd-hair: rgba(31, 27, 22, 0.14);
+  --rd-gold: #B8956A;
+  --rd-ai: #6C688E;
+  --rd-ai-soft: rgba(108, 104, 142, 0.10);
+  --rd-success: #5A6B3F;
+  --rd-shadow: 0 1px 3px rgba(31, 27, 22, 0.06), 0 12px 40px rgba(31, 27, 22, 0.08);
+  --rd-lift: 0 6px 16px rgba(31, 27, 22, 0.10), 0 30px 70px rgba(31, 27, 22, 0.18);
+  --rd-scrim: rgba(31, 27, 22, 0.38);
+}
+.rd-dark .rd-app {
+  --rd-bg: #14120F;
+  --rd-surface: #1D1A16;
+  --rd-surface2: #262117;
+  --rd-ink: #F3EDE4;
+  --rd-ink2: rgba(243, 237, 228, 0.72);
+  --rd-ink3: rgba(243, 237, 228, 0.46);
+  --rd-hair: rgba(243, 237, 228, 0.14);
+  --rd-gold: #C9A574;
+  --rd-ai: #A29DCB;
+  --rd-ai-soft: rgba(162, 157, 203, 0.12);
+  --rd-success: #8A9C68;
+  --rd-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 12px 40px rgba(0, 0, 0, 0.45);
+  --rd-lift: 0 6px 16px rgba(0, 0, 0, 0.5), 0 30px 70px rgba(0, 0, 0, 0.6);
+  --rd-scrim: rgba(8, 7, 6, 0.55);
+}
+.rd-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+.rd-scroll::-webkit-scrollbar { display: none; }
+@keyframes rd-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes rd-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes rd-sheet { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes rd-dot { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes rd-scan { 0% { top: 8%; } 100% { top: 88%; } }
+@media (prefers-reduced-motion: reduce) {
+  .rd-app *, .rd-app *::before { animation: none !important; }
+}
