@@ -1,110 +1,76 @@
-// ai-chat
-//
-// POST { threadId: string, userBookId?: string, message: string }
-// -> text/event-stream (OpenAI SSE, proxied)
-//
-// The AI Companion. Context is the user's own notes and highlights for the book
-// plus public metadata - never the book's text. See _shared/context.ts.
+import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
 
-import { handler, HttpError, corsHeaders } from '../_shared/http.ts';
-import { adminClient, consumeAiCredit, requireUser } from '../_shared/supabase.ts';
-import { loadBookContext, renderContext, READORA_SYSTEM_PROMPT } from '../_shared/context.ts';
-import { CHAT_MODEL, stream, type ChatMessage } from '../_shared/openai.ts';
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
 
-const MAX_HISTORY = 12;
+// OpenRouter model: Dynamic free model router
+// Docs: https://openrouter.ai/docs/quickstart
+// Model: openrouter/free
+const OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1'
+const MODEL = 'openrouter/free'
 
-Deno.serve(handler(async (req) => {
-  const caller = await requireUser(req);
-  const body = await req.json().catch(() => ({}));
-
-  const threadId = String(body.threadId ?? '');
-  const message = String(body.message ?? '').trim();
-  if (!threadId || !message) {
-    throw new HttpError(400, 'BAD_REQUEST', 'threadId and message are required.');
-  }
-  if (message.length > 4000) {
-    throw new HttpError(400, 'MESSAGE_TOO_LONG', 'Keep questions under 4000 characters.');
+serve(async (req) => {
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: corsHeaders })
   }
 
-  // RLS-scoped read: fails closed if the thread is not the caller's.
-  const { data: thread } = await caller.db
-    .from('ai_threads')
-    .select('id, scope, user_book_id')
-    .eq('id', threadId)
-    .is('deleted_at', null)
-    .maybeSingle();
-  if (!thread) throw new HttpError(404, 'THREAD_NOT_FOUND', 'Conversation not found.');
+  try {
+    const { message, bookId, previousMessages } = await req.json()
 
-  await consumeAiCredit(caller.userId);
+    // Ensure OpenRouter API key is set
+    const openRouterKey = Deno.env.get('OPENROUTER_API_KEY')
+    if (!openRouterKey) {
+      throw new Error('OPENROUTER_API_KEY is not set')
+    }
 
-  const messages: ChatMessage[] = [{ role: 'system', content: READORA_SYSTEM_PROMPT }];
+    const systemPrompt = bookId
+      ? `You are a helpful AI reading companion. The user is reading a book (id: ${bookId}). Help them understand it, answer questions, provide summaries, or generate quizzes and flashcards based on their notes.`
+      : 'You are a helpful AI reading companion. Help the user discover books, get recommendations, and improve their reading habits.'
 
-  if (thread.user_book_id) {
-    const ctx = await loadBookContext(caller.db, thread.user_book_id);
-    messages.push({ role: 'system', content: renderContext(ctx) });
+    const messages = [
+      { role: 'system', content: systemPrompt },
+      ...(previousMessages || []),
+      { role: 'user', content: message },
+    ]
+
+    // OpenRouter uses the same request format as OpenAI.
+    const response = await fetch(`${OPENROUTER_BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${openRouterKey}`,
+        'Content-Type': 'application/json',
+        // Optional: shows your app on OpenRouter leaderboards
+        'HTTP-Referer': 'https://readora.app',
+        'X-OpenRouter-Title': 'Readora',
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        messages: messages,
+        stream: true,
+      }),
+    })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.error('OpenRouter Error:', errorText)
+      throw new Error(`OpenRouter API returned an error: ${response.status} - ${errorText}`)
+    }
+
+    // Return the SSE stream directly to the client (same format as OpenAI)
+    return new Response(response.body, {
+      headers: {
+        ...corsHeaders,
+        'Content-Type': 'text/event-stream',
+      },
+    })
+  } catch (error) {
+    console.error(error)
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 400,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
   }
+})
 
-  const { data: history } = await caller.db
-    .from('ai_messages')
-    .select('role, content')
-    .eq('thread_id', threadId)
-    .is('deleted_at', null)
-    .order('created_at', { ascending: false })
-    .limit(MAX_HISTORY);
-
-  for (const m of (history ?? []).reverse()) {
-    messages.push({ role: m.role as ChatMessage['role'], content: m.content });
-  }
-  messages.push({ role: 'user', content: message });
-
-  const admin = adminClient();
-  await admin.from('ai_messages').insert({
-    user_id: caller.userId,
-    thread_id: threadId,
-    role: 'user',
-    content: message,
-  });
-
-  const upstream = await stream(messages);
-
-  // Tee the stream: the client gets tokens as they arrive, and we persist the
-  // finished assistant turn so the conversation survives an app restart.
-  let assembled = '';
-  const decoder = new TextDecoder();
-
-  const out = new TransformStream<Uint8Array, Uint8Array>({
-    transform(chunk, controller) {
-      const text = decoder.decode(chunk, { stream: true });
-      for (const line of text.split('\n')) {
-        if (!line.startsWith('data: ') || line.includes('[DONE]')) continue;
-        try {
-          const delta = JSON.parse(line.slice(6))?.choices?.[0]?.delta?.content;
-          if (typeof delta === 'string') assembled += delta;
-        } catch {
-          // partial JSON across chunk boundaries - safe to skip, we only use
-          // this copy for persistence, the client sees the raw stream.
-        }
-      }
-      controller.enqueue(chunk);
-    },
-    async flush() {
-      if (assembled.length === 0) return;
-      await admin.from('ai_messages').insert({
-        user_id: caller.userId,
-        thread_id: threadId,
-        role: 'assistant',
-        content: assembled,
-        model: CHAT_MODEL,
-      });
-    },
-  });
-
-  return new Response(upstream.body!.pipeThrough(out), {
-    headers: {
-      ...corsHeaders,
-      'Content-Type': 'text/event-stream',
-      'Cache-Control': 'no-cache',
-      Connection: 'keep-alive',
-    },
-  });
-}));

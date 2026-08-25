@@ -14,8 +14,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 /// frame — a missing dart-define should be a clear error, not a blank screen
 /// followed by a confusing network failure five taps later.
 Future<void> bootstrap() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
   FlutterError.onError = (details) {
     AppLogger.error('flutter', details.exception, details.stack);
     if (kDebugMode) FlutterError.presentError(details);
@@ -23,6 +21,9 @@ Future<void> bootstrap() async {
 
   await runZonedGuarded(
     () async {
+      // ensureInitialized must be called in the same zone as runApp.
+      WidgetsFlutterBinding.ensureInitialized();
+
       Env.assertConfigured();
 
       await Supabase.initialize(

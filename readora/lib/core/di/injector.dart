@@ -10,6 +10,8 @@ import 'package:readora/features/auth/domain/repositories/auth_repository.dart';
 import 'package:readora/features/library/data/datasources/library_sync_tables.dart';
 import 'package:readora/features/library/data/models/library_models.dart';
 import 'package:readora/features/library/data/repositories/library_repository_impl.dart';
+import 'package:readora/features/ai_companion/data/repositories/ai_chat_repository_impl.dart';
+import 'package:readora/features/ai_companion/domain/repositories/ai_chat_repository.dart';
 import 'package:readora/features/library/domain/repositories/library_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -64,6 +66,10 @@ Future<void> configureDependencies() async {
       supabase: sl<SupabaseClient>(),
       auth: sl<AuthRepository>(),
     ),
+  );
+
+  sl.registerSingleton<AiChatRepository>(
+    AiChatRepositoryImpl(sl<SupabaseClient>()),
   );
 
   await sl<SyncEngine>().start();
