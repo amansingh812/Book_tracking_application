@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:readora/core/di/injector.dart';
+import 'package:readora/features/ai_companion/domain/repositories/ai_chat_repository.dart';
+import 'package:readora/features/ai_companion/presentation/bloc/ai_chat_bloc.dart';
 import 'package:readora/features/ai_companion/presentation/pages/ai_page.dart';
 import 'package:readora/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:readora/features/auth/presentation/pages/sign_in_page.dart';
@@ -165,7 +167,15 @@ class AppRouter {
             routes: [GoRoute(path: '/discover', builder: (_, __) => const DiscoverPage())],
           ),
           StatefulShellBranch(
-            routes: [GoRoute(path: '/ai', builder: (_, __) => const AiPage())],
+            routes: [
+              GoRoute(
+                path: '/ai',
+                builder: (_, __) => BlocProvider(
+                  create: (_) => AiChatBloc(sl<AiChatRepository>()),
+                  child: const AiPage(),
+                ),
+              ),
+            ],
           ),
           StatefulShellBranch(
             routes: [

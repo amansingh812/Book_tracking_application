@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="width:402px;height:874px;position:relative;border-radius:48px;overflow:hidden;background:var(--rd-bg);box-shadow:0 40px 80px rgba(31,27,22,.18),0 0 0 1px rgba(31,27,22,.14)">
+<div style="position:absolute;top:11px;left:50%;transform:translateX(-50%);width:118px;height:33px;border-radius:24px;background:#0B0A09;z-index:70"></div>
+<div style="position:absolute;top:0;left:0;right:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:16px 30px 0;box-sizing:border-box;z-index:65;pointer-events:none;color:var(--rd-ink)">
+  <span style="font-family:var(--font-sans);font-size:13.5px;font-weight:500;letter-spacing:.02em">9:41</span>
+  <div style="display:flex;align-items:center;gap:6px">
+    <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx=".6"></rect><rect x="4.6" y="5" width="3" height="6" rx=".6"></rect><rect x="9.2" y="2.6" width="3" height="8.4" rx=".6"></rect><rect x="13.8" y="0" width="3" height="11" rx=".6"></rect></svg>
+    <svg width="15" height="11" viewBox="0 0 17 12" fill="currentColor"><path d="M8.5 3.2c2.3 0 4.4.9 5.9 2.4l1.1-1.1A9.8 9.8 0 0 0 8.5 1.5 9.8 9.8 0 0 0 1.5 4.5l1.1 1.1C4.1 4.1 6.2 3.2 8.5 3.2z"></path><path d="M8.5 6.8c1.4 0 2.6.5 3.5 1.4l1.1-1.1A6.7 6.7 0 0 0 8.5 5.1 6.7 6.7 0 0 0 3.9 7.1L5 8.2c.9-.9 2.1-1.4 3.5-1.4z"></path><circle cx="8.5" cy="10.4" r="1.4"></circle></svg>
+    <svg width="24" height="12" viewBox="0 0 26 13" fill="none"><rect x=".5" y=".5" width="22" height="12" rx="3.5" stroke="currentColor" stroke-opacity=".35"></rect><rect x="2" y="2" width="19" height="9" rx="2" fill="currentColor"></rect><path d="M24 4.5v4c.8-.3 1.5-1.3 1.5-2s-.7-1.7-1.5-2z" fill="currentColor" fill-opacity=".4"></path></svg>
+  </div>
+</div>
+<div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:139px;height:5px;border-radius:99px;background:var(--rd-ink);opacity:.26;z-index:70;pointer-events:none"></div>
+<div class="rd-app" style="position:absolute;inset:0;background:var(--rd-bg);color:var(--rd-ink);font-family:var(--font-sans);overflow:hidden;display:flex;flex-direction:column">
+
+<sc-if value="{{isWelcome}}" hint-placeholder-val="{{true}}">
+<div style="flex:1;display:flex;flex-direction:column;padding:58px 28px 40px;position:relative;overflow:hidden">
+  <div style="position:absolute;top:120px;left:-40px;width:260px;height:260px;border-radius:999px;background:radial-gradient(circle,var(--rd-surface2),transparent 70%);opacity:.7;filter:blur(8px)"></div>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;position:relative">
+    <div style="display:flex;align-items:flex-end;gap:9px;height:230px">
+      <div style="width:44px;height:150px;background:#2E3A2C;border-radius:2px 5px 5px 2px;box-shadow:inset 5px 0 0 rgba(0,0,0,.18),var(--rd-shadow)"></div>
+      <div style="width:38px;height:192px;background:var(--rd-surface2);border-radius:2px 5px 5px 2px;box-shadow:inset 5px 0 0 rgba(31,27,22,.10),var(--rd-shadow)"></div>
+      <div style="width:50px;height:168px;background:var(--rd-gold);border-radius:2px 5px 5px 2px;box-shadow:inset 5px 0 0 rgba(0,0,0,.14),var(--rd-shadow)"></div>
+      <div style="width:36px;height:214px;background:#3A2E3A;border-radius:2px 5px 5px 2px;box-shadow:inset 5px 0 0 rgba(0,0,0,.2),var(--rd-shadow)"></div>
+      <div style="width:58px;height:26px;background:var(--rd-ink);border-radius:3px;align-self:flex-end;margin-left:-14px;transform:rotate(-2deg);box-shadow:var(--rd-shadow)"></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:18px;position:relative">
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Readora</span>
+    <h1 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:42px;line-height:1.1;letter-spacing:-.01em;color:var(--rd-ink);text-wrap:pretty">Read more.<br>Remember more.</h1>
+    <p style="margin:0;font-weight:300;font-size:15px;line-height:1.6;color:var(--rd-ink3);max-width:300px">Your personal reading companion for tracking, understanding and discovering books.</p>
+    <div style="display:flex;flex-direction:column;gap:14px;margin-top:14px">
+      <button onClick="{{goGoal}}" style="border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-family:var(--font-sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:transform 150ms var(--ease-in-out)" style-active="transform:scale(.98)">Get started</button>
+      <button onClick="{{goGoal}}" style="border:none;background:none;color:var(--rd-ink3);font-family:var(--font-sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:6px">I already have an account</button>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isGoal}}">
+<div style="flex:1;display:flex;flex-direction:column;padding:58px 24px 36px;animation:rd-in .3s var(--ease-out) both">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:34px">
+    <div style="height:1px;width:26px;background:var(--rd-gold)"></div>
+    <div style="height:1px;flex:1;background:var(--rd-hair)"></div>
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Step 1 of 2</span>
+  </div>
+  <h2 style="margin:0 0 10px;font-family:var(--font-serif);font-weight:400;font-size:32px;line-height:1.2;color:var(--rd-ink)">How many books do you want to read this year?</h2>
+  <p style="margin:0 0 30px;font-weight:300;font-size:14px;color:var(--rd-ink3)">You can change this at any time.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+    <sc-for list="{{goalOptions}}" as="g" hint-placeholder-count="6">
+      <button onClick="{{g.pick}}" style="height:74px;border-radius:14px;border:1px solid {{g.border}};background:{{g.bg}};color:{{g.fg}};font-family:var(--font-serif);font-size:26px;cursor:pointer;transition:all 150ms var(--ease-in-out)">{{g.label}}</button>
+    </sc-for>
+  </div>
+  <p style="margin:26px 0 0;font-family:var(--font-serif);font-style:italic;font-size:19px;color:var(--rd-ink2)">{{goalCaption}}</p>
+  <div style="flex:1"></div>
+  <button onClick="{{goGenres}}" style="border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-family:var(--font-sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer">Continue</button>
+</div>
+</sc-if>
+
+<sc-if value="{{isGenres}}">
+<div style="flex:1;display:flex;flex-direction:column;padding:58px 24px 36px;animation:rd-in .3s var(--ease-out) both;overflow:hidden">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:34px">
+    <div style="height:1px;width:26px;background:var(--rd-gold)"></div>
+    <div style="height:1px;flex:1;background:var(--rd-gold);opacity:.5"></div>
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Step 2 of 2</span>
+  </div>
+  <h2 style="margin:0 0 8px;font-family:var(--font-serif);font-weight:400;font-size:32px;line-height:1.2;color:var(--rd-ink)">What do you love reading?</h2>
+  <p style="margin:0 0 26px;font-weight:300;font-size:14px;color:var(--rd-ink3)">{{genreCaption}}</p>
+  <div class="rd-scroll" style="flex:1;overflow:auto;display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start">
+    <sc-for list="{{genres}}" as="g" hint-placeholder-count="12">
+      <button onClick="{{g.toggle}}" style="border:1px solid {{g.border}};background:{{g.bg}};color:{{g.fg}};height:40px;padding:0 18px;border-radius:999px;font-family:var(--font-sans);font-size:13px;font-weight:400;cursor:pointer;transition:all 150ms var(--ease-in-out)">{{g.name}}</button>
+    </sc-for>
+  </div>
+  <button onClick="{{goHome}}" style="border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-family:var(--font-sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;margin-top:20px">Enter Readora</button>
+</div>
+</sc-if>
+
+<sc-if value="{{isHome}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:60px 20px 24px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Saturday, 15 August</span>
+      <h1 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:29px;line-height:1.15;color:var(--rd-ink)">Good morning, Aman</h1>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;padding-top:14px">
+      <button onClick="{{goProfile}}" style="width:38px;height:38px;border-radius:999px;border:1px solid var(--rd-hair);background:var(--rd-surface2);color:var(--rd-ink);font-family:var(--font-serif);font-size:16px;cursor:pointer">A</button>
+      <button onClick="{{cycleSync}}" style="display:flex;align-items:center;gap:6px;border:1px solid var(--rd-hair);background:none;border-radius:999px;padding:5px 9px;cursor:pointer">
+        <span style="width:5px;height:5px;border-radius:999px;background:{{syncColor}}"></span>
+        <span style="font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--rd-ink3);font-family:var(--font-sans)">{{syncLabel}}</span>
+      </button>
+    </div>
+  </div>
+
+  <div style="padding:0 20px">
+    <div style="background:var(--rd-surface);border:1px solid var(--rd-hair);border-radius:20px;padding:18px;box-shadow:var(--rd-shadow)">
+      <div style="display:flex;gap:16px">
+        <div onClick="{{openBook}}" style="width:88px;height:132px;flex:none;background:#2E3A2C;color:#E9E4D8;border-radius:2px 7px 7px 2px;box-shadow:inset 6px 0 0 rgba(0,0,0,.18),var(--rd-shadow);padding:12px 10px 10px 16px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer">
+          <span style="font-family:var(--font-serif);font-size:14px;line-height:1.2">The Overstory</span>
+          <span style="font-size:7px;letter-spacing:.18em;text-transform:uppercase;opacity:.75">Powers</span>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:6px;min-width:0">
+          <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-gold)">Continue reading</span>
+          <h3 style="margin:0;font-family:var(--font-serif);font-weight:500;font-size:21px;line-height:1.2;color:var(--rd-ink)">The Overstory</h3>
+          <span style="font-size:13px;font-weight:300;color:var(--rd-ink3)">Richard Powers</span>
+          <div style="flex:1"></div>
+          <div style="display:flex;align-items:baseline;justify-content:space-between">
+            <span style="font-size:12px;color:var(--rd-ink2)">{{pageLabel}}</span>
+            <span style="font-family:var(--font-serif);font-size:18px;color:var(--rd-ink)">{{pctLabel}}</span>
+          </div>
+          <div style="height:2px;background:var(--rd-hair);border-radius:2px;overflow:hidden">
+            <div style="height:100%;background:var(--rd-gold);width:{{pct}}%;transition:width 250ms var(--ease-out)"></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <button onClick="{{startSession}}" style="flex:1;border:none;height:46px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Continue reading</button>
+        <button onClick="{{openProgress}}" style="border:1px solid var(--rd-hair);height:46px;padding:0 18px;border-radius:999px;background:none;color:var(--rd-ink2);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:14px 20px 0;display:flex;gap:14px">
+    <div onClick="{{goProfile}}" style="flex:1.35;background:var(--rd-surface);border:1px solid var(--rd-hair);border-radius:16px;padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:8px">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--rd-gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 4 6 5 6 9a6 6 0 0 1-12 0c0-3 3-4 4-7 .5 1.5 1.4 2.5 2 3"></path></svg>
+        <span style="font-family:var(--font-serif);font-size:19px;color:var(--rd-ink)">12 day streak</span>
+      </div>
+      <span style="font-size:11px;font-weight:300;color:var(--rd-ink3);line-height:1.45">Keep your reading habit alive.</span>
+      <div style="display:flex;justify-content:space-between;margin-top:2px">
+        <sc-for list="{{week}}" as="d" hint-placeholder-count="7">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+            <span style="font-size:9px;letter-spacing:.1em;color:var(--rd-ink3)">{{d.label}}</span>
+            <div style="width:7px;height:7px;border-radius:999px;background:{{d.dot}};border:1px solid {{d.ring}}"></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="flex:1;background:var(--rd-surface);border:1px solid var(--rd-hair);border-radius:16px;padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px">
+      <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-ink3);align-self:flex-start">Today's goal</span>
+      <div style="position:relative;width:76px;height:76px">
+        <svg width="76" height="76" viewBox="0 0 76 76">
+          <circle cx="38" cy="38" r="30" fill="none" stroke="var(--rd-hair)" stroke-width="2"></circle>
+          <circle cx="38" cy="38" r="30" fill="none" stroke="var(--rd-gold)" stroke-width="2" stroke-linecap="round" stroke-dasharray="{{goalDash}}" transform="rotate(-90 38 38)"></circle>
+        </svg>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+          <span style="font-family:var(--font-serif);font-size:20px;line-height:1;color:var(--rd-ink)">{{goalMin}}</span>
+          <span style="font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:var(--rd-ink3)">of 30 min</span>
+        </div>
+      </div>
+      <button onClick="{{startSession}}" style="border:1px solid var(--rd-hair);background:none;color:var(--rd-ink2);height:32px;width:100%;border-radius:999px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Start reading</button>
+    </div>
+  </div>
+
+  <div style="padding:14px 20px 0">
+    <div onClick="{{goAI}}" style="border:1px solid var(--rd-ai);border-radius:16px;padding:18px;background:var(--rd-ai-soft);cursor:pointer;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;gap:8px">
+        <svg width="14" height="14" style="color:var(--rd-ai)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"></path><path d="M19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16z"></path></svg>
+        <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ai)">Your reading insight</span>
+      </div>
+      <p style="margin:0;font-family:var(--font-serif);font-style:italic;font-size:17px;line-height:1.4;color:var(--rd-ink);text-wrap:pretty">You keep returning to books about attention — trees, focus, and what we notice.</p>
+      <div style="display:flex;align-items:center;gap:6px;color:var(--rd-ai)">
+        <span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase">Explore the connection</span>
+        <svg width="13" height="13" style="color:var(--rd-ai)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:26px 0 118px">
+    <div style="padding:0 20px 14px;display:flex;align-items:baseline;justify-content:space-between">
+      <h4 style="margin:0;font-family:var(--font-serif);font-weight:500;font-size:20px;color:var(--rd-ink)">Picked for you</h4>
+      <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-ink3)">3 books</span>
+    </div>
+    <div class="rd-scroll" style="display:flex;gap:14px;overflow-x:auto;padding:2px 20px 4px">
+      <sc-for list="{{recs}}" as="r" hint-placeholder-count="3">
+        <div style="width:172px;flex:none;background:var(--rd-surface);border:1px solid var(--rd-hair);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px">
+          <div style="width:78px;height:116px;background:{{r.bg}};color:{{r.fg}};border-radius:2px 6px 6px 2px;box-shadow:inset 5px 0 0 rgba(0,0,0,.16);padding:10px 8px 8px 13px;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="font-family:var(--font-serif);font-size:12px;line-height:1.2">{{r.title}}</span>
+            <span style="font-size:6.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.75">{{r.last}}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-family:var(--font-serif);font-size:15px;line-height:1.25;color:var(--rd-ink)">{{r.title}}</span>
+            <span style="font-size:11px;font-weight:300;color:var(--rd-ink3)">{{r.author}}</span>
+          </div>
+          <p style="margin:0;font-size:11px;line-height:1.45;font-weight:300;color:var(--rd-ink2);font-style:italic;font-family:var(--font-serif);font-size:13px">{{r.why}}</p>
+          <button onClick="{{r.add}}" style="border:1px solid {{r.btnBorder}};background:{{r.btnBg}};color:{{r.btnFg}};height:34px;border-radius:999px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer;margin-top:auto">{{r.btnLabel}}</button>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isLibrary}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:60px 20px 0;display:flex;flex-direction:column;gap:16px">
+    <h1 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:29px;color:var(--rd-ink)">My Library</h1>
+    <div style="display:flex;align-items:center;gap:10px;height:44px;border-radius:999px;border:1px solid var(--rd-hair);background:var(--rd-surface);padding:0 16px">
+      <svg width="15" height="15" style="color:var(--rd-ink3)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <span style="font-size:13px;font-weight:300;color:var(--rd-ink3)">Search your library</span>
+    </div>
+    <div style="display:flex;gap:16px;font-size:11px;color:var(--rd-ink3);letter-spacing:.06em">
+      <span><b style="font-family:var(--font-serif);font-size:15px;font-weight:500;color:var(--rd-ink)">{{libCount}}</b> books</span>
+      <span><b style="font-family:var(--font-serif);font-size:15px;font-weight:500;color:var(--rd-ink)">3</b> reading</span>
+      <span><b style="font-family:var(--font-serif);font-size:15px;font-weight:500;color:var(--rd-ink)">3</b> finished</span>
+    </div>
+    <div class="rd-scroll" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px">
+      <sc-for list="{{libTabs}}" as="t" hint-placeholder-count="4">
+        <button onClick="{{t.pick}}" style="flex:none;height:34px;padding:0 15px;border-radius:999px;border:1px solid {{t.border}};background:{{t.bg}};color:{{t.fg}};font-size:11px;letter-spacing:.1em;font-family:var(--font-sans);cursor:pointer">{{t.label}}</button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="padding:20px 20px 130px;display:grid;grid-template-columns:1fr 1fr;gap:20px 16px">
+    <sc-for list="{{shelf}}" as="b" hint-placeholder-count="6">
+      <div onClick="{{b.open}}" style="display:flex;flex-direction:column;gap:9px;cursor:pointer">
+        <div style="aspect-ratio:2/3;background:{{b.bg}};color:{{b.fg}};border-radius:2px 8px 8px 2px;box-shadow:inset 7px 0 0 rgba(0,0,0,.16),var(--rd-shadow);padding:16px 12px 12px 20px;display:flex;flex-direction:column;justify-content:space-between">
+          <span style="font-family:var(--font-serif);font-size:16px;line-height:1.2">{{b.title}}</span>
+          <span style="font-size:7px;letter-spacing:.18em;text-transform:uppercase;opacity:.75">{{b.last}}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:3px">
+          <span style="font-family:var(--font-serif);font-size:15px;line-height:1.25;color:var(--rd-ink)">{{b.title}}</span>
+          <span style="font-size:11px;font-weight:300;color:var(--rd-ink3)">{{b.author}}</span>
+          <span style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:{{b.statusColor}};margin-top:3px">{{b.status}}</span>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+<button onClick="{{openAdd}}" style="position:absolute;right:20px;bottom:104px;width:56px;height:56px;border-radius:999px;border:none;background:var(--rd-ink);color:var(--rd-bg);box-shadow:var(--rd-lift);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:30">
+  <svg width="20" height="20" style="color:var(--rd-bg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg>
+</button>
+</sc-if>
+
+<sc-if value="{{isScan}}">
+<div style="flex:1;display:flex;flex-direction:column;background:#0E0D0B;color:#F3EDE4;animation:rd-in .25s var(--ease-out) both">
+  <div style="padding:58px 20px 0;display:flex;align-items:center;justify-content:space-between">
+    <button onClick="{{goLibrary}}" style="border:none;background:none;color:#F3EDE4;cursor:pointer;padding:4px">
+      <svg width="18" height="18" style="color:#F3EDE4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M6 18 18 6"></path></svg>
+    </button>
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.6">Scan ISBN</span>
+    <div style="width:26px"></div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:0 32px">
+    <div style="position:relative;width:250px;height:170px">
+      <div style="position:absolute;inset:0;border-radius:12px;background:rgba(255,255,255,.04)"></div>
+      <div style="position:absolute;left:0;top:0;width:34px;height:34px;border-top:1.5px solid var(--rd-gold);border-left:1.5px solid var(--rd-gold);border-radius:12px 0 0 0"></div>
+      <div style="position:absolute;right:0;top:0;width:34px;height:34px;border-top:1.5px solid var(--rd-gold);border-right:1.5px solid var(--rd-gold);border-radius:0 12px 0 0"></div>
+      <div style="position:absolute;left:0;bottom:0;width:34px;height:34px;border-bottom:1.5px solid var(--rd-gold);border-left:1.5px solid var(--rd-gold);border-radius:0 0 0 12px"></div>
+      <div style="position:absolute;right:0;bottom:0;width:34px;height:34px;border-bottom:1.5px solid var(--rd-gold);border-right:1.5px solid var(--rd-gold);border-radius:0 0 12px 0"></div>
+      <div style="position:absolute;left:14%;right:14%;height:1px;background:var(--rd-gold);animation:rd-scan 1.6s var(--ease-in-out) infinite alternate"></div>
+    </div>
+    <p style="margin:0;font-family:var(--font-serif);font-size:19px;text-align:center;opacity:.9">Scan the barcode on your book.</p>
+    <span style="font-size:11px;font-weight:300;opacity:.5;text-align:center">{{scanStatus}}</span>
+  </div>
+  <div style="padding:0 24px 44px">
+    <button onClick="{{openManual}}" style="width:100%;border:1px solid rgba(255,255,255,.2);background:none;color:#F3EDE4;height:48px;border-radius:999px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Enter details manually</button>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isBook}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 20px 0;display:flex;align-items:center;justify-content:space-between">
+    <button onClick="{{goBack}}" style="border:none;background:none;color:var(--rd-ink2);cursor:pointer;padding:6px;transform:rotate(180deg)">
+      <svg width="17" height="17" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+    </button>
+    <sc-if value="{{offline}}" hint-placeholder-val="{{false}}">
+      <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-ink3);border:1px solid var(--rd-hair);padding:5px 10px;border-radius:999px">Offline</span>
+    </sc-if>
+    <button onClick="{{openNote}}" style="border:none;background:none;color:var(--rd-ink2);cursor:pointer;padding:6px">
+      <svg width="17" height="17" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg>
+    </button>
+  </div>
+  <div style="padding:18px 24px 0;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <div style="width:132px;height:198px;background:{{book.bg}};color:{{book.fg}};border-radius:3px 10px 10px 3px;box-shadow:inset 8px 0 0 rgba(0,0,0,.18),var(--rd-lift);padding:22px 16px 16px 26px;display:flex;flex-direction:column;justify-content:space-between">
+      <span style="font-family:var(--font-serif);font-size:20px;line-height:1.15">{{book.title}}</span>
+      <span style="font-size:8px;letter-spacing:.2em;text-transform:uppercase;opacity:.75">{{book.last}}</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+      <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:27px;text-align:center;color:var(--rd-ink)">{{book.title}}</h2>
+      <span style="font-size:13px;font-weight:300;color:var(--rd-ink3)">{{book.author}}</span>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:2px">
+        <sc-for list="{{stars}}" as="s" hint-placeholder-count="5">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="{{s.fill}}" stroke="var(--rd-gold)" stroke-width="1.2" stroke-linejoin="round"><path d="M12 3l2.6 6.2 6.4.5-4.9 4.2 1.5 6.1L12 16.8 6.4 20l1.5-6.1L3 9.7l6.4-.5L12 3z"></path></svg>
+        </sc-for>
+        <span style="font-size:11px;color:var(--rd-ink3);margin-left:4px">{{book.ratingLabel}}</span>
+      </div>
+      <div class="swr-hairline-rule" style="margin-top:6px">
+        <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-ink3)">{{book.meta}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:26px 20px 0">
+    <div style="background:var(--rd-surface);border:1px solid var(--rd-hair);border-radius:18px;padding:18px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
+        <span style="font-family:var(--font-serif);font-size:34px;color:var(--rd-ink);line-height:1">{{bookPctLabel}}</span>
+        <span style="font-size:11px;color:var(--rd-ink3)">{{bookPageLabel}}</span>
+      </div>
+      <div style="height:2px;background:var(--rd-hair);border-radius:2px;overflow:hidden;margin-bottom:18px">
+        <div style="height:100%;background:var(--rd-gold);width:{{bookPct}}%;transition:width 250ms var(--ease-out)"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rd-ink3)">Reading time</span>
+          <span style="font-family:var(--font-serif);font-size:16px;color:var(--rd-ink)">{{book.time}}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rd-ink3)">Started</span>
+          <span style="font-family:var(--font-serif);font-size:16px;color:var(--rd-ink)">{{book.started}}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rd-ink3)">Finish by</span>
+          <span style="font-family:var(--font-serif);font-size:16px;color:var(--rd-ink)">{{book.eta}}</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:18px">
+        <button onClick="{{openProgress}}" style="flex:1;border:none;height:46px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Update progress</button>
+        <button onClick="{{startSession}}" style="border:1px solid var(--rd-hair);height:46px;padding:0 18px;border-radius:999px;background:none;color:var(--rd-ink2);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Read</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:24px 20px 0;display:flex;gap:20px;border-bottom:1px solid var(--rd-hair)">
+    <sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
+      <button onClick="{{t.pick}}" style="border:none;background:none;padding:0 0 12px;color:{{t.fg}};font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer;border-bottom:1px solid {{t.underline}};margin-bottom:-1px">{{t.label}}</button>
+    </sc-for>
+  </div>
+
+  <div style="padding:20px 20px 130px">
+    <sc-if value="{{tabOverview}}" hint-placeholder-val="{{true}}">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <p style="margin:0;font-size:14px;line-height:1.7;font-weight:300;color:var(--rd-ink2);text-wrap:pretty">{{book.synopsis}}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{bookTags}}" as="t" hint-placeholder-count="3">
+            <span style="border:1px solid var(--rd-hair);border-radius:999px;padding:7px 14px;font-size:11px;color:var(--rd-ink2)">{{t.name}}</span>
+          </sc-for>
+        </div>
+        <div onClick="{{goAI}}" style="border:1px solid var(--rd-ai);background:var(--rd-ai-soft);border-radius:14px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer">
+          <svg width="16" height="16" style="color:var(--rd-ai);flex:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"></path><path d="M19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16z"></path></svg>
+          <span style="flex:1;font-size:13px;color:var(--rd-ink);font-weight:300">{{aiHint}}</span>
+          <svg width="14" height="14" style="color:var(--rd-ai)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <sc-for list="{{bookTools}}" as="t" hint-placeholder-count="4">
+            <button onClick="{{t.go}}" style="border:1px solid var(--rd-hair);background:var(--rd-surface);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;cursor:pointer;text-align:left;font-family:var(--font-sans)">
+              <span style="font-size:13px;color:var(--rd-ink)">{{t.label}}</span>
+              <span style="font-size:10.5px;font-weight:300;line-height:1.4;color:var(--rd-ink3)">{{t.sub}}</span>
+              <span style="font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:{{t.tagColor}};margin-top:2px">{{t.tag}}</span>
+            </button>
+          </sc-for>
+        </div>
+        <button onClick="{{openFinish}}" style="border:1px solid var(--rd-hair);background:none;color:var(--rd-ink2);height:46px;border-radius:999px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Finish book</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{tabNotes}}" hint-placeholder-val="{{false}}">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between">
+          <span style="font-family:var(--font-serif);font-size:19px;color:var(--rd-ink)">My notes</span>
+          <button onClick="{{openNote}}" style="border:1px solid var(--rd-hair);background:none;color:var(--rd-ink2);height:32px;padding:0 14px;border-radius:999px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Add note</button>
+        </div>
+        <sc-if value="{{noNotes}}" hint-placeholder-val="{{false}}">
+          <div style="border:1px dashed var(--rd-hair);border-radius:14px;padding:26px 18px;display:flex;flex-direction:column;align-items:center;gap:10px">
+            <span style="font-family:var(--font-serif);font-size:18px;color:var(--rd-ink);text-align:center">No notes on this one yet.</span>
+            <span style="font-size:12px;font-weight:300;color:var(--rd-ink3);text-align:center;line-height:1.55">The first line you keep is where the knowledge starts.</span>
+          </div>
+        </sc-if>
+        <sc-for list="{{notes}}" as="n" hint-placeholder-count="2">
+          <div style="background:var(--rd-surface);border:1px solid var(--rd-hair);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;animation:rd-up .3s var(--ease-out) both">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-gold)">Page {{n.page}}</span>
+              <span style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--rd-ink3)">{{n.date}}</span>
+            </div>
+            <p style="margin:0;font-family:var(--font-serif);font-size:16px;line-height:1.45;color:var(--rd-ink);text-wrap:pretty">{{n.text}}</p>
+            <div style="display:flex;gap:7px;flex-wrap:wrap">
+              <sc-for list="{{n.tags}}" as="tg" hint-placeholder-count="2">
+                <span style="font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--rd-ink3);border:1px solid var(--rd-hair);border-radius:999px;padding:5px 10px">{{tg.name}}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:16px;padding-top:4px;border-top:1px solid var(--rd-hair)">
+              <button onClick="{{n.ask}}" style="border:none;background:none;padding:8px 0 0;color:var(--rd-ai);font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Ask AI</button>
+              <button style="border:none;background:none;padding:8px 0 0;color:var(--rd-ink3);font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Favourite</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{tabHighlights}}" hint-placeholder-val="{{false}}">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between">
+          <span style="font-family:var(--font-serif);font-size:19px;color:var(--rd-ink)">Highlights</span>
+          <button onClick="{{openHighlight}}" style="border:1px solid var(--rd-hair);background:none;color:var(--rd-ink2);height:32px;padding:0 14px;border-radius:999px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Add highlight</button>
+        </div>
+        <sc-if value="{{noHighlights}}" hint-placeholder-val="{{false}}">
+          <div style="border:1px dashed var(--rd-hair);border-radius:14px;padding:26px 18px;display:flex;flex-direction:column;align-items:center;gap:10px">
+            <span style="font-family:var(--font-serif);font-size:18px;color:var(--rd-ink);text-align:center">Nothing kept from this book yet.</span>
+            <span style="font-size:12px;font-weight:300;color:var(--rd-ink3);text-align:center;line-height:1.55">Mark a line and it joins your knowledge.</span>
+          </div>
+        </sc-if>
+        <sc-for list="{{highlights}}" as="h" hint-placeholder-count="2">
+          <div style="background:var(--rd-surface);border:1px solid var(--rd-hair);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;animation:rd-up .3s var(--ease-out) both">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-gold)">Page {{h.page}}</span>
+              <span style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--rd-ink3)">{{h.date}}</span>
+            </div>
+            <p style="margin:0;padding-left:12px;border-left:1px solid var(--rd-gold);font-family:var(--font-serif);font-size:16px;line-height:1.45;color:var(--rd-ink);text-wrap:pretty">{{h.text}}</p>
+            <span style="font-size:12px;font-weight:300;line-height:1.5;color:var(--rd-ink3)">{{h.note}}</span>
+            <div style="display:flex;gap:16px;padding-top:4px;border-top:1px solid var(--rd-hair)">
+              <button onClick="{{h.ask}}" style="border:none;background:none;padding:8px 0 0;color:var(--rd-ai);font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Ask AI</button>
+              <button onClick="{{h.card}}" style="border:none;background:none;padding:8px 0 0;color:var(--rd-ink3);font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Make flashcard</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{tabActivity}}" hint-placeholder-val="{{false}}">
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{activity}}" as="a" hint-placeholder-count="4">
+          <div style="display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rd-hair)">
+            <span style="font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rd-ink3);width:52px;flex:none;padding-top:3px">{{a.date}}</span>
+            <div style="display:flex;flex-direction:column;gap:3px">
+              <span style="font-size:13.5px;color:var(--rd-ink);font-weight:300">{{a.what}}</span>
+              <span style="font-size:11px;color:var(--rd-ink3)">{{a.detail}}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isSession}}">
+<div style="flex:1;display:flex;flex-direction:column;background:var(--rd-bg);padding:58px 24px 40px;animation:rd-in .3s var(--ease-out) both">
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Reading session</span>
+    <button onClick="{{endSession}}" style="border:none;background:none;color:var(--rd-ink3);cursor:pointer;padding:4px">
+      <svg width="16" height="16" style="color:var(--rd-ink3)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M6 18 18 6"></path></svg>
+    </button>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
+    <div style="position:relative;width:228px;height:228px">
+      <svg width="228" height="228" viewBox="0 0 228 228">
+        <circle cx="114" cy="114" r="104" fill="none" stroke="var(--rd-hair)" stroke-width="1.5"></circle>
+        <circle cx="114" cy="114" r="104" fill="none" stroke="var(--rd-gold)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="{{sessionDash}}" transform="rotate(-90 114 114)"></circle>
+      </svg>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+        <span style="font-family:var(--font-serif);font-size:56px;line-height:1;color:var(--rd-ink)">{{clock}}</span>
+        <span style="font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--rd-ink3)">of 30 min goal</span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+      <span style="font-family:var(--font-serif);font-size:21px;color:var(--rd-ink)">{{book.title}}</span>
+      <span style="font-size:11.5px;font-weight:300;color:var(--rd-ink3)">{{bookPageLabel}} · {{book.author}}</span>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <button onClick="{{toggleTimer}}" style="border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">{{timerLabel}}</button>
+    <button onClick="{{openProgress}}" style="border:1px solid var(--rd-hair);height:52px;border-radius:999px;background:none;color:var(--rd-ink2);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">End &amp; update progress</button>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isAI}}">
+<div style="flex:1;display:flex;flex-direction:column;overflow:hidden;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 20px 14px;border-bottom:1px solid var(--rd-hair);display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:center;gap:8px">
+      <svg width="15" height="15" style="color:var(--rd-ai)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"></path><path d="M19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16z"></path></svg>
+      <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ai)">AI Companion</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:34px;height:50px;flex:none;background:{{book.bg}};color:{{book.fg}};border-radius:2px 4px 4px 2px;box-shadow:inset 4px 0 0 rgba(0,0,0,.18);padding:6px 4px 4px 8px;font-family:var(--font-serif);font-size:8px;line-height:1.15">{{book.title}}</div>
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <span style="font-family:var(--font-serif);font-size:18px;color:var(--rd-ink)">{{book.title}}</span>
+        <span style="font-size:11px;font-weight:300;color:var(--rd-ink3)">Ask anything about what you're reading.</span>
+      </div>
+    </div>
+    <div class="rd-scroll" style="display:flex;gap:8px;overflow-x:auto;padding-top:2px">
+      <sc-for list="{{aiTools}}" as="t" hint-placeholder-count="4">
+        <button onClick="{{t.go}}" style="flex:none;border:1px solid {{t.border}};background:none;color:{{t.ink}};height:32px;padding:0 13px;border-radius:999px;font-size:10.5px;letter-spacing:.06em;font-family:var(--font-sans);cursor:pointer">{{t.label}}</button>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;height:2px;background:var(--rd-hair);border-radius:2px;overflow:hidden"><div style="height:100%;background:var(--rd-ai);width:{{usagePct}}%"></div></div>
+      <span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--rd-ink3)">{{usageLabel}}</span>
+    </div>
+  </div>
+  <div class="rd-scroll" style="flex:1;overflow:auto;padding:20px 20px 8px;display:flex;flex-direction:column;gap:16px">
+    <sc-for list="{{chat}}" as="m" hint-placeholder-count="1">
+      <div style="align-self:{{m.align}};max-width:{{m.width}};display:flex;flex-direction:column;gap:10px;animation:rd-up .3s var(--ease-out) both">
+        <div style="background:{{m.bg}};color:{{m.fg}};border:1px solid {{m.border}};border-radius:{{m.radius}};padding:14px 16px;font-size:13.5px;line-height:1.6;font-weight:300">{{m.text}}</div>
+        <sc-if value="{{m.hasConcepts}}" hint-placeholder-val="{{false}}">
+          <div style="display:flex;flex-direction:column;gap:9px;padding-left:2px">
+            <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-ai)">Related concepts</span>
+            <div style="display:flex;flex-wrap:wrap;gap:7px">
+              <sc-for list="{{m.concepts}}" as="c" hint-placeholder-count="3">
+                <span style="border:1px solid var(--rd-ai);color:var(--rd-ai);border-radius:999px;padding:6px 12px;font-size:10.5px;letter-spacing:.06em">{{c.name}}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:4px">
+              <button onClick="{{m.save}}" style="border:1px solid var(--rd-hair);background:none;color:var(--rd-ink2);height:32px;padding:0 14px;border-radius:999px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Save to notes</button>
+              <button style="border:1px solid var(--rd-hair);background:none;color:var(--rd-ink2);height:32px;padding:0 14px;border-radius:999px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Flashcard</button>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <sc-if value="{{thinking}}" hint-placeholder-val="{{false}}">
+      <div style="align-self:flex-start;display:flex;gap:5px;padding:14px 16px;border:1px solid var(--rd-hair);border-radius:14px 14px 14px 4px;background:var(--rd-surface)">
+        <div style="width:5px;height:5px;border-radius:999px;background:var(--rd-ai);animation:rd-dot 1s infinite"></div>
+        <div style="width:5px;height:5px;border-radius:999px;background:var(--rd-ai);animation:rd-dot 1s .2s infinite"></div>
+        <div style="width:5px;height:5px;border-radius:999px;background:var(--rd-ai);animation:rd-dot 1s .4s infinite"></div>
+      </div>
+    </sc-if>
+  </div>
+  <div style="padding:10px 20px 96px;display:flex;flex-direction:column;gap:12px">
+    <div class="rd-scroll" style="display:flex;gap:8px;overflow-x:auto">
+      <sc-for list="{{prompts}}" as="p" hint-placeholder-count="4">
+        <button onClick="{{p.ask}}" style="flex:none;border:1px solid var(--rd-hair);background:var(--rd-surface);color:var(--rd-ink2);height:36px;padding:0 15px;border-radius:999px;font-size:11.5px;font-family:var(--font-sans);cursor:pointer">{{p.label}}</button>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;height:48px;border:1px solid var(--rd-hair);border-radius:999px;background:var(--rd-surface);padding:0 6px 0 18px">
+      <span style="flex:1;font-size:13px;font-weight:300;color:var(--rd-ink3)">Ask about this book…</span>
+      <button onClick="{{askDefault}}" style="width:36px;height:36px;border-radius:999px;border:none;background:var(--rd-ai);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center">
+        <svg width="15" height="15" style="color:#fff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+      </button>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isSoon}}">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:58px 40px">
+  <div style="width:1px;height:44px;background:linear-gradient(180deg,transparent,var(--rd-gold))"></div>
+  <h3 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:25px;text-align:center;color:var(--rd-ink)">{{soonTitle}}</h3>
+  <p style="margin:0;font-size:13px;font-weight:300;line-height:1.6;text-align:center;color:var(--rd-ink3)">Not built in this pass. Say the word and it comes next.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{isDiscover}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:60px 20px 0;display:flex;flex-direction:column;gap:16px">
+    <h1 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:29px;color:var(--rd-ink)">Discover</h1>
+    <div style="display:flex;align-items:center;gap:10px;height:44px;border-radius:999px;border:1px solid var(--rd-hair);background:var(--rd-surface);padding:0 16px">
+      <svg width="15" height="15" style="color:var(--rd-ink3)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <span style="font-size:13px;font-weight:300;color:var(--rd-ink3)">Title, author or ISBN</span>
+    </div>
+  </div>
+
+  <div style="padding:22px 20px 0">
+    <div style="border:1px solid var(--rd-hair);background:var(--rd-surface);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">What are you in the mood for?</span>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{moods}}" as="m" hint-placeholder-count="6">
+          <button onClick="{{m.toggle}}" style="border:1px solid {{m.border}};background:{{m.bg}};color:{{m.fg}};height:34px;padding:0 14px;border-radius:999px;font-size:11.5px;font-family:var(--font-sans);cursor:pointer">{{m.name}}</button>
+        </sc-for>
+      </div>
+      <div style="height:1px;background:var(--rd-hair)"></div>
+      <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Time you have</span>
+      <div style="display:flex;gap:8px">
+        <sc-for list="{{times}}" as="t" hint-placeholder-count="4">
+          <button onClick="{{t.pick}}" style="flex:1;border:1px solid {{t.border}};background:{{t.bg}};color:{{t.fg}};height:36px;border-radius:999px;font-size:11px;font-family:var(--font-sans);cursor:pointer">{{t.name}}</button>
+        </sc-for>
+      </div>
+      <button onClick="{{pickNext}}" style="border:none;height:46px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer;margin-top:4px">Pick my next book</button>
+    </div>
+  </div>
+
+  <div style="padding:26px 0 0">
+    <div style="padding:0 20px 12px;display:flex;flex-direction:column;gap:4px">
+      <h4 style="margin:0;font-family:var(--font-serif);font-weight:500;font-size:20px;color:var(--rd-ink)">Recommended for you</h4>
+      <span style="font-size:11px;font-weight:300;color:var(--rd-ink3)">Each one says why.</span>
+    </div>
+    <div style="padding:0 20px;display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{discoverRecs}}" as="r" hint-placeholder-count="3">
+        <div onClick="{{r.open}}" style="display:flex;gap:14px;background:var(--rd-surface);border:1px solid var(--rd-hair);border-radius:16px;padding:14px;cursor:pointer">
+          <div style="width:62px;height:94px;flex:none;background:{{r.bg}};color:{{r.fg}};border-radius:2px 6px 6px 2px;box-shadow:inset 5px 0 0 rgba(0,0,0,.16);padding:9px 7px 7px 12px;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="font-family:var(--font-serif);font-size:11px;line-height:1.15">{{r.title}}</span>
+            <span style="font-size:6px;letter-spacing:.16em;text-transform:uppercase;opacity:.75">{{r.last}}</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:4px;min-width:0">
+            <span style="font-family:var(--font-serif);font-size:16px;color:var(--rd-ink);line-height:1.25">{{r.title}}</span>
+            <span style="font-size:11px;font-weight:300;color:var(--rd-ink3)">{{r.author}}</span>
+            <span style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--rd-gold);margin-top:2px">{{r.tag}}</span>
+            <p style="margin:4px 0 0;font-family:var(--font-serif);font-style:italic;font-size:13px;line-height:1.4;color:var(--rd-ink2)">{{r.why}}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="padding:26px 0 118px">
+    <div style="padding:0 20px 12px"><h4 style="margin:0;font-family:var(--font-serif);font-weight:500;font-size:20px;color:var(--rd-ink)">Hidden gems</h4></div>
+    <div class="rd-scroll" style="display:flex;gap:14px;overflow-x:auto;padding:2px 20px">
+      <sc-for list="{{gems}}" as="g" hint-placeholder-count="3">
+        <div onClick="{{g.open}}" style="width:112px;flex:none;display:flex;flex-direction:column;gap:8px;cursor:pointer">
+          <div style="height:168px;background:{{g.bg}};color:{{g.fg}};border-radius:2px 7px 7px 2px;box-shadow:inset 6px 0 0 rgba(0,0,0,.16),var(--rd-shadow);padding:12px 9px 9px 16px;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="font-family:var(--font-serif);font-size:13px;line-height:1.15">{{g.title}}</span>
+            <span style="font-size:6.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.75">{{g.last}}</span>
+          </div>
+          <span style="font-size:11px;color:var(--rd-ink2);line-height:1.3">{{g.author}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isRec}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 20px 0">
+    <button onClick="{{goDiscover}}" style="border:none;background:none;color:var(--rd-ink2);cursor:pointer;padding:6px;transform:rotate(180deg)">
+      <svg width="17" height="17" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+    </button>
+  </div>
+  <div style="padding:12px 24px 0;display:flex;flex-direction:column;align-items:center;gap:14px">
+    <div style="width:124px;height:186px;background:{{rec.bg}};color:{{rec.fg}};border-radius:3px 10px 10px 3px;box-shadow:inset 8px 0 0 rgba(0,0,0,.18),var(--rd-lift);padding:20px 14px 14px 24px;display:flex;flex-direction:column;justify-content:space-between">
+      <span style="font-family:var(--font-serif);font-size:18px;line-height:1.15">{{rec.title}}</span>
+      <span style="font-size:8px;letter-spacing:.2em;text-transform:uppercase;opacity:.75">{{rec.last}}</span>
+    </div>
+    <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:25px;text-align:center;color:var(--rd-ink)">{{rec.title}}</h2>
+    <span style="font-size:13px;font-weight:300;color:var(--rd-ink3)">{{rec.author}}</span>
+    <div class="swr-hairline-rule"><span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-ink3)">{{rec.meta}}</span></div>
+  </div>
+  <div style="padding:24px 20px 0">
+    <div style="border:1px solid var(--rd-ai);background:var(--rd-ai-soft);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px">
+      <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ai)">Why Readora recommends it</span>
+      <sc-for list="{{rec.reasons}}" as="w" hint-placeholder-count="3">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <div style="width:14px;height:1px;background:var(--rd-ai);margin-top:9px;flex:none"></div>
+          <span style="font-size:13px;font-weight:300;line-height:1.55;color:var(--rd-ink)">{{w.text}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="padding:20px 20px 0">
+    <p style="margin:0;font-size:14px;line-height:1.7;font-weight:300;color:var(--rd-ink2)">{{rec.synopsis}}</p>
+  </div>
+  <div style="padding:22px 20px 130px;display:flex;flex-direction:column;gap:12px">
+    <button onClick="{{rec.add}}" style="border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">{{rec.btnLabel}}</button>
+    <button onClick="{{goDiscover}}" style="border:1px solid var(--rd-hair);height:52px;border-radius:999px;background:none;color:var(--rd-ink3);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Not interested</button>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isProfile}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:60px 20px 0;display:flex;flex-direction:column;align-items:center;gap:14px">
+    <div style="width:74px;height:74px;border-radius:999px;border:1px solid var(--rd-hair);background:var(--rd-surface2);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:28px;color:var(--rd-ink)">A</div>
+    <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:25px;color:var(--rd-ink)">Aman Verma</h2>
+    <div class="swr-hairline-rule"><span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-ink3)">{{planLabel}}</span></div>
+  </div>
+  <div style="padding:22px 20px 0;display:flex;gap:12px">
+    <sc-for list="{{profileStats}}" as="p" hint-placeholder-count="3">
+      <div style="flex:1;border:1px solid var(--rd-hair);background:var(--rd-surface);border-radius:14px;padding:14px 10px;display:flex;flex-direction:column;align-items:center;gap:5px">
+        <span style="font-family:var(--font-serif);font-size:23px;color:var(--rd-ink);line-height:1">{{p.value}}</span>
+        <span style="font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rd-ink3);text-align:center">{{p.label}}</span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="padding:22px 20px 130px;display:flex;flex-direction:column">
+    <sc-for list="{{profileRows}}" as="r" hint-placeholder-count="8">
+      <button onClick="{{r.go}}" style="border:none;background:none;border-bottom:1px solid var(--rd-hair);padding:17px 2px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;font-family:var(--font-sans)">
+        <span style="flex:1;font-size:14px;color:var(--rd-ink);font-weight:300">{{r.label}}</span>
+        <span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:{{r.hintColor}}">{{r.hint}}</span>
+        <svg width="14" height="14" style="color:var(--rd-ink3)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+      </button>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isGoals}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 20px 0;display:flex;align-items:center;gap:10px">
+    <button onClick="{{goProfile}}" style="border:none;background:none;color:var(--rd-ink2);cursor:pointer;padding:6px;transform:rotate(180deg)">
+      <svg width="17" height="17" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+    </button>
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Reading goals</span>
+  </div>
+  <div style="padding:20px 20px 0;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <div style="position:relative;width:196px;height:196px">
+      <svg width="196" height="196" viewBox="0 0 196 196">
+        <circle cx="98" cy="98" r="88" fill="none" stroke="var(--rd-hair)" stroke-width="2"></circle>
+        <circle cx="98" cy="98" r="88" fill="none" stroke="var(--rd-gold)" stroke-width="2" stroke-linecap="round" stroke-dasharray="{{annualDash}}" transform="rotate(-90 98 98)"></circle>
+      </svg>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
+        <span style="font-family:var(--font-serif);font-size:46px;line-height:1;color:var(--rd-ink)">{{booksRead}}</span>
+        <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">of {{goalCount}} books</span>
+      </div>
+    </div>
+    <p style="margin:0;font-family:var(--font-serif);font-style:italic;font-size:17px;color:var(--rd-ink2);text-align:center">{{goalPace}}</p>
+  </div>
+  <div style="padding:24px 20px 0;display:flex;flex-direction:column;gap:12px">
+    <sc-for list="{{goalRows}}" as="g" hint-placeholder-count="4">
+      <div style="border:1px solid var(--rd-hair);background:var(--rd-surface);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between">
+          <span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--rd-ink3)">{{g.label}}</span>
+          <span style="font-family:var(--font-serif);font-size:17px;color:var(--rd-ink)">{{g.value}}</span>
+        </div>
+        <div style="height:2px;background:var(--rd-hair);border-radius:2px;overflow:hidden">
+          <div style="height:100%;background:{{g.color}};width:{{g.pct}}%"></div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="padding:24px 20px 130px;display:flex;flex-direction:column;gap:12px">
+    <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Add a goal</span>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <sc-for list="{{goalTypes}}" as="t" hint-placeholder-count="5">
+        <button onClick="{{t.add}}" style="border:1px solid var(--rd-hair);background:none;color:var(--rd-ink2);height:36px;padding:0 15px;border-radius:999px;font-size:11.5px;font-family:var(--font-sans);cursor:pointer">{{t.name}}</button>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isStats}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 20px 0;display:flex;align-items:center;gap:10px">
+    <button onClick="{{goProfile}}" style="border:none;background:none;color:var(--rd-ink2);cursor:pointer;padding:6px;transform:rotate(180deg)">
+      <svg width="17" height="17" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+    </button>
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Statistics · 2026</span>
+  </div>
+  <div style="padding:18px 20px 0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <sc-for list="{{statCards}}" as="c" hint-placeholder-count="4">
+      <div style="border:1px solid var(--rd-hair);background:var(--rd-surface);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px">
+        <span style="font-family:var(--font-serif);font-size:26px;line-height:1;color:var(--rd-ink)">{{c.value}}</span>
+        <span style="font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rd-ink3)">{{c.label}}</span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="padding:22px 20px 0">
+    <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Books a month</span>
+    <div style="display:flex;align-items:flex-end;gap:7px;height:118px;margin-top:16px">
+      <sc-for list="{{months}}" as="m" hint-placeholder-count="8">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div style="width:100%;height:{{m.h}}px;background:{{m.color}};border-radius:3px 3px 0 0"></div>
+          <span style="font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--rd-ink3)">{{m.label}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="padding:26px 20px 0;display:flex;flex-direction:column;gap:12px">
+    <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Where your hours go</span>
+    <sc-for list="{{genreBars}}" as="g" hint-placeholder-count="4">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;justify-content:space-between">
+          <span style="font-size:12px;color:var(--rd-ink2)">{{g.name}}</span>
+          <span style="font-size:11px;color:var(--rd-ink3)">{{g.share}}</span>
+        </div>
+        <div style="height:2px;background:var(--rd-hair);border-radius:2px;overflow:hidden"><div style="height:100%;background:var(--rd-gold);width:{{g.pct}}%"></div></div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="padding:26px 20px 0;display:flex;flex-direction:column">
+    <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3);margin-bottom:6px">Habits</span>
+    <sc-for list="{{habitRows}}" as="h" hint-placeholder-count="5">
+      <div style="display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--rd-hair)">
+        <span style="font-size:13px;font-weight:300;color:var(--rd-ink2)">{{h.label}}</span>
+        <span style="font-family:var(--font-serif);font-size:15px;color:var(--rd-ink)">{{h.value}}</span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="padding:24px 20px 130px">
+    <div onClick="{{goAskLibrary}}" style="border:1px solid var(--rd-ai);background:var(--rd-ai-soft);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:8px;cursor:pointer">
+      <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ai)">Reading insight</span>
+      <p style="margin:0;font-family:var(--font-serif);font-style:italic;font-size:16px;line-height:1.4;color:var(--rd-ink)">You rate books about systems higher than books about motivation — by almost a full star.</p>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isAchievements}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 20px 0;display:flex;align-items:center;gap:10px">
+    <button onClick="{{goProfile}}" style="border:none;background:none;color:var(--rd-ink2);cursor:pointer;padding:6px;transform:rotate(180deg)">
+      <svg width="17" height="17" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+    </button>
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Achievements</span>
+  </div>
+  <div style="padding:20px 20px 130px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px 12px">
+    <sc-for list="{{badges}}" as="b" hint-placeholder-count="9">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:9px;opacity:{{b.opacity}}">
+        <div style="width:62px;height:62px;border-radius:999px;border:1px solid {{b.ring}};display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:19px;color:{{b.ink}}">{{b.mark}}</div>
+        <span style="font-size:9px;letter-spacing:.1em;text-align:center;color:var(--rd-ink2);line-height:1.3">{{b.name}}</span>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isKnowledge}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:60px 20px 0;display:flex;flex-direction:column;gap:8px">
+    <h1 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:29px;color:var(--rd-ink)">My Knowledge</h1>
+    <p style="margin:0;font-size:12.5px;font-weight:300;line-height:1.6;color:var(--rd-ink3)">{{knowledgeLede}}</p>
+  </div>
+  <div style="padding:20px 20px 0">
+    <div onClick="{{goAskLibrary}}" style="display:flex;align-items:center;gap:12px;height:50px;border:1px solid var(--rd-ai);background:var(--rd-ai-soft);border-radius:999px;padding:0 18px;cursor:pointer">
+      <svg width="15" height="15" style="color:var(--rd-ai)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"></path><path d="M19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16z"></path></svg>
+      <span style="flex:1;font-size:13px;color:var(--rd-ink)">Ask my library</span>
+      <span style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--rd-ai)">{{plusTag}}</span>
+    </div>
+  </div>
+  <div style="padding:20px 20px 130px;display:flex;flex-direction:column;gap:12px">
+    <sc-for list="{{concepts}}" as="c" hint-placeholder-count="4">
+      <div onClick="{{c.open}}" style="border:1px solid var(--rd-hair);background:var(--rd-surface);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;cursor:pointer">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+          <span style="font-family:var(--font-serif);font-size:19px;color:var(--rd-ink);line-height:1.2">{{c.title}}</span>
+          <span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--rd-gold);flex:none">{{c.count}}</span>
+        </div>
+        <p style="margin:0;font-size:12.5px;font-weight:300;line-height:1.55;color:var(--rd-ink2)">{{c.summary}}</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{c.books}}" as="b" hint-placeholder-count="2">
+            <span style="font-size:9.5px;letter-spacing:.1em;color:var(--rd-ink3);border:1px solid var(--rd-hair);border-radius:999px;padding:5px 10px">{{b.name}}</span>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isConcept}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 20px 0;display:flex;align-items:center;gap:10px">
+    <button onClick="{{goKnowledge}}" style="border:none;background:none;color:var(--rd-ink2);cursor:pointer;padding:6px;transform:rotate(180deg)">
+      <svg width="17" height="17" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+    </button>
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Concept</span>
+  </div>
+  <div style="padding:18px 20px 0;display:flex;flex-direction:column;gap:12px">
+    <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:30px;line-height:1.15;color:var(--rd-ink)">{{concept.title}}</h2>
+    <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-gold)">{{concept.chain}}</span>
+    <p style="margin:0;font-size:14px;line-height:1.7;font-weight:300;color:var(--rd-ink2)">{{concept.summary}}</p>
+  </div>
+  <div style="padding:22px 20px 0;display:flex;flex-direction:column;gap:2px">
+    <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3);margin-bottom:12px">Where it appears</span>
+    <sc-for list="{{concept.links}}" as="l" hint-placeholder-count="3">
+      <div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:14px">
+        <div style="display:flex;flex-direction:column;align-items:center;flex:none;padding-top:4px">
+          <div style="width:7px;height:7px;border-radius:999px;border:1px solid var(--rd-gold)"></div>
+          <div style="width:1px;flex:1;min-height:34px;background:var(--rd-hair)"></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding-bottom:6px">
+          <span style="font-family:var(--font-serif);font-size:16px;color:var(--rd-ink)">{{l.book}}</span>
+          <span style="font-size:12px;font-weight:300;line-height:1.5;color:var(--rd-ink2)">{{l.note}}</span>
+          <span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--rd-ink3)">{{l.kind}}</span>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="padding:6px 20px 130px;display:flex;gap:10px">
+    <button onClick="{{goFlashcards}}" style="flex:1;border:1px solid var(--rd-hair);height:46px;border-radius:999px;background:none;color:var(--rd-ink2);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Make flashcards</button>
+    <button onClick="{{goAskLibrary}}" style="flex:1;border:none;height:46px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Ask my library</button>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isAsk}}" hint-placeholder-val="{{false}}">
+<div style="flex:1;display:flex;flex-direction:column;overflow:hidden;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 20px 14px;border-bottom:1px solid var(--rd-hair);display:flex;align-items:center;gap:10px">
+    <button onClick="{{goKnowledge}}" style="border:none;background:none;color:var(--rd-ink2);cursor:pointer;padding:6px;transform:rotate(180deg)">
+      <svg width="17" height="17" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+    </button>
+    <div style="display:flex;flex-direction:column;gap:3px">
+      <span style="font-family:var(--font-serif);font-size:19px;color:var(--rd-ink)">Ask my library</span>
+      <span style="font-size:11px;font-weight:300;color:var(--rd-ink3)">127 books · 214 notes · 68 highlights</span>
+    </div>
+  </div>
+  <div class="rd-scroll" style="flex:1;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:16px">
+    <sc-for list="{{askThread}}" as="m" hint-placeholder-count="1">
+      <div style="align-self:{{m.align}};max-width:{{m.width}};display:flex;flex-direction:column;gap:10px;animation:rd-up .3s var(--ease-out) both">
+        <div style="background:{{m.bg}};color:{{m.fg}};border:1px solid {{m.border}};border-radius:{{m.radius}};padding:14px 16px;font-size:13.5px;line-height:1.6;font-weight:300">{{m.text}}</div>
+        <sc-if value="{{m.hasSources}}" hint-placeholder-val="{{false}}">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-gold)">From your own notes</span>
+            <sc-for list="{{m.sources}}" as="s" hint-placeholder-count="2">
+              <div style="border-left:1px solid var(--rd-gold);padding:2px 0 2px 12px;display:flex;flex-direction:column;gap:3px">
+                <span style="font-family:var(--font-serif);font-size:14px;color:var(--rd-ink)">{{s.book}}</span>
+                <span style="font-size:11.5px;font-weight:300;line-height:1.5;color:var(--rd-ink3)">{{s.line}}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <sc-if value="{{askThinking}}" hint-placeholder-val="{{false}}">
+      <div style="align-self:flex-start;display:flex;gap:5px;padding:14px 16px;border:1px solid var(--rd-hair);border-radius:14px 14px 14px 4px;background:var(--rd-surface)">
+        <div style="width:5px;height:5px;border-radius:999px;background:var(--rd-ai);animation:rd-dot 1s infinite"></div>
+        <div style="width:5px;height:5px;border-radius:999px;background:var(--rd-ai);animation:rd-dot 1s .2s infinite"></div>
+        <div style="width:5px;height:5px;border-radius:999px;background:var(--rd-ai);animation:rd-dot 1s .4s infinite"></div>
+      </div>
+    </sc-if>
+  </div>
+  <div style="padding:10px 20px 34px;display:flex;flex-direction:column;gap:10px">
+    <sc-for list="{{askPrompts}}" as="p" hint-placeholder-count="3">
+      <button onClick="{{p.ask}}" style="border:1px solid var(--rd-hair);background:var(--rd-surface);color:var(--rd-ink2);min-height:40px;padding:10px 16px;border-radius:14px;font-size:12.5px;font-family:var(--font-sans);cursor:pointer;text-align:left;line-height:1.4">{{p.label}}</button>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isQuiz}}" hint-placeholder-val="{{false}}">
+<div style="flex:1;display:flex;flex-direction:column;padding:56px 20px 34px;animation:rd-in .3s var(--ease-out) both">
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">{{quizStep}}</span>
+    <button onClick="{{goAI}}" style="border:none;background:none;color:var(--rd-ink3);cursor:pointer;padding:4px">
+      <svg width="16" height="16" style="color:var(--rd-ink3)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M6 18 18 6"></path></svg>
+    </button>
+  </div>
+  <div style="height:2px;background:var(--rd-hair);border-radius:2px;overflow:hidden;margin-top:14px">
+    <div style="height:100%;background:var(--rd-gold);width:{{quizPct}}%;transition:width 250ms var(--ease-out)"></div>
+  </div>
+  <sc-if value="{{quizRunning}}" hint-placeholder-val="{{true}}">
+    <div style="flex:1;display:flex;flex-direction:column;padding-top:34px">
+      <h2 style="margin:0 0 26px;font-family:var(--font-serif);font-weight:400;font-size:27px;line-height:1.25;color:var(--rd-ink);text-wrap:pretty">{{quizQuestion}}</h2>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{quizOptions}}" as="o" hint-placeholder-count="3">
+          <button onClick="{{o.pick}}" style="border:1px solid {{o.border}};background:{{o.bg}};color:{{o.fg}};min-height:56px;border-radius:14px;padding:14px 16px;font-size:13.5px;line-height:1.45;font-family:var(--font-sans);cursor:pointer;text-align:left;transition:all 150ms var(--ease-in-out)">{{o.label}}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{quizAnswered}}" hint-placeholder-val="{{false}}">
+        <div style="margin-top:20px;border-top:1px solid var(--rd-hair);padding-top:18px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:{{quizVerdictColor}}">{{quizVerdict}}</span>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;font-weight:300;color:var(--rd-ink2)">{{quizExplain}}</p>
+        </div>
+      </sc-if>
+      <div style="flex:1"></div>
+      <sc-if value="{{quizAnswered}}" hint-placeholder-val="{{false}}">
+        <button onClick="{{quizNext}}" style="border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">{{quizNextLabel}}</button>
+      </sc-if>
+    </div>
+  </sc-if>
+  <sc-if value="{{quizDone}}" hint-placeholder-val="{{false}}">
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px">
+      <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Knowledge score</span>
+      <span style="font-family:var(--font-serif);font-size:76px;line-height:1;color:var(--rd-ink)">{{quizScore}}</span>
+      <p style="margin:0;font-family:var(--font-serif);font-style:italic;font-size:17px;text-align:center;color:var(--rd-ink2);max-width:260px">{{quizVerdictLine}}</p>
+      <div style="display:flex;flex-direction:column;gap:12px;align-self:stretch;margin-top:14px">
+        <button onClick="{{quizRestart}}" style="border:1px solid var(--rd-hair);height:50px;border-radius:999px;background:none;color:var(--rd-ink2);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Try again</button>
+        <button onClick="{{goFlashcards}}" style="border:none;height:50px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Turn misses into flashcards</button>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isCards}}" hint-placeholder-val="{{false}}">
+<div style="flex:1;display:flex;flex-direction:column;padding:56px 20px 34px;animation:rd-in .3s var(--ease-out) both">
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">{{cardStep}}</span>
+    <button onClick="{{goAI}}" style="border:none;background:none;color:var(--rd-ink3);cursor:pointer;padding:4px">
+      <svg width="16" height="16" style="color:var(--rd-ink3)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M6 18 18 6"></path></svg>
+    </button>
+  </div>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:24px 0">
+    <div onClick="{{flipCard}}" style="width:100%;min-height:320px;border:1px solid var(--rd-hair);background:var(--rd-surface);border-radius:20px;padding:26px;display:flex;flex-direction:column;justify-content:center;gap:16px;box-shadow:var(--rd-shadow);cursor:pointer;animation:rd-in .25s var(--ease-out) both">
+      <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-gold)">{{cardFace}}</span>
+      <p style="margin:0;font-family:var(--font-serif);font-size:24px;line-height:1.35;color:var(--rd-ink);text-wrap:pretty">{{cardText}}</p>
+      <span style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--rd-ink3);margin-top:auto">{{cardHint}}</span>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;gap:10px">
+      <sc-for list="{{cardGrades}}" as="g" hint-placeholder-count="3">
+        <button onClick="{{g.grade}}" style="flex:1;border:1px solid var(--rd-hair);height:48px;border-radius:999px;background:none;color:var(--rd-ink2);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">{{g.label}}</button>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--rd-ink3)">Mastery</span>
+      <div style="flex:1;height:2px;background:var(--rd-hair);border-radius:2px;overflow:hidden"><div style="height:100%;background:var(--rd-success);width:{{mastery}}%;transition:width 250ms var(--ease-out)"></div></div>
+      <span style="font-family:var(--font-serif);font-size:14px;color:var(--rd-ink)">{{masteryLabel}}</span>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isSummary}}" hint-placeholder-val="{{false}}">
+<div style="flex:1;display:flex;flex-direction:column;padding:58px 24px 36px;animation:rd-in .3s var(--ease-out) both">
+  <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Session saved</span>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:26px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <span style="font-family:var(--font-serif);font-size:56px;line-height:1;color:var(--rd-ink)">{{sumMinutes}}</span>
+      <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-ink3)">minutes read</span>
+    </div>
+    <div style="height:1px;background:var(--rd-hair)"></div>
+    <sc-for list="{{sumRows}}" as="r" hint-placeholder-count="4">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <span style="font-size:12.5px;font-weight:300;color:var(--rd-ink3)">{{r.label}}</span>
+        <span style="font-family:var(--font-serif);font-size:18px;color:var(--rd-ink)">{{r.value}}</span>
+      </div>
+    </sc-for>
+    <p style="margin:0;font-family:var(--font-serif);font-style:italic;font-size:17px;line-height:1.4;color:var(--rd-ink2)">{{sumLine}}</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <button onClick="{{openNote}}" style="border:1px solid var(--rd-hair);height:50px;border-radius:999px;background:none;color:var(--rd-ink2);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Add a note</button>
+    <button onClick="{{goHome}}" style="border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Done</button>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isPaywall}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 24px 0;display:flex;justify-content:flex-end">
+    <button onClick="{{closePaywall}}" style="border:none;background:none;color:var(--rd-ink3);cursor:pointer;padding:4px">
+      <svg width="16" height="16" style="color:var(--rd-ink3)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M6 18 18 6"></path></svg>
+    </button>
+  </div>
+  <div style="padding:8px 24px 0;display:flex;flex-direction:column;gap:14px">
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-gold)">Readora Plus</span>
+    <h2 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:34px;line-height:1.15;color:var(--rd-ink)">Turn your reading into knowledge.</h2>
+    <p style="margin:0;font-size:14px;font-weight:300;line-height:1.6;color:var(--rd-ink3)">Your books contain ideas worth remembering. Plus keeps them.</p>
+  </div>
+  <div style="padding:22px 24px 0;display:flex;flex-direction:column;gap:12px">
+    <sc-for list="{{plusBenefits}}" as="b" hint-placeholder-count="6">
+      <div style="display:flex;gap:12px;align-items:flex-start">
+        <svg width="14" height="14" style="color:var(--rd-gold);flex:none;margin-top:3px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>
+        <span style="font-size:13.5px;font-weight:300;line-height:1.5;color:var(--rd-ink2)">{{b.name}}</span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="padding:24px 20px 0;display:flex;flex-direction:column;gap:10px">
+    <sc-for list="{{plans}}" as="p" hint-placeholder-count="3">
+      <button onClick="{{p.pick}}" style="border:1px solid {{p.border}};background:{{p.bg}};border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;cursor:pointer;text-align:left;font-family:var(--font-sans)">
+        <div style="width:18px;height:18px;border-radius:999px;border:1px solid {{p.dotRing}};background:{{p.dot}};flex:none"></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:13px;color:var(--rd-ink)">{{p.name}}</span>
+          <span style="font-size:11px;font-weight:300;color:var(--rd-ink3)">{{p.note}}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+          <span style="font-family:var(--font-serif);font-size:20px;letter-spacing:.04em;color:var(--rd-ink)">{{p.price}}</span>
+          <span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--rd-gold)">{{p.badge}}</span>
+        </div>
+      </button>
+    </sc-for>
+  </div>
+  <div style="padding:20px 20px 40px;display:flex;flex-direction:column;gap:12px">
+    <button onClick="{{startTrial}}" style="border:none;height:54px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Start 7-day free trial</button>
+    <button onClick="{{closePaywall}}" style="border:none;background:none;color:var(--rd-ink3);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer;padding:6px">Continue with free</button>
+    <p style="margin:0;text-align:center;font-size:10.5px;font-weight:300;line-height:1.6;color:var(--rd-ink3)">Free includes your library, progress, timer, notes and 5 AI questions a month. Cancel any time.</p>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isSettings}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 20px 0;display:flex;align-items:center;gap:10px">
+    <button onClick="{{goProfile}}" style="border:none;background:none;color:var(--rd-ink2);cursor:pointer;padding:6px;transform:rotate(180deg)">
+      <svg width="17" height="17" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+    </button>
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Settings</span>
+  </div>
+  <div style="padding:18px 20px 0;display:flex;flex-direction:column;gap:10px">
+    <div style="border:1px solid var(--rd-hair);background:var(--rd-surface);border-radius:14px;padding:16px;display:flex;align-items:center;gap:12px">
+      <div style="width:7px;height:7px;border-radius:999px;background:{{syncColor}};flex:none"></div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+        <span style="font-size:13px;color:var(--rd-ink)">{{syncLabel}}</span>
+        <span style="font-size:11px;font-weight:300;color:var(--rd-ink3)">{{syncNote}}</span>
+      </div>
+      <button onClick="{{cycleSync}}" style="border:1px solid var(--rd-hair);background:none;color:var(--rd-ink2);height:32px;padding:0 12px;border-radius:999px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">Retry</button>
+    </div>
+  </div>
+  <div style="padding:14px 20px 130px;display:flex;flex-direction:column">
+    <sc-for list="{{settingRows}}" as="r" hint-placeholder-count="10">
+      <button onClick="{{r.go}}" style="border:none;background:none;border-bottom:1px solid var(--rd-hair);padding:16px 2px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;font-family:var(--font-sans)">
+        <span style="flex:1;font-size:13.5px;color:{{r.ink}};font-weight:300">{{r.label}}</span>
+        <span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--rd-ink3)">{{r.hint}}</span>
+        <svg width="14" height="14" style="color:var(--rd-ink3)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+      </button>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{isNotifs}}" hint-placeholder-val="{{false}}">
+<div class="rd-scroll" style="flex:1;overflow:auto;animation:rd-in .3s var(--ease-out) both">
+  <div style="padding:56px 20px 0;display:flex;align-items:center;gap:10px">
+    <button onClick="{{goSettings}}" style="border:none;background:none;color:var(--rd-ink2);cursor:pointer;padding:6px;transform:rotate(180deg)">
+      <svg width="17" height="17" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="m14 6 6 6-6 6"></path></svg>
+    </button>
+    <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Notifications</span>
+  </div>
+  <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:10px">
+    <sc-for list="{{notifRows}}" as="n" hint-placeholder-count="4">
+      <div style="border:1px solid var(--rd-hair);background:var(--rd-surface);border-radius:14px;padding:16px;display:flex;align-items:center;gap:14px">
+        <div style="flex:1;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:13.5px;color:var(--rd-ink)">{{n.label}}</span>
+          <span style="font-size:11.5px;font-weight:300;line-height:1.5;color:var(--rd-ink3)">{{n.copy}}</span>
+        </div>
+        <button onClick="{{n.toggle}}" style="width:46px;height:27px;border-radius:999px;border:1px solid {{n.ring}};background:{{n.track}};position:relative;cursor:pointer;flex:none;transition:all 150ms var(--ease-in-out)">
+          <span style="position:absolute;top:2px;left:{{n.knob}};width:19px;height:19px;border-radius:999px;background:{{n.knobColor}};transition:left 150ms var(--ease-in-out)"></span>
+        </button>
+      </div>
+    </sc-for>
+  </div>
+  <div style="padding:20px 20px 130px;display:flex;flex-direction:column;gap:14px">
+    <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Reminder time</span>
+    <div style="display:flex;gap:8px">
+      <sc-for list="{{reminderTimes}}" as="t" hint-placeholder-count="4">
+        <button onClick="{{t.pick}}" style="flex:1;border:1px solid {{t.border}};background:{{t.bg}};color:{{t.fg}};height:40px;border-radius:999px;font-size:11.5px;font-family:var(--font-sans);cursor:pointer">{{t.name}}</button>
+      </sc-for>
+    </div>
+    <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3);margin-top:6px">Days</span>
+    <div style="display:flex;gap:7px">
+      <sc-for list="{{reminderDays}}" as="d" hint-placeholder-count="7">
+        <button onClick="{{d.toggle}}" style="flex:1;aspect-ratio:1;border:1px solid {{d.border}};background:{{d.bg}};color:{{d.fg}};border-radius:999px;font-size:11px;font-family:var(--font-sans);cursor:pointer">{{d.label}}</button>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{showNav}}" hint-placeholder-val="{{true}}">
+<div style="position:absolute;left:0;right:0;bottom:0;height:88px;background:var(--rd-bg);border-top:1px solid var(--rd-hair);display:flex;align-items:flex-start;padding:12px 8px 0;z-index:20">
+  <button onClick="{{navHome}}" style="flex:1;border:none;background:none;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;padding:6px 0;color:{{navC1}}">
+    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20H4z"></path><path d="M9.5 20v-6h5v6"></path></svg>
+    <span style="font-size:8.5px;letter-spacing:.16em;text-transform:uppercase">Home</span>
+  </button>
+  <button onClick="{{navLibrary}}" style="flex:1;border:none;background:none;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;padding:6px 0;color:{{navC2}}">
+    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h5v16H5zM12 4h4v16h-4z"></path><path d="m18.2 4.6 2.6.8-3.3 14.2-2.5-.8"></path></svg>
+    <span style="font-size:8.5px;letter-spacing:.16em;text-transform:uppercase">Library</span>
+  </button>
+  <button onClick="{{navDiscover}}" style="flex:1;border:none;background:none;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;padding:6px 0;color:{{navC3}}">
+    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="m9 15 2-4 4-2-2 4-4 2z"></path></svg>
+    <span style="font-size:8.5px;letter-spacing:.16em;text-transform:uppercase">Discover</span>
+  </button>
+  <button onClick="{{navAI}}" style="flex:1;border:none;background:none;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;padding:6px 0;color:{{navC4}}">
+    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"></path><path d="M19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16z"></path></svg>
+    <span style="font-size:8.5px;letter-spacing:.16em;text-transform:uppercase">Companion</span>
+  </button>
+  <button onClick="{{navProfile}}" style="flex:1;border:none;background:none;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;padding:6px 0;color:{{navC5}}">
+    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"></path></svg>
+    <span style="font-size:8.5px;letter-spacing:.16em;text-transform:uppercase">Profile</span>
+  </button>
+</div>
+</sc-if>
+
+<sc-if value="{{sheetOpen}}" hint-placeholder-val="{{false}}">
+<div onClick="{{closeSheet}}" style="position:absolute;inset:0;background:var(--rd-scrim);z-index:40;animation:rd-in .2s var(--ease-out) both"></div>
+</sc-if>
+
+<sc-if value="{{sheetAdd}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;left:0;right:0;bottom:0;z-index:50;background:var(--rd-bg);border-top:1px solid var(--rd-hair);border-radius:24px 24px 0 0;padding:14px 20px 34px;box-shadow:var(--rd-lift);animation:rd-sheet .28s var(--ease-out) both">
+  <div style="width:38px;height:3px;border-radius:999px;background:var(--rd-hair);margin:0 auto 20px"></div>
+  <h3 style="margin:0 0 18px;font-family:var(--font-serif);font-weight:400;font-size:24px;color:var(--rd-ink)">Add a book</h3>
+  <div style="display:flex;flex-direction:column">
+    <sc-for list="{{addOptions}}" as="o" hint-placeholder-count="3">
+      <button onClick="{{o.go}}" style="border:none;background:none;border-bottom:1px solid var(--rd-hair);padding:16px 2px;display:flex;align-items:center;gap:14px;cursor:pointer;text-align:left;font-family:var(--font-sans)">
+        <div style="width:38px;height:38px;border-radius:999px;border:1px solid var(--rd-hair);display:flex;align-items:center;justify-content:center;flex:none;color:var(--rd-ink2)">
+          <sc-if value="{{o.isSearch}}" hint-placeholder-val="{{true}}"><svg width="16" height="16" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></sc-if>
+          <sc-if value="{{o.isScan}}" hint-placeholder-val="{{false}}"><svg width="16" height="16" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><text x="12" y="14.5" text-anchor="middle" font-family="serif" font-size="6" font-style="italic" stroke="none" fill="currentColor">925</text></svg></sc-if>
+          <sc-if value="{{o.isManual}}" hint-placeholder-val="{{false}}"><svg width="16" height="16" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></sc-if>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:14px;color:var(--rd-ink)">{{o.title}}</span>
+          <span style="font-size:11.5px;font-weight:300;color:var(--rd-ink3)">{{o.sub}}</span>
+        </div>
+        <svg width="14" height="14" style="color:var(--rd-ink3)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+      </button>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{sheetProgress}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;left:0;right:0;bottom:0;z-index:50;background:var(--rd-bg);border-top:1px solid var(--rd-hair);border-radius:24px 24px 0 0;padding:14px 20px 34px;box-shadow:var(--rd-lift);animation:rd-sheet .28s var(--ease-out) both">
+  <div style="width:38px;height:3px;border-radius:999px;background:var(--rd-hair);margin:0 auto 20px"></div>
+  <span style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--rd-ink3)">Update progress</span>
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin:14px 0 6px">
+    <span style="font-family:var(--font-serif);font-size:52px;line-height:1;color:var(--rd-ink)">{{draftPctLabel}}</span>
+    <span style="font-size:13px;color:var(--rd-ink3)">{{bookPageLabel}}</span>
+  </div>
+  <input type="range" min="0" max="{{selPages}}" value="{{draftPage}}" onChange="{{setPage}}" style="width:100%;accent-color:var(--rd-gold);margin:14px 0 6px">
+  <div style="display:flex;align-items:center;gap:12px;margin-top:8px">
+    <button onClick="{{minusPage}}" style="width:44px;height:44px;border-radius:999px;border:1px solid var(--rd-hair);background:none;color:var(--rd-ink2);cursor:pointer;display:flex;align-items:center;justify-content:center">
+      <svg width="16" height="16" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path></svg>
+    </button>
+    <div style="flex:1;height:44px;border:1px solid var(--rd-hair);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:19px;color:var(--rd-ink)">{{draftPage}}</div>
+    <button onClick="{{plusPage}}" style="width:44px;height:44px;border-radius:999px;border:1px solid var(--rd-hair);background:none;color:var(--rd-ink2);cursor:pointer;display:flex;align-items:center;justify-content:center">
+      <svg width="16" height="16" style="color:var(--rd-ink2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg>
+    </button>
+  </div>
+  <button onClick="{{saveProgress}}" style="width:100%;border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer;margin-top:18px">Save progress</button>
+</div>
+</sc-if>
+
+<sc-if value="{{sheetNote}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;left:0;right:0;bottom:0;z-index:50;background:var(--rd-bg);border-top:1px solid var(--rd-hair);border-radius:24px 24px 0 0;padding:14px 20px 34px;box-shadow:var(--rd-lift);animation:rd-sheet .28s var(--ease-out) both">
+  <div style="width:38px;height:3px;border-radius:999px;background:var(--rd-hair);margin:0 auto 20px"></div>
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px">
+    <h3 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:24px;color:var(--rd-ink)">New note</h3>
+    <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-gold)">Page {{draftPage}}</span>
+  </div>
+  <textarea onChange="{{setNoteText}}" placeholder="What did this page make you think?" style="width:100%;box-sizing:border-box;min-height:112px;resize:none;border:1px solid var(--rd-hair);border-radius:14px;background:var(--rd-surface);color:var(--rd-ink);font-family:var(--font-serif);font-size:16px;line-height:1.5;padding:14px;outline:none"></textarea>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+    <sc-for list="{{noteTags}}" as="t" hint-placeholder-count="4">
+      <button onClick="{{t.toggle}}" style="border:1px solid {{t.border}};background:{{t.bg}};color:{{t.fg}};height:34px;padding:0 14px;border-radius:999px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer">{{t.name}}</button>
+    </sc-for>
+  </div>
+  <button onClick="{{saveNote}}" style="width:100%;border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer;margin-top:18px">Save note</button>
+</div>
+</sc-if>
+
+<sc-if value="{{sheetHighlight}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;left:0;right:0;bottom:0;z-index:50;background:var(--rd-bg);border-top:1px solid var(--rd-hair);border-radius:24px 24px 0 0;padding:14px 20px 34px;box-shadow:var(--rd-lift);animation:rd-sheet .28s var(--ease-out) both">
+  <div style="width:38px;height:3px;border-radius:999px;background:var(--rd-hair);margin:0 auto 20px"></div>
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px">
+    <h3 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:24px;color:var(--rd-ink)">New highlight</h3>
+    <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rd-gold)">Page {{draftPage}}</span>
+  </div>
+  <textarea onChange="{{setHlText}}" placeholder="The line you want to keep" style="width:100%;box-sizing:border-box;min-height:96px;resize:none;border:1px solid var(--rd-hair);border-left:1px solid var(--rd-gold);border-radius:0 14px 14px 0;background:var(--rd-surface);color:var(--rd-ink);font-family:var(--font-serif);font-size:16px;line-height:1.5;padding:14px;outline:none"></textarea>
+  <textarea onChange="{{setHlNote}}" placeholder="Why it matters to you (optional)" style="width:100%;box-sizing:border-box;min-height:62px;resize:none;border:1px solid var(--rd-hair);border-radius:14px;background:none;color:var(--rd-ink2);font-family:var(--font-sans);font-weight:300;font-size:13px;line-height:1.5;padding:12px 14px;outline:none;margin-top:10px"></textarea>
+  <button onClick="{{saveHighlight}}" style="width:100%;border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer;margin-top:16px">Save highlight</button>
+</div>
+</sc-if>
+
+<sc-if value="{{sheetFinish}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;left:0;right:0;bottom:0;z-index:50;background:var(--rd-bg);border-top:1px solid var(--rd-hair);border-radius:24px 24px 0 0;padding:14px 20px 34px;box-shadow:var(--rd-lift);animation:rd-sheet .28s var(--ease-out) both">
+  <div style="width:38px;height:3px;border-radius:999px;background:var(--rd-hair);margin:0 auto 20px"></div>
+  <h3 style="margin:0 0 6px;font-family:var(--font-serif);font-weight:400;font-size:24px;color:var(--rd-ink)">Finished {{book.title}}</h3>
+  <p style="margin:0 0 18px;font-size:12.5px;font-weight:300;color:var(--rd-ink3)">How was it?</p>
+  <div style="display:flex;gap:10px;margin-bottom:18px">
+    <sc-for list="{{ratePicker}}" as="r" hint-placeholder-count="5">
+      <button onClick="{{r.pick}}" style="border:none;background:none;padding:2px;cursor:pointer">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="{{r.fill}}" stroke="var(--rd-gold)" stroke-width="1.2" stroke-linejoin="round"><path d="M12 3l2.6 6.2 6.4.5-4.9 4.2 1.5 6.1L12 16.8 6.4 20l1.5-6.1L3 9.7l6.4-.5L12 3z"></path></svg>
+      </button>
+    </sc-for>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+    <sc-for list="{{finishMoods}}" as="m" hint-placeholder-count="4">
+      <button onClick="{{m.toggle}}" style="border:1px solid {{m.border}};background:{{m.bg}};color:{{m.fg}};height:34px;padding:0 14px;border-radius:999px;font-size:11px;font-family:var(--font-sans);cursor:pointer">{{m.name}}</button>
+    </sc-for>
+  </div>
+  <textarea onChange="{{setReview}}" placeholder="A line for your future self" style="width:100%;box-sizing:border-box;min-height:80px;resize:none;border:1px solid var(--rd-hair);border-radius:14px;background:var(--rd-surface);color:var(--rd-ink);font-family:var(--font-serif);font-size:15px;line-height:1.5;padding:14px;outline:none"></textarea>
+  <button onClick="{{saveFinish}}" style="width:100%;border:none;height:52px;border-radius:999px;background:var(--rd-ink);color:var(--rd-bg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:var(--font-sans);cursor:pointer;margin-top:16px">Mark as finished</button>
+</div>
+</sc-if>
+
+<sc-if value="{{toast}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;left:20px;right:20px;bottom:104px;z-index:60;background:var(--rd-ink);color:var(--rd-bg);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:10px;box-shadow:var(--rd-lift);animation:rd-up .25s var(--ease-out) both">
+  <svg width="15" height="15" style="color:var(--rd-bg);flex:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>
+  <span style="font-size:12px;font-weight:300;line-height:1.4">{{toastText}}</span>
+</div>
+</sc-if>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:402,&quot;height&quot;:874},&quot;dark&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+const GENRES = ['Literary Fiction','Fantasy','Mystery','Science Fiction','Biography','Business','Psychology','Self Improvement','Nature Writing','History','Philosophy','Science'];
+const SHELF = [
+  {title:'The Overstory', author:'Richard Powers', last:'Powers', bg:'#2E3A2C', fg:'#E9E4D8', status:'Reading · 43%',
+   pages:502, rating:4, meta:'Literary fiction · 502 pages · Reading', time:'8h 42m', started:'Aug 4', eta:'Aug 23',
+   tags:['Nature writing','Ecology','Pulitzer 2019'], aiHint:'Explain chapter 6',
+   synopsis:"Nine strangers, each summoned in a different way by trees, come together in a struggle to save the continent's last acres of virgin forest. A novel about the great, slow lives happening alongside our own."},
+  {title:'Piranesi', author:'Susanna Clarke', last:'Clarke', bg:'#EDE3D4', fg:'#1F1B16', status:'Reading · 35%',
+   pages:272, rating:5, meta:'Fantasy · 272 pages · Reading', time:'3h 05m', started:'Aug 9', eta:'Aug 28',
+   tags:['Fantasy','Labyrinth'], aiHint:'Who is the Other?',
+   synopsis:"A man lives in a house of endless halls and tides, keeping careful records of statues and weather. Then evidence arrives that someone has been lying to him about the world."},
+  {title:'Atomic Habits', author:'James Clear', last:'Clear', bg:'#B8956A', fg:'#1F1B16', status:'Finished',
+   pages:320, rating:4, meta:'Self improvement · 320 pages · Finished', time:'6h 12m', started:'Mar 2', eta:'Finished Mar 18',
+   tags:['Habits','Productivity'], aiHint:'Quiz me on the four laws',
+   synopsis:"A practical account of how small, repeated behaviours compound, and how identity — not motivation — is what makes them stick."},
+  {title:'Deep Work', author:'Cal Newport', last:'Newport', bg:'#1F1B16', fg:'#F3EDE4', status:'Finished',
+   pages:296, rating:5, meta:'Business · 296 pages · Finished', time:'5h 48m', started:'Jan 12', eta:'Finished Jan 29',
+   tags:['Attention','Work'], aiHint:'Connect this to The Overstory',
+   synopsis:"An argument that undistracted concentration is becoming both rarer and more valuable, and a set of routines for protecting it."},
+  {title:'Klara and the Sun', author:'Kazuo Ishiguro', last:'Ishiguro', bg:'#C9C7C2', fg:'#1F1B16', status:'Want to read',
+   pages:320, rating:0, meta:'Literary fiction · 320 pages · Want to read', time:'—', started:'—', eta:'—',
+   tags:['Literary fiction','AI'], aiHint:'What should I know before starting?',
+   synopsis:"An artificial friend watches the world from a shop window, learning what people are willing to say and what they keep back."},
+  {title:'Thinking, Fast and Slow', author:'Daniel Kahneman', last:'Kahneman', bg:'#3A2E3A', fg:'#EDE3D4', status:'Want to read',
+   pages:499, rating:0, meta:'Psychology · 499 pages · Want to read', time:'—', started:'—', eta:'—',
+   tags:['Psychology','Judgement'], aiHint:'Summarise the two systems',
+   synopsis:"Two modes of thought — one fast and intuitive, one slow and deliberate — and the reliable ways the first one misleads us."},
+  {title:'Normal People', author:'Sally Rooney', last:'Rooney', bg:'#A9613F', fg:'#F6F1EA', status:'Finished',
+   pages:266, rating:4, meta:'Literary fiction · 266 pages · Finished', time:'4h 20m', started:'Feb 3', eta:'Finished Feb 11',
+   tags:['Literary fiction','Ireland'], aiHint:'What changes between them each year?',
+   synopsis:"Two people circle each other from school into university, fluent with each other and almost nobody else."},
+  {title:'Sapiens', author:'Yuval Noah Harari', last:'Harari', bg:'#5A6B3F', fg:'#F6F1EA', status:'Reading · 61%',
+   pages:443, rating:4, meta:'History · 443 pages · Reading', time:'7h 30m', started:'Jul 22', eta:'Sep 2',
+   tags:['History','Anthropology'], aiHint:'Explain the cognitive revolution',
+   synopsis:"A history of our species told through the fictions it agreed to believe — money, nations, companies — and what those fictions cost."}
+];
+const BY_TITLE = {};
+SHELF.forEach(b => { BY_TITLE[b.title] = b; });
+const RECS = [
+  {title:'Braiding Sweetgrass', author:'Robin Wall Kimmerer', last:'Kimmerer', bg:'#5A6B3F', fg:'#F6F1EA', why:'Because you are reading The Overstory.'},
+  {title:'Stolen Focus', author:'Johann Hari', last:'Hari', bg:'#1F1B16', fg:'#F3EDE4', why:'You save notes about attention.'},
+  {title:'The Hidden Life of Trees', author:'Peter Wohlleben', last:'Wohlleben', bg:'#EDE3D4', fg:'#1F1B16', why:'Readers of Powers finish this one.'}
+];
+const OVERSTORY = {
+  'What are the key ideas?': {text:"Three run through the novel. Trees live on a timescale we are not built to perceive. Forests behave less like collections of individuals than like a single communicating body. And human lives, when they finally notice this, are re-organised around it — often at great cost.", concepts:['Deep time','Mutualism','Witness','Activism']},
+  'Explain chapter 6': {text:"Patricia's research is dismissed because it claims trees signal each other through the air. The chapter sets her exile against the slow vindication that follows, and uses it to argue that what a culture can hear is as limited as what it can measure.", concepts:['Signalling','Scientific consensus','Exile']},
+  'Quiz me': {text:"Question 1 of 5. Patricia Westerford's early findings were rejected mainly because — (a) her sample was too small, (b) the claim that trees communicate had no accepted mechanism, (c) she published outside a journal.", concepts:['Answer: b','Next question']},
+  'Connect this to another book': {text:"You highlighted 'attention as a moral act' in Deep Work, and again here in chapter 6. Both books argue that the quality of what you notice sets the ceiling on what you can understand — one about work, one about forests.", concepts:['Attention','Deep Work','Stolen Focus']}
+};
+function promptsFor(b) {
+  return [b.aiHint, 'What are the key ideas?', 'Quiz me', 'Connect this to another book']
+    .filter((p, i, a) => a.indexOf(p) === i);
+}
+function answerFor(b, label) {
+  if (b.title === 'The Overstory' && OVERSTORY[label]) return OVERSTORY[label];
+  const t = b.tags[0], t2 = b.tags[1] || b.tags[0];
+  if (label === 'What are the key ideas?') return {
+    text: b.synopsis + ' Ask me for a chapter and I will go closer.',
+    concepts: b.tags.concat(['Ask for a chapter'])
+  };
+  if (label === 'Quiz me') return {
+    text: `Question 1 of 5. ${b.title} is most concerned with — (a) ${t.toLowerCase()}, (b) plot mechanics, (c) the author's biography.`,
+    concepts: ['Answer: a', 'Next question']
+  };
+  if (label === 'Connect this to another book') return {
+    text: `Your notes on ${t.toLowerCase()} run through your library already. When you start marking passages here I will line them up against the ones you kept.`,
+    concepts: [t, t2, 'Your notes']
+  };
+  return {
+    text: `${b.synopsis} That is the ground it starts from — the rest is the argument it builds on top.`,
+    concepts: b.tags
+  };
+}
+const DISCOVER = [
+  {title:'Braiding Sweetgrass', author:'Robin Wall Kimmerer', last:'Kimmerer', bg:'#5A6B3F', fg:'#F6F1EA', tag:'Because of The Overstory',
+   meta:'Nature writing · 391 pages', why:'Two books, one argument about what a forest knows.',
+   synopsis:'A botanist writes about plants twice — once in the language of science, once in the language of her Potawatomi grandmothers — and asks what is lost when only one counts.',
+   reasons:['You are 43% through The Overstory and rated its chapters highly.','Eleven of your notes are tagged nature writing.','Readers who finish Powers rate this 4.6 on average.']},
+  {title:'Stolen Focus', author:'Johann Hari', last:'Hari', bg:'#1F1B16', fg:'#F3EDE4', tag:'Because of Deep Work',
+   meta:'Psychology · 357 pages', why:'You keep saving notes about attention.',
+   synopsis:'A reported account of why attention has become harder to hold, built from interviews rather than self-help advice.',
+   reasons:['You rated Deep Work 5 stars.','Attention is your most used note tag — 14 notes.','It answers the question your notes keep circling: why is focus getting harder?']},
+  {title:'The Psychology of Money', author:'Morgan Housel', last:'Housel', bg:'#B8956A', fg:'#1F1B16', tag:'Popular in your genres',
+   meta:'Finance · 252 pages', why:'Short chapters, the way you read on weekdays.',
+   synopsis:'Nineteen short essays on how people actually behave with money, as opposed to how the spreadsheets say they should.',
+   reasons:['Your average weekday session is 28 minutes — these chapters run about that.','You finished Atomic Habits and rated it 4 stars.','Behaviour, not markets — the register you already read in.']}
+];
+const GEMS = [
+  {title:'The Living Mountain', author:'Nan Shepherd', last:'Shepherd', bg:'#2E3A2C', fg:'#E9E4D8', tag:'Hidden gem',
+   meta:'Nature writing · 108 pages', why:'A short walk with a long memory.',
+   synopsis:'A slim account of the Cairngorms written in the 1940s and unpublished for thirty years — walking as a way of knowing a place.',
+   reasons:['Under 120 pages — fits the weekend slot you picked.','Shares its subject with The Overstory.','Rated 4.5 by readers, held by very few libraries.']},
+  {title:'Four Thousand Weeks', author:'Oliver Burkeman', last:'Burkeman', bg:'#3A2E3A', fg:'#EDE3D4', tag:'Hidden gem',
+   meta:'Philosophy · 288 pages', why:'The argument against your productivity shelf.',
+   synopsis:'A case that time management fails because it assumes a life long enough to get everything done, and a calmer set of conclusions from admitting it is not.',
+   reasons:['It contradicts three books you rated highly — worth the argument.','Philosophy is your least-read genre this year.','Your notes on systems would have something to push against.']},
+  {title:'An Immense World', author:'Ed Yong', last:'Yong', bg:'#C9C7C2', fg:'#1F1B16', tag:'Hidden gem',
+   meta:'Science · 449 pages', why:'What other animals notice that we cannot.',
+   synopsis:'A survey of animal senses — magnetic fields, electric currents, surface vibrations — and what the world looks like from inside them.',
+   reasons:['Perception is the thread running through your last four books.','You read long non-fiction over long weekends.','Won the Pulitzer for general non-fiction, 2023.']}
+];
+const CONCEPTS = [
+  {title:'Attention as a moral act', count:'3 books · 9 notes',
+   summary:'You keep marking the same claim: what you choose to notice sets the ceiling on what you can understand.',
+   books:['Deep Work','The Overstory','Stolen Focus'],
+   chain:'3 books → 9 notes → 1 concept',
+   links:[
+     {book:'Deep Work', note:'Concentration is a skill that decays without protection.', kind:'Highlight · page 74'},
+     {book:'The Overstory', note:'Patricia notices what her field is not equipped to hear.', kind:'Note · page 218'},
+     {book:'Stolen Focus', note:'Saved from a recommendation — not yet read.', kind:'In your TBR'}
+   ]},
+  {title:'Environment over willpower', count:'2 books · 6 notes',
+   summary:'Both books you finished this spring argue that changing the room beats trying harder in it.',
+   books:['Atomic Habits','Deep Work'],
+   chain:'2 books → 6 notes → 1 concept',
+   links:[
+     {book:'Atomic Habits', note:'Make the cue obvious, make the friction high for what you want less of.', kind:'Note · page 82'},
+     {book:'Deep Work', note:'Rituals and location do the work motivation cannot.', kind:'Highlight · page 118'}
+   ]},
+  {title:'Deep time',  count:'2 books · 4 notes',
+   summary:'A recurring discomfort in your notes: the important processes are slower than a human life.',
+   books:['The Overstory','Sapiens'],
+   chain:'2 books → 4 notes → 1 concept',
+   links:[
+     {book:'The Overstory', note:'A forest is a single slow body, and we are its interruption.', kind:'Note · page 171'},
+     {book:'Sapiens', note:'Agricultural time versus foraging time — the trade you cannot see from inside it.', kind:'Highlight · page 96'}
+   ]}
+];
+const ASK_ANSWERS = {
+  'What have I learned about productivity?': {
+    text: 'Across six books your notes converge on one claim and reject another. The claim you keep: behaviour follows environment and identity. The one you keep arguing with: that motivation is the lever. Your highest-rated books are the ones about systems.',
+    sources: [
+      {book:'Atomic Habits', line:'Small habits compound — you marked this twice.'},
+      {book:'Deep Work', line:'Rituals over willpower, page 118.'},
+      {book:'Four Thousand Weeks', line:'Saved as a counter-argument, not yet read.'}
+    ]},
+  'Which ideas appear in more than one book?': {
+    text: 'Three concepts recur: attention as a moral act (3 books), environment over willpower (2 books), and deep time (2 books). Attention is the one that has grown every month since March.',
+    sources: [
+      {book:'The Overstory', line:'Nine notes tagged attention.'},
+      {book:'Deep Work', line:'Six highlights on the same theme.'}
+    ]},
+  'Which concepts do I disagree with?': {
+    text: 'You rate motivation-first books almost a full star lower than systems-first books, and your notes on them are shorter. Two highlights explicitly push back on the idea that discipline is a character trait.',
+    sources: [
+      {book:'Atomic Habits', line:'"Identity, not discipline" — your own note.'},
+      {book:'Normal People', line:'A counterexample you flagged about circumstance.'}
+    ]}
+};
+const QUIZZES = {
+  'The Overstory': [
+    {q:"Patricia Westerford's early findings were rejected mainly because —",
+     opts:['Her sample was too small','No accepted mechanism existed for trees signalling each other','She published outside a journal'], a:1,
+     why:'The science was not wrong so much as unhearable: without a mechanism, the claim had nowhere to sit.'},
+    {q:'What structural device organises the novel?',
+     opts:['A single continuous narrator','Nine separate lives that converge','Alternating letters'], a:1,
+     why:'Nine strangers are introduced separately, then braided together as the forest becomes the common subject.'},
+    {q:'The book keeps setting human timescales against —',
+     opts:['Geological time','The lifespan of trees','Legal deadlines'], a:1,
+     why:'Trees live long enough to make human urgency look like weather. That gap is the argument.'}
+  ]
+};
+const CARDS = {
+  'The Overstory': [
+    {q:'What does the novel mean by a forest being one body?', a:'Trees exchange signals, nutrients and warnings, so the useful unit of study is the forest, not the individual tree.'},
+    {q:'Why is Patricia exiled from her field?', a:'She publishes a claim her discipline has no mechanism for, and consensus reads absence of mechanism as absence of evidence.'},
+    {q:'What is the cost of noticing, in this book?', a:'Every character who sees the forest clearly loses standing, work, or freedom for it.'}
+  ]
+};
+function greetFor(b, page) {
+  return page > 0
+    ? `I've read along with you to page ${page} of ${b.title}. Ask me about a chapter, a character, or an idea you want to keep.`
+    : `You haven't started ${b.title} yet. Ask me what to expect, or what it connects to in your library.`;
+}
+
+class Component extends DCLogic {
+  state = {
+    screen: 'welcome', prev: 'home', tab: 'overview', libTab: 'All',
+    goal: 36, genres: ['Literary Fiction','Nature Writing','Psychology'],
+    sel: 'The Overstory',
+    progress: {'The Overstory':218, 'Piranesi':96, 'Sapiens':270, 'Atomic Habits':320, 'Deep Work':296, 'Normal People':266, 'Klara and the Sun':0, 'Thinking, Fast and Slow':0},
+    draftPage: 218, sheet: null, toast: '',
+    secs: 754, running: false, tbr: [],
+    noteText: '', noteTags: ['Attention'],
+    chats: {},
+    thinking: false,
+    plus: false, aiUsed: 3, plan: 'annual', sync: 'offline', concept: 0, rec: null, recSource: 'discover',
+    moods: ['Thought-provoking'], time: '1 hour',
+    quizI: 0, quizPick: null, quizScore: 0, quizDone: false,
+    cardI: 0, cardBack: false, mastery: 34,
+    askThread: [], askThinking: false,
+    rating: 0, review: '', finishMoods: [],
+    hlText: '', hlNote: '',
+    highlights: [
+      {book:'The Overstory', page:96, date:'Aug 9', text:'A forest keeps its accounts in centuries, and settles them without us.', note:'The sentence the whole book turns on.'}
+    ],
+    notifs: {daily:true, streak:true, goal:false, insight:true},
+    reminderTime: '21:00', reminderDays: ['M','T','W','T','F'],
+    notes: [
+      {book:'The Overstory', page:218, date:'Aug 14', text:'Patricia keeps being right too early. The book treats that as a cost, not a triumph.', tags:['Attention','Important']},
+      {book:'The Overstory', page:171, date:'Aug 11', text:'Nine strangers, one argument: a forest is a single slow body, and we are its interruption.', tags:['Structure']}
+    ]
+  };
+
+  componentWillUnmount() { clearInterval(this._t); }
+
+  go(screen) { this.setState(s => ({ screen, prev: s.screen === screen ? s.prev : s.screen, sheet: null })); }
+  flash(text) { this.setState({ toast: text }); clearTimeout(this._to); this._to = setTimeout(() => this.setState({ toast: '' }), 2400); }
+
+  tick() {
+    clearInterval(this._t);
+    this._t = setInterval(() => this.setState(s => ({ secs: s.secs + 1 })), 1000);
+  }
+
+  thread(s, title) {
+    const b = BY_TITLE[title] || SHELF[0];
+    return s.chats[title] || [{ who: 'ai', text: greetFor(b, s.progress[title] || 0), concepts: null }];
+  }
+
+  push(title, msgs) {
+    this.setState(s => {
+      const chats = Object.assign({}, s.chats);
+      chats[title] = this.thread(s, title).concat(msgs);
+      return { chats };
+    });
+  }
+
+  ask(label) {
+    const title = this.state.sel;
+    if (!this.state.plus && this.state.aiUsed >= 5) {
+      this.setState(s => ({ screen: 'paywall', prev: s.screen === 'paywall' ? 'ai' : s.screen, sheet: null }));
+      return;
+    }
+    this.setState(s => ({ aiUsed: s.aiUsed + 1 }));
+    const a = answerFor(BY_TITLE[title] || SHELF[0], label);
+    this.push(title, [{ who: 'me', text: label, concepts: null }]);
+    this.setState({ thinking: true, screen: 'ai' });
+    clearTimeout(this._ai);
+    this._ai = setTimeout(() => {
+      this.push(title, [{ who: 'ai', text: a.text, concepts: a.concepts }]);
+      this.setState({ thinking: false });
+    }, 1300);
+  }
+
+  gated(screen) {
+    if (this.state.plus) { this.go(screen); return; }
+    this.setState(s => ({ screen: 'paywall', prev: s.screen, sheet: null }));
+  }
+
+  askLib(label) {
+    const a = ASK_ANSWERS[label] || ASK_ANSWERS['What have I learned about productivity?'];
+    this.setState(s => ({ askThread: s.askThread.concat([{ who: 'me', text: label }]), askThinking: true }));
+    clearTimeout(this._al);
+    this._al = setTimeout(() => this.setState(s => ({
+      askThinking: false,
+      askThread: s.askThread.concat([{ who: 'ai', text: a.text, sources: a.sources }])
+    })), 1400);
+  }
+
+  renderVals() {
+    const s = this.state, pages = 502;
+    const cur = BY_TITLE[s.sel] || SHELF[0];
+    const selPage = s.progress[s.sel] || 0;
+    const selPct = Math.round((selPage / cur.pages) * 100);
+    const homePage = s.progress['The Overstory'] || 0;
+    const pct = Math.round((homePage / pages) * 100);
+    const goalMin = Math.min(30, Math.floor(s.secs / 60));
+    const ring = (frac, r) => `${(2 * Math.PI * r * Math.min(1, frac)).toFixed(1)} ${(2 * Math.PI * r).toFixed(1)}`;
+    const mm = String(Math.floor(s.secs / 60)).padStart(2, '0'), ss = String(s.secs % 60).padStart(2, '0');
+    const chip = on => on
+      ? { bg: 'var(--rd-ink)', fg: 'var(--rd-bg)', border: 'var(--rd-ink)' }
+      : { bg: 'none', fg: 'var(--rd-ink2)', border: 'var(--rd-hair)' };
+    const navC = k => s.screen === k ? 'var(--rd-gold)' : 'var(--rd-ink3)';
+    const quiz = QUIZZES[s.sel] || QUIZZES['The Overstory'];
+    const q = quiz[Math.min(s.quizI, quiz.length - 1)];
+    const cards = CARDS[s.sel] || CARDS['The Overstory'];
+    const card = cards[s.cardI % cards.length];
+    const shelf = s.libTab === 'All' ? SHELF : SHELF.filter(b => b.status.toLowerCase().startsWith(s.libTab.toLowerCase().slice(0, 6)));
+
+    return {
+      dark: !!this.props.dark,
+      isWelcome: s.screen === 'welcome', isGoal: s.screen === 'goal', isGenres: s.screen === 'genres',
+      isHome: s.screen === 'home', isLibrary: s.screen === 'library', isBook: s.screen === 'book',
+      isSession: s.screen === 'session', isAI: s.screen === 'ai', isScan: s.screen === 'scan',
+      isSoon: s.screen === 'manual',
+      soonTitle: 'Manual entry',
+      isDiscover: s.screen === 'discover', isRec: s.screen === 'rec', isProfile: s.screen === 'profile',
+      isGoals: s.screen === 'goals', isStats: s.screen === 'stats', isAchievements: s.screen === 'badges',
+      isKnowledge: s.screen === 'knowledge', isConcept: s.screen === 'concept', isAsk: s.screen === 'ask',
+      isQuiz: s.screen === 'quiz', isCards: s.screen === 'cards', isSummary: s.screen === 'summary',
+      isPaywall: s.screen === 'paywall', isSettings: s.screen === 'settings', isNotifs: s.screen === 'notifs',
+      showNav: ['home','library','book','ai','discover','rec','profile','goals','stats','badges','knowledge','concept','settings'].indexOf(s.screen) >= 0,
+      offline: true,
+
+      goGoal: () => this.go('goal'), goGenres: () => this.go('genres'), goHome: () => this.go('home'),
+      goLibrary: () => this.go('library'), goAI: () => this.go('ai'), goProfile: () => this.go('profile'),
+      goBack: () => this.go(s.prev === 'book' ? 'home' : s.prev),
+      openBook: () => this.setState({ sel: 'The Overstory', screen: 'book', prev: 'home', tab: 'overview' }),
+      navHome: () => this.go('home'), navLibrary: () => this.go('library'),
+      navDiscover: () => this.go('discover'), navAI: () => this.go('ai'), navProfile: () => this.go('profile'),
+      navC1: navC('home'), navC2: navC('library'), navC3: navC('discover'),
+      navC4: navC('ai'), navC5: navC('profile'),
+
+      goalOptions: [12, 24, 36, 52, 100, '···'].map(n => {
+        const on = s.goal === n;
+        return { label: String(n), bg: on ? 'var(--rd-ink)' : 'var(--rd-surface)', fg: on ? 'var(--rd-bg)' : 'var(--rd-ink)',
+          border: on ? 'var(--rd-ink)' : 'var(--rd-hair)', pick: () => typeof n === 'number' && this.setState({ goal: n }) };
+      }),
+      goalCaption: `That's about ${(s.goal / 12).toFixed(s.goal % 12 ? 1 : 0)} books a month.`,
+      genreCaption: `${s.genres.length} selected — pick as many as you like.`,
+      genres: GENRES.map(name => {
+        const on = s.genres.indexOf(name) >= 0, c = chip(on);
+        return { name, bg: c.bg, fg: c.fg, border: on ? 'var(--rd-ink)' : 'var(--rd-hair)',
+          toggle: () => this.setState(st => ({ genres: on ? st.genres.filter(g => g !== name) : st.genres.concat([name]) })) };
+      }),
+
+      pct, pctLabel: pct + '%', pageLabel: `${homePage} / ${pages} pages`,
+      bookPct: selPct, bookPctLabel: selPct + '%', bookPageLabel: `${selPage} / ${cur.pages} pages`,
+      draftPctLabel: Math.round((s.draftPage / cur.pages) * 100) + '%', selPages: cur.pages,
+      aiHint: cur.aiHint,
+      goalMin, goalDash: ring(goalMin / 30, 30),
+      week: ['M','T','W','T','F','S','S'].map((label, i) => ({
+        label, dot: i < 5 ? 'var(--rd-gold)' : 'transparent', ring: i < 5 ? 'var(--rd-gold)' : 'var(--rd-hair)'
+      })),
+      recs: RECS.map(r => {
+        const on = s.tbr.indexOf(r.title) >= 0;
+        return Object.assign({}, r, {
+          btnLabel: on ? 'In your TBR' : 'Add to TBR',
+          btnBg: on ? 'var(--rd-surface2)' : 'none',
+          btnFg: on ? 'var(--rd-ink)' : 'var(--rd-ink2)',
+          btnBorder: on ? 'var(--rd-surface2)' : 'var(--rd-hair)',
+          add: () => { if (!on) { this.setState(st => ({ tbr: st.tbr.concat([r.title]) })); this.flash(`${r.title} added to your TBR.`); } }
+        });
+      }),
+
+      libCount: SHELF.length + s.tbr.length + 119,
+      libTabs: ['All','Reading','Want to read','Finished'].map(label => {
+        const on = s.libTab === label, c = chip(on);
+        return { label, bg: c.bg, fg: c.fg, border: on ? 'var(--rd-ink)' : 'var(--rd-hair)', pick: () => this.setState({ libTab: label }) };
+      }),
+      shelf: shelf.map(b => Object.assign({}, b, {
+        statusColor: b.status.indexOf('Reading') === 0 ? 'var(--rd-gold)' : b.status === 'Finished' ? 'var(--rd-success)' : 'var(--rd-ink3)',
+        open: () => this.setState({ sel: b.title, screen: 'book', prev: 'library', tab: 'overview' })
+      })),
+
+      book: Object.assign({}, cur, { ratingLabel: cur.rating ? cur.rating + '.0' : 'Not rated' }),
+      stars: [0,1,2,3,4].map(i => ({ fill: i < cur.rating ? 'var(--rd-gold)' : 'none' })),
+      bookTags: cur.tags.map(name => ({ name })),
+      tabs: ['Overview','Notes','Highlights','Activity'].map(label => {
+        const on = s.tab === label.toLowerCase();
+        return { label, fg: on ? 'var(--rd-ink)' : 'var(--rd-ink3)', underline: on ? 'var(--rd-gold)' : 'transparent',
+          pick: () => this.setState({ tab: label.toLowerCase() }) };
+      }),
+      tabOverview: s.tab === 'overview', tabNotes: s.tab === 'notes', tabActivity: s.tab === 'activity',
+      tabHighlights: s.tab === 'highlights',
+      noHighlights: s.highlights.filter(h => h.book === s.sel).length === 0,
+      highlights: s.highlights.filter(h => h.book === s.sel).map(h => ({
+        page: h.page, date: h.date, text: h.text, note: h.note || 'No note yet.',
+        ask: () => this.ask('Connect this to another book'), card: () => this.gated('cards')
+      })),
+      openHighlight: () => this.setState({ sheet: 'highlight', draftPage: selPage, hlText: '', hlNote: '' }),
+      openFinish: () => this.setState({ sheet: 'finish', rating: cur.rating || 0, review: '' }),
+      bookTools: [
+        { label: 'Quiz me', sub: 'Ten questions from this book', tag: 'Plus', tagColor: 'var(--rd-gold)', go: () => this.gated('quiz') },
+        { label: 'Flashcards', sub: 'Drill the ideas you kept', tag: 'Plus', tagColor: 'var(--rd-gold)', go: () => this.gated('cards') },
+        { label: 'Turn into actions', sub: 'Three things to try this week', tag: 'Plus', tagColor: 'var(--rd-gold)', go: () => this.gated('ai') },
+        { label: 'Compare books', sub: 'Against Deep Work', tag: 'Plus', tagColor: 'var(--rd-gold)', go: () => this.gated('ai') }
+      ],
+      noNotes: s.notes.filter(n => n.book === s.sel).length === 0,
+      notes: s.notes.filter(n => n.book === s.sel).map(n => ({ page: n.page, date: n.date, text: n.text,
+        tags: n.tags.map(name => ({ name })), ask: () => this.ask('Connect this to another book') })),
+      activity: cur.started === '—'
+        ? [{date:'Today', what:'Added to your library', detail:'Not started yet'}]
+        : [
+          {date:'Aug 14', what:'Read 34 pages', detail:'52 minutes · evening'},
+          {date:'Aug 14', what:'Added a note', detail:'Page ' + selPage},
+          {date:'Aug 12', what:'Read 21 pages', detail:'28 minutes · morning'},
+          {date:cur.started, what:'Started reading', detail:'Marked as currently reading'}
+        ],
+
+      clock: `${mm}:${ss}`, sessionDash: ring(s.secs / 1800, 104),
+      timerLabel: s.running ? 'Pause session' : 'Resume session',
+      startSession: () => { this.setState(st => ({ screen: 'session', prev: st.screen === 'book' ? 'book' : 'home', sel: st.screen === 'book' ? st.sel : 'The Overstory', running: true, sheet: null })); this.tick(); },
+      toggleTimer: () => {
+        if (s.running) { clearInterval(this._t); this.setState({ running: false }); }
+        else { this.setState({ running: true }); this.tick(); }
+      },
+      endSession: () => { clearInterval(this._t); this.setState({ running: false }); this.go('summary'); },
+
+      chat: this.thread(s, s.sel).map(m => m.who === 'me'
+        ? { text: m.text, align: 'flex-end', width: '82%', bg: 'var(--rd-ink)', fg: 'var(--rd-bg)',
+            border: 'var(--rd-ink)', radius: '14px 14px 4px 14px', hasConcepts: false, concepts: [], save: () => {} }
+        : { text: m.text, align: 'flex-start', width: '92%', bg: 'var(--rd-surface)', fg: 'var(--rd-ink)',
+            border: 'var(--rd-hair)', radius: '14px 14px 14px 4px', hasConcepts: !!m.concepts,
+            concepts: (m.concepts || []).map(name => ({ name })),
+            save: () => { this.setState(st => ({ notes: [{ book: st.sel, page: st.progress[st.sel] || 0, date: 'Today', text: m.text, tags: ['From AI'] }].concat(st.notes) })); this.flash('Saved to your notes.'); } }),
+      thinking: s.thinking,
+      prompts: promptsFor(cur).map(label => ({ label, ask: () => this.ask(label) })),
+      askDefault: () => this.ask('What are the key ideas?'),
+
+      sheetOpen: !!s.sheet, sheetAdd: s.sheet === 'add', sheetProgress: s.sheet === 'progress', sheetNote: s.sheet === 'note',
+      openAdd: () => this.setState({ sheet: 'add' }),
+      openProgress: () => this.setState({ sheet: 'progress', draftPage: selPage }),
+      openNote: () => this.setState({ sheet: 'note', draftPage: selPage, noteText: '' }),
+      closeSheet: () => this.setState({ sheet: null }),
+      addOptions: [
+        { title: 'Search', sub: 'Title, author or ISBN', isSearch: true, go: () => this.setState({ sheet: null, screen: 'manual' }) },
+        { title: 'Scan ISBN', sub: 'Point at the barcode', isScan: true, go: () => {
+            this.setState({ sheet: null, screen: 'scan' });
+            clearTimeout(this._sc);
+            this._sc = setTimeout(() => { this.setState({ sel: 'Klara and the Sun', screen: 'book', prev: 'library', tab: 'overview' }); this.flash('Klara and the Sun found — added to your library.'); }, 2200);
+          } },
+        { title: 'Enter manually', sub: 'For books we cannot find', isManual: true, go: () => this.setState({ sheet: null, screen: 'manual' }) }
+      ],
+      scanStatus: 'Looking for a barcode…',
+
+      draftPage: s.draftPage,
+      setPage: e => this.setState({ draftPage: Number(e.target.value) }),
+      minusPage: () => this.setState(st => ({ draftPage: Math.max(0, st.draftPage - 1) })),
+      plusPage: () => this.setState(st => ({ draftPage: Math.min(cur.pages, st.draftPage + 1) })),
+      saveProgress: () => {
+        this.setState(st => {
+          const p = Object.assign({}, st.progress); p[st.sel] = st.draftPage;
+          return { progress: p, sheet: null };
+        });
+        this.flash('Progress saved. Changes sync when you are back online.');
+      },
+
+      setNoteText: e => this.setState({ noteText: e.target.value }),
+      noteTags: ['Attention','Structure','Important','Revisit'].map(name => {
+        const on = s.noteTags.indexOf(name) >= 0, c = chip(on);
+        return { name, bg: c.bg, fg: c.fg, border: on ? 'var(--rd-ink)' : 'var(--rd-hair)',
+          toggle: () => this.setState(st => ({ noteTags: on ? st.noteTags.filter(t => t !== name) : st.noteTags.concat([name]) })) };
+      }),
+      saveNote: () => {
+        const text = s.noteText.trim() || 'A page worth returning to.';
+        this.setState(st => ({ notes: [{ book: st.sel, page: st.draftPage, date: 'Today', text, tags: st.noteTags.slice() }].concat(st.notes), sheet: null, tab: 'notes', screen: 'book' }));
+        this.flash('Note saved. Your notes are becoming knowledge.');
+      },
+
+      aiTools: ['Quiz me','Flashcards','My Knowledge','Ask my library'].map(label => ({
+        label, border: 'var(--rd-ai)', ink: 'var(--rd-ai)',
+        go: () => label === 'Quiz me' ? this.gated('quiz')
+          : label === 'Flashcards' ? this.gated('cards')
+          : label === 'My Knowledge' ? this.gated('knowledge') : this.gated('ask')
+      })),
+      usagePct: s.plus ? Math.round((s.aiUsed / 300) * 100) : Math.min(100, (s.aiUsed / 5) * 100),
+      usageLabel: s.plus ? `${s.aiUsed} of 300 this month` : `${s.aiUsed} of 5 free questions`,
+
+      moods: ['Motivating','Thought-provoking','Relaxing','Fast-paced','Dark','Funny'].map(name => {
+        const on = s.moods.indexOf(name) >= 0, c = chip(on);
+        return { name, bg: c.bg, fg: c.fg, border: on ? 'var(--rd-ink)' : 'var(--rd-hair)',
+          toggle: () => this.setState(st => ({ moods: on ? st.moods.filter(m => m !== name) : st.moods.concat([name]) })) };
+      }),
+      times: ['15 min','30 min','1 hour','Weekend'].map(name => {
+        const on = s.time === name, c = chip(on);
+        return { name, bg: c.bg, fg: c.fg, border: on ? 'var(--rd-ink)' : 'var(--rd-hair)', pick: () => this.setState({ time: name }) };
+      }),
+      pickNext: () => {
+        const inTbr = DISCOVER.findIndex(r => s.tbr.indexOf(r.title) >= 0);
+        const i = inTbr >= 0 ? inTbr : 0;
+        this.setState({ rec: i, recSource: 'discover', screen: 'rec' });
+        this.flash(inTbr >= 0
+          ? 'From your TBR — fits ' + s.time.toLowerCase() + '.'
+          : 'Matched to your mood and ' + s.time.toLowerCase() + '.');
+      },
+      discoverRecs: DISCOVER.map((r, i) => Object.assign({}, r, { open: () => this.setState({ rec: i, recSource: 'discover', screen: 'rec' }) })),
+      gems: GEMS.map((g, i) => Object.assign({}, g, { open: () => this.setState({ rec: i, recSource: 'gems', screen: 'rec' }) })),
+      goDiscover: () => this.go('discover'),
+      rec: (() => {
+        const list = s.recSource === 'gems' ? GEMS : DISCOVER;
+        const r = list[s.rec == null ? 0 : s.rec];
+        const on = s.tbr.indexOf(r.title) >= 0;
+        return Object.assign({}, r, {
+          reasons: r.reasons.map(text => ({ text })),
+          btnLabel: on ? 'In your TBR' : 'Add to TBR',
+          add: () => { if (!on) { this.setState(st => ({ tbr: st.tbr.concat([r.title]) })); this.flash(r.title + ' added to your TBR.'); } }
+        });
+      })(),
+
+      planLabel: s.plus ? 'Readora Plus · annual' : 'Free plan',
+      plusTag: s.plus ? 'Open' : 'Plus',
+      profileStats: [
+        { value: '12', label: 'Day streak' }, { value: '24', label: 'Books this year' }, { value: '3,420', label: 'Pages' }
+      ],
+      profileRows: [
+        { label: 'Reading goals', hint: '24 / ' + s.goal, hintColor: 'var(--rd-ink3)', go: () => this.go('goals') },
+        { label: 'Statistics', hint: '2026', hintColor: 'var(--rd-ink3)', go: () => this.go('stats') },
+        { label: 'My shelves', hint: '6', hintColor: 'var(--rd-ink3)', go: () => this.go('library') },
+        { label: 'My notes', hint: String(s.notes.length + 212), hintColor: 'var(--rd-ink3)', go: () => this.setState({ screen: 'book', tab: 'notes', prev: 'profile' }) },
+        { label: 'My highlights', hint: String(s.highlights.length + 67), hintColor: 'var(--rd-ink3)', go: () => this.setState({ screen: 'book', tab: 'highlights', prev: 'profile' }) },
+        { label: 'My Knowledge', hint: s.plus ? '3 concepts' : 'Plus', hintColor: s.plus ? 'var(--rd-ink3)' : 'var(--rd-gold)', go: () => this.gated('knowledge') },
+        { label: 'Achievements', hint: '7 of 12', hintColor: 'var(--rd-ink3)', go: () => this.go('badges') },
+        { label: 'Subscription', hint: s.plus ? 'Plus' : 'Free', hintColor: s.plus ? 'var(--rd-gold)' : 'var(--rd-ink3)', go: () => this.setState({ screen: 'paywall', prev: 'profile' }) },
+        { label: 'Settings', hint: '', hintColor: 'var(--rd-ink3)', go: () => this.go('settings') }
+      ],
+
+      booksRead: 24, goalCount: s.goal, annualDash: ring(24 / s.goal, 88),
+      goalPace: 24 >= s.goal ? 'Goal met. The rest is for pleasure.' : `Two ahead of pace — ${s.goal - 24} to go.`,
+      goalRows: [
+        { label: 'This month', value: '3 of 5 books', pct: 60, color: 'var(--rd-gold)' },
+        { label: 'Pages this year', value: '3,420 of 6,000', pct: 57, color: 'var(--rd-gold)' },
+        { label: 'Minutes today', value: `${goalMin} of 30`, pct: Math.round((goalMin / 30) * 100), color: 'var(--rd-success)' },
+        { label: 'Streak', value: '12 of 30 days', pct: 40, color: 'var(--rd-success)' }
+      ],
+      goalTypes: ['Books a year','Pages a month','Minutes a day','Streak','Genre challenge'].map(name => ({
+        name, add: () => this.flash(name + ' goal added.')
+      })),
+
+      statCards: [
+        { value: '24', label: 'Books read' }, { value: '3,420', label: 'Pages read' },
+        { value: '42h 18m', label: 'Reading time' }, { value: '4.2', label: 'Average rating' }
+      ],
+      months: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'].map((label, i) => {
+        const v = [3,2,4,3,1,4,4,3][i];
+        return { label, h: 18 + v * 22, color: i === 7 ? 'var(--rd-gold)' : 'var(--rd-surface2)' };
+      }),
+      genreBars: [
+        { name: 'Literary fiction', share: '34%', pct: 34 }, { name: 'Psychology', share: '26%', pct: 26 },
+        { name: 'Nature writing', share: '22%', pct: 22 }, { name: 'History', share: '18%', pct: 18 }
+      ],
+      habitRows: [
+        { label: 'Average session', value: '28 min' }, { label: 'Most active day', value: 'Sunday' },
+        { label: 'Most active time', value: '21:00' }, { label: 'Reading speed', value: '32 pages/hour' },
+        { label: '2025 vs 2026', value: '19 → 24' }, { label: 'Did not finish', value: '2 books' }
+      ],
+      goAskLibrary: () => this.gated('ask'),
+
+      badges: [
+        ['First book', true], ['7-day streak', true], ['10 books', true], ['25 books', false],
+        ['1,000 pages', true], ['Genre explorer', true], ['Night reader', true], ['Early bird', false],
+        ['Goal crusher', false]
+      ].map(b => ({
+        name: b[0], mark: b[0].slice(0, 1), opacity: b[1] ? 1 : 0.38,
+        ring: b[1] ? 'var(--rd-gold)' : 'var(--rd-hair)', ink: b[1] ? 'var(--rd-ink)' : 'var(--rd-ink3)'
+      })),
+
+      knowledgeLede: 'Recurring ideas, pulled out of your own notes and highlights.',
+      concepts: CONCEPTS.map((c, i) => Object.assign({}, c, {
+        books: c.books.map(name => ({ name })),
+        open: () => this.setState({ concept: i, screen: 'concept', prev: 'knowledge' })
+      })),
+      goKnowledge: () => this.go('knowledge'),
+      concept: (() => {
+        const c = CONCEPTS[s.concept] || CONCEPTS[0];
+        return Object.assign({}, c, { links: c.links.slice() });
+      })(),
+      goFlashcards: () => this.gated('cards'),
+      goSettings: () => this.go('settings'),
+
+      askThread: (s.askThread.length ? s.askThread : [{ who: 'ai', text: 'Ask anything and I will answer from your own library — your books, notes and highlights only.' }])
+        .map(m => m.who === 'me'
+          ? { text: m.text, align: 'flex-end', width: '84%', bg: 'var(--rd-ink)', fg: 'var(--rd-bg)', border: 'var(--rd-ink)',
+              radius: '14px 14px 4px 14px', hasSources: false, sources: [] }
+          : { text: m.text, align: 'flex-start', width: '94%', bg: 'var(--rd-surface)', fg: 'var(--rd-ink)', border: 'var(--rd-hair)',
+              radius: '14px 14px 14px 4px', hasSources: !!m.sources, sources: m.sources || [] }),
+      askThinking: s.askThinking,
+      askPrompts: Object.keys(ASK_ANSWERS).map(label => ({ label, ask: () => this.askLib(label) })),
+
+      quizStep: s.quizDone ? 'Quiz complete' : `Question ${s.quizI + 1} of ${quiz.length}`,
+      quizPct: s.quizDone ? 100 : Math.round((s.quizI / quiz.length) * 100),
+      quizRunning: !s.quizDone, quizDone: s.quizDone,
+      quizQuestion: q.q,
+      quizOptions: q.opts.map((label, i) => {
+        const picked = s.quizPick === i, right = i === q.a, done = s.quizPick != null;
+        return { label,
+          bg: done && right ? 'rgba(90,107,63,.12)' : picked ? 'var(--rd-surface2)' : 'var(--rd-surface)',
+          fg: 'var(--rd-ink)',
+          border: done && right ? 'var(--rd-success)' : picked ? 'var(--rd-ink)' : 'var(--rd-hair)',
+          pick: () => { if (s.quizPick == null) this.setState({ quizPick: i, quizScore: s.quizScore + (right ? 1 : 0) }); } };
+      }),
+      quizAnswered: s.quizPick != null,
+      quizVerdict: s.quizPick === q.a ? 'Correct' : 'Not quite',
+      quizVerdictColor: s.quizPick === q.a ? 'var(--rd-success)' : 'var(--rd-gold)',
+      quizExplain: q.why,
+      quizNextLabel: s.quizI + 1 >= quiz.length ? 'See your score' : 'Next question',
+      quizNext: () => {
+        if (s.quizI + 1 >= quiz.length) this.setState({ quizDone: true, quizPick: null });
+        else this.setState({ quizI: s.quizI + 1, quizPick: null });
+      },
+      quizScore: Math.round((s.quizScore / quiz.length) * 100) + '%',
+      quizVerdictLine: s.quizScore === quiz.length ? 'You have this book. Try the flashcards for the details.'
+        : s.quizScore === 0 ? 'Worth another chapter before the next round.'
+        : 'Solid on the argument, looser on the detail.',
+      quizRestart: () => this.setState({ quizI: 0, quizPick: null, quizScore: 0, quizDone: false }),
+
+      cardStep: `Card ${Math.min(s.cardI + 1, cards.length)} of ${cards.length}`,
+      cardFace: s.cardBack ? 'Answer' : 'Question',
+      cardText: s.cardBack ? card.a : card.q,
+      cardHint: s.cardBack ? 'How well did you know it?' : 'Tap to reveal',
+      flipCard: () => this.setState({ cardBack: !s.cardBack }),
+      cardGrades: ['Easy','Medium','Hard'].map((label, i) => ({
+        label, grade: () => this.setState(st => ({
+          cardI: (st.cardI + 1) % cards.length, cardBack: false,
+          mastery: Math.max(5, Math.min(100, st.mastery + [9, 4, -3][i]))
+        }))
+      })),
+      mastery: s.mastery, masteryLabel: s.mastery + '%',
+
+      sumMinutes: Math.max(1, Math.floor(s.secs / 60)),
+      sumRows: [
+        { label: 'Pages read', value: '18' }, { label: 'Reading speed', value: '32 pages/hour' },
+        { label: 'Book', value: cur.title }, { label: 'Streak', value: '12 days' }
+      ],
+      sumLine: 'Your streak holds. Same time tomorrow?',
+
+      plusBenefits: ['AI Book Companion, without a monthly cap','Personal Knowledge and cross-book connections','Ask my library','AI quizzes and flashcards','Practical actions from any book','Advanced statistics and reading insights','Reading Wrapped and share cards','Cloud sync across devices']
+        .map(name => ({ name })),
+      plans: [
+        { key: 'monthly', name: 'Monthly', note: 'Cancel any time', price: '₹249', badge: '' },
+        { key: 'annual', name: 'Annual', note: '₹166 a month, billed yearly', price: '₹1,999', badge: 'Best value' },
+        { key: 'life', name: 'Lifetime', note: 'One payment', price: '₹5,999', badge: '' }
+      ].map(p => {
+        const on = (s.plan || 'annual') === p.key;
+        return Object.assign({}, p, {
+          bg: on ? 'var(--rd-surface)' : 'none', border: on ? 'var(--rd-ink)' : 'var(--rd-hair)',
+          dot: on ? 'var(--rd-ink)' : 'none', dotRing: on ? 'var(--rd-ink)' : 'var(--rd-hair)',
+          pick: () => this.setState({ plan: p.key })
+        });
+      }),
+      startTrial: () => { this.setState(st => ({ plus: true, screen: st.prev === 'paywall' ? 'profile' : st.prev })); this.flash('Trial started. Seven days, then ₹1,999 a year.'); },
+      closePaywall: () => this.setState(st => ({ screen: st.prev === 'paywall' ? 'profile' : st.prev })),
+
+      syncLabel: s.sync === 'synced' ? 'Synced' : s.sync === 'syncing' ? 'Syncing' : s.sync === 'failed' ? 'Sync failed' : 'Offline',
+      syncNote: s.sync === 'synced' ? 'Everything is up to date.' : s.sync === 'syncing' ? 'Sending 4 changes.' : s.sync === 'failed' ? 'We will try again shortly. Nothing is lost.' : 'Changes are saved here and sync when you are back online.',
+      syncColor: s.sync === 'synced' ? 'var(--rd-success)' : s.sync === 'failed' ? '#8B2E2E' : 'var(--rd-gold)',
+      cycleSync: () => this.setState(st => ({ sync: { offline: 'syncing', syncing: 'synced', synced: 'failed', failed: 'offline' }[st.sync] })),
+      settingRows: [
+        { label: 'Account', hint: 'aman@readora.app', ink: 'var(--rd-ink)', go: () => this.flash('Account settings.') },
+        { label: 'Reading preferences', hint: 'Pages', ink: 'var(--rd-ink)', go: () => this.flash('Progress tracked in pages.') },
+        { label: 'Notifications', hint: s.notifs.daily ? 'On' : 'Off', ink: 'var(--rd-ink)', go: () => this.go('notifs') },
+        { label: 'Appearance', hint: this.props.dark ? 'Dark' : 'Light', ink: 'var(--rd-ink)', go: () => this.flash('Follows your system by default.') },
+        { label: 'AI preferences', hint: s.plus ? 'Plus' : 'Free', ink: 'var(--rd-ink)', go: () => this.setState({ screen: 'paywall', prev: 'settings' }) },
+        { label: 'Import from Goodreads', hint: 'CSV', ink: 'var(--rd-ink)', go: () => this.flash('Bring your library with you — CSV import.') },
+        { label: 'Export my data', hint: '', ink: 'var(--rd-ink)', go: () => this.flash('Export queued. We will email the file.') },
+        { label: 'Privacy', hint: '', ink: 'var(--rd-ink)', go: () => this.flash('Your notes stay yours.') },
+        { label: 'Delete account', hint: '', ink: '#8B2E2E', go: () => this.flash('This would ask twice before anything happens.') }
+      ],
+      notifRows: [
+        { key: 'daily', label: 'Daily reading reminder', copy: 'Time for 20 minutes of reading?' },
+        { key: 'streak', label: 'Streak reminder', copy: 'One session away from keeping your 12 days.' },
+        { key: 'goal', label: 'Goal progress', copy: 'Two books from your monthly goal.' },
+        { key: 'insight', label: 'Reading insight', copy: 'Twelve notes about attention. Want to explore them?' }
+      ].map(n => {
+        const on = !!s.notifs[n.key];
+        return { label: n.label, copy: n.copy,
+          track: on ? 'var(--rd-ink)' : 'none', ring: on ? 'var(--rd-ink)' : 'var(--rd-hair)',
+          knob: on ? '21px' : '2px', knobColor: on ? 'var(--rd-bg)' : 'var(--rd-ink3)',
+          toggle: () => this.setState(st => {
+            const nx = Object.assign({}, st.notifs); nx[n.key] = !nx[n.key]; return { notifs: nx };
+          }) };
+      }),
+      reminderTimes: ['07:00','13:00','21:00','23:00'].map(name => {
+        const on = s.reminderTime === name, c = chip(on);
+        return { name, bg: c.bg, fg: c.fg, border: on ? 'var(--rd-ink)' : 'var(--rd-hair)', pick: () => this.setState({ reminderTime: name }) };
+      }),
+      reminderDays: ['M','T','W','T','F','S','S'].map((label, i) => {
+        const on = s.reminderDays.indexOf(label) >= 0 && i < 5, c = chip(on);
+        return { label, bg: c.bg, fg: c.fg, border: on ? 'var(--rd-ink)' : 'var(--rd-hair)',
+          toggle: () => this.setState(st => ({ reminderDays: on ? st.reminderDays.filter((d, j) => j !== i) : st.reminderDays.concat([label]) })) };
+      }),
+
+      sheetHighlight: s.sheet === 'highlight', sheetFinish: s.sheet === 'finish',
+      setHlText: e => this.setState({ hlText: e.target.value }),
+      setHlNote: e => this.setState({ hlNote: e.target.value }),
+      saveHighlight: () => {
+        const text = s.hlText.trim() || 'A line worth keeping.';
+        this.setState(st => ({
+          highlights: [{ book: st.sel, page: st.draftPage, date: 'Today', text, note: st.hlNote.trim() }].concat(st.highlights),
+          sheet: null, tab: 'highlights', screen: 'book'
+        }));
+        this.flash('Highlight kept.');
+      },
+      ratePicker: [1,2,3,4,5].map(n => ({
+        fill: n <= s.rating ? 'var(--rd-gold)' : 'none', pick: () => this.setState({ rating: n })
+      })),
+      finishMoods: ['Moving','Slow','Sharp','Worth rereading'].map(name => {
+        const on = s.finishMoods.indexOf(name) >= 0, c = chip(on);
+        return { name, bg: c.bg, fg: c.fg, border: on ? 'var(--rd-ink)' : 'var(--rd-hair)',
+          toggle: () => this.setState(st => ({ finishMoods: on ? st.finishMoods.filter(m => m !== name) : st.finishMoods.concat([name]) })) };
+      }),
+      setReview: e => this.setState({ review: e.target.value }),
+      saveFinish: () => {
+        this.setState(st => {
+          const p = Object.assign({}, st.progress); p[st.sel] = (BY_TITLE[st.sel] || SHELF[0]).pages;
+          return { progress: p, sheet: null };
+        });
+        this.flash(`${cur.title} finished. ${s.rating || 4} stars saved.`);
+      },
+
+      toast: !!s.toast, toastText: s.toast
+    };
+  }
+}
+</script>
+</body>
+</html>
