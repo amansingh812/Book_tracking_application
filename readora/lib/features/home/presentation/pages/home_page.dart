@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:readora/core/di/injector.dart';
 import 'package:readora/design_system/tokens/readora_spacing.dart';
+import 'package:readora/design_system/tokens/readora_typography.dart';
 import 'package:readora/design_system/widgets/book_cover.dart';
 import 'package:readora/design_system/widgets/paper_card.dart';
 import 'package:readora/design_system/widgets/progress_ring.dart';
@@ -9,12 +12,10 @@ import 'package:readora/features/library/data/models/library_models.dart';
 import 'package:readora/features/library/domain/entities/library_book.dart';
 import 'package:readora/features/library/presentation/bloc/library_bloc.dart';
 import 'package:readora/features/library/presentation/widgets/progress_update_sheet.dart';
+import 'package:readora/features/reading/domain/entities/reading_session.dart';
+import 'package:readora/features/reading/domain/repositories/reading_repository.dart';
+import 'package:readora/features/reading/presentation/widgets/goal_setup_sheet.dart';
 
-/// Home answers one question: *what should I do right now?*
-///
-/// It is deliberately personal rather than analytical — the numbers live in
-/// Analytics. If a section here does not help the reader start reading in the
-/// next thirty seconds, it belongs on another tab.
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -41,6 +42,8 @@ class HomePage extends StatelessWidget {
               ),
               const SizedBox(height: Spacing.xl),
               const _ContinueReading(),
+              const SizedBox(height: Spacing.lg),
+              const _StreakCard(),
               const SizedBox(height: Spacing.lg),
               const _TodaysGoal(),
               const SizedBox(height: Spacing.lg),
@@ -121,7 +124,7 @@ class _CurrentBookCard extends StatelessWidget {
     final theme = Theme.of(context);
 
     return PaperCard(
-      onTap: () => ProgressUpdateSheet.show(context, book: book),
+      onTap: () => context.push('/library/${book.id}'),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -158,6 +161,38 @@ class _CurrentBookCard extends StatelessWidget {
   }
 }
 
+class _StreakCard extends StatelessWidget {
+  const _StreakCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return StreamBuilder<ReadingStats>(
+      stream: sl<ReadingRepository>().watchStats(),
+      builder: (context, snap) {
+        final streak = snap.data?.currentStreak ?? 0;
+        if (streak == 0) return const SizedBox.shrink();
+        return PaperCard(
+          onTap: () => context.push('/profile/stats'),
+          child: Row(
+            children: [
+              Icon(Icons.local_fire_department, color: context.gold, size: 28),
+              const SizedBox(width: Spacing.md),
+              Text(
+                '$streak day streak',
+                style: theme.textTheme.titleMedium,
+              ),
+              const Spacer(),
+              Icon(Icons.chevron_right, color: context.ink3, size: 20),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
 class _TodaysGoal extends StatelessWidget {
   const _TodaysGoal();
 
@@ -165,26 +200,87 @@ class _TodaysGoal extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    // M2 wires this to reading_sessions + goals. Until then it shows the shape
-    // of the thing rather than a fake number.
-    return PaperCard(
-      child: Row(
-        children: [
-          Icon(Icons.local_fire_department, color: context.gold),
-          const SizedBox(width: Spacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return StreamBuilder<ActiveGoal?>(
+      stream: sl<ReadingRepository>().watchTodayGoal(),
+      builder: (context, snap) {
+        final goal = snap.data;
+
+        if (goal == null) {
+          return PaperCard(
+            child: Row(
               children: [
-                Text("Today's goal", style: theme.textTheme.labelSmall),
-                const SizedBox(height: Spacing.xxs),
-                Text('Set a daily reading goal', style: theme.textTheme.titleMedium),
+                Icon(Icons.flag_outlined, color: context.gold),
+                const SizedBox(width: Spacing.md),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Today's goal", style: theme.textTheme.labelSmall),
+                      const SizedBox(height: Spacing.xxs),
+                      Text('Set a daily reading goal', style: theme.textTheme.titleMedium),
+                    ],
+                  ),
+                ),
+                TextButton(
+                  onPressed: () => GoalSetupSheet.show(context),
+                  child: const Text('Set'),
+                ),
               ],
             ),
+          );
+        }
+
+        return PaperCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    goal.isComplete ? Icons.check_circle : Icons.local_fire_department,
+                    color: context.gold,
+                  ),
+                  const SizedBox(width: Spacing.md),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Today's goal", style: theme.textTheme.labelSmall),
+                        const SizedBox(height: Spacing.xxs),
+                        Text(
+                          goal.isComplete
+                              ? 'Goal complete!'
+                              : '${goal.minutesToday} of ${goal.targetMinutes} min',
+                          style: theme.textTheme.titleMedium,
+                        ),
+                      ],
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => GoalSetupSheet.show(
+                      context,
+                      currentMinutes: goal.targetMinutes,
+                    ),
+                    child: const Text('Edit'),
+                  ),
+                ],
+              ),
+              if (!goal.isComplete) ...[
+                const SizedBox(height: Spacing.sm),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(Radii.pill),
+                  child: LinearProgressIndicator(
+                    value: goal.progress,
+                    minHeight: 6,
+                    backgroundColor: context.hairline,
+                    valueColor: AlwaysStoppedAnimation(context.gold),
+                  ),
+                ),
+              ],
+            ],
           ),
-          TextButton(onPressed: () {}, child: const Text('Set')),
-        ],
-      ),
+        );
+      },
     );
   }
 }

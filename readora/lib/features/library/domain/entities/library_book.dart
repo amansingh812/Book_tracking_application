@@ -16,10 +16,15 @@ class LibraryBook extends Equatable {
     this.coverUrl,
     this.pageCount,
     this.rating,
+    this.review,
     this.isFavorite = false,
     this.notesCount = 0,
     this.startedAt,
     this.finishedAt,
+    this.description,
+    this.publisher,
+    this.publishedDate,
+    this.isbn13,
   });
 
   factory LibraryBook.from(UserBookEntity ub, BookEntity? book) => LibraryBook(
@@ -33,10 +38,15 @@ class LibraryBook extends Equatable {
         status: ub.status,
         currentPage: ub.currentPage,
         rating: ub.rating,
+        review: ub.review,
         isFavorite: ub.isFavorite,
         notesCount: ub.notesCount,
         startedAt: ub.startedAt,
         finishedAt: ub.finishedAt,
+        description: book?.description,
+        publisher: book?.publisher,
+        publishedDate: book?.publishedDate,
+        isbn13: book?.isbn13,
       );
 
   final String id;
@@ -49,10 +59,15 @@ class LibraryBook extends Equatable {
   final ReadingStatus status;
   final int currentPage;
   final int? rating;
+  final String? review;
   final bool isFavorite;
   final int notesCount;
   final DateTime? startedAt;
   final DateTime? finishedAt;
+  final String? description;
+  final String? publisher;
+  final String? publishedDate;
+  final String? isbn13;
 
   String get authorLine => authors.isEmpty ? 'Unknown author' : authors.join(', ');
 
@@ -75,6 +90,7 @@ class LibraryBook extends Equatable {
   @override
   List<Object?> get props => [
         id, bookId, title, subtitle, authors, coverUrl, pageCount,
-        status, currentPage, rating, isFavorite, notesCount, startedAt, finishedAt,
+        status, currentPage, rating, review, isFavorite, notesCount,
+        startedAt, finishedAt, description, publisher, publishedDate, isbn13,
       ];
 }

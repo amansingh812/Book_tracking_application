@@ -161,6 +161,40 @@ class LibraryRepositoryImpl implements LibraryRepository {
     }, (e) => {'rating': e.rating, 'review': e.review});
   }
 
+  // ── M2 additions ────────────────────────────────────────────────────────
+
+  @override
+  Stream<LibraryBook?> watchBook(String userBookId) {
+    return _isar.userBookEntitys
+        .filter()
+        .uuidEqualTo(userBookId)
+        .watch(fireImmediately: true)
+        .asyncMap((rows) async {
+      if (rows.isEmpty) return null;
+      final ub = rows.first;
+      final book = await _isar.bookEntitys.getByUuid(ub.bookUuid);
+      return LibraryBook.from(ub, book);
+    });
+  }
+
+  @override
+  Future<void> toggleFavorite(String userBookId) async {
+    await _patch(
+      userBookId,
+      (e) => e.isFavorite = !e.isFavorite,
+      (e) => {'is_favorite': e.isFavorite},
+    );
+  }
+
+  @override
+  Future<void> setPageCountOverride(String userBookId, int? pageCount) async {
+    await _patch(
+      userBookId,
+      (e) => e.pageCountOverride = pageCount,
+      (e) => {'page_count_override': e.pageCountOverride},
+    );
+  }
+
   @override
   Future<void> removeFromLibrary(String userBookId) async {
     final entity = await _isar.userBookEntitys.getByUuid(userBookId);

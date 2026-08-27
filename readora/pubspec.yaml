@@ -39,7 +39,7 @@ dependencies:
   # --- platform & utility ---------------------------------------------------
   connectivity_plus: ^6.0.3
   cached_network_image: ^3.3.1
-  # mobile_scanner: ^5.1.1  # TODO: uncomment when barcode-scan feature is implemented
+  mobile_scanner: ^5.1.1
   flutter_local_notifications: ^17.2.1
   timezone: ^0.9.4
   purchases_flutter: ^10.9.1

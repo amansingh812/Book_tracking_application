@@ -25,4 +25,13 @@ abstract interface class LibraryRepository {
 
   /// Soft delete. The tombstone reaches other devices on the next pull.
   Future<void> removeFromLibrary(String userBookId);
+
+  // ── M2 additions ──────────────────────────────────────────────────────────
+
+  /// Live single-book stream. Emits null if the book was removed.
+  Stream<LibraryBook?> watchBook(String userBookId);
+
+  Future<void> toggleFavorite(String userBookId);
+
+  Future<void> setPageCountOverride(String userBookId, int? pageCount);
 }

@@ -413,38 +413,32 @@ class _ProgressUpdateSheetState extends State<ProgressUpdateSheet> {
               const SizedBox(height: Spacing.sm),
 
               // Direct page number entry input
-              Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      key: const Key('progress_page_textfield'),
-                      controller: _pageController,
-                      focusNode: _pageFocusNode,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        labelText: 'Jump to exact page',
-                        prefixIcon: Icon(
-                          Icons.bookmark_outline,
-                          size: 18,
-                          color: context.ink3,
-                        ),
-                        suffixText: _hasTotalPages ? '/ $_totalPages' : null,
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: Spacing.md,
-                          vertical: Spacing.sm,
-                        ),
-                      ),
-                      onChanged: (val) {
-                        final parsed = int.tryParse(val);
-                        if (parsed != null) {
-                          _setPage(parsed, updateTextController: false);
-                        }
-                      },
-                    ),
+              TextField(
+                key: const Key('progress_page_textfield'),
+                controller: _pageController,
+                focusNode: _pageFocusNode,
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  labelText: 'Jump to exact page',
+                  prefixIcon: Icon(
+                    Icons.bookmark_outline,
+                    size: 18,
+                    color: context.ink3,
                   ),
-                ],
+                  suffixText: _hasTotalPages ? '/ $_totalPages' : null,
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: Spacing.md,
+                    vertical: Spacing.sm,
+                  ),
+                ),
+                onChanged: (val) {
+                  final parsed = int.tryParse(val);
+                  if (parsed != null) {
+                    _setPage(parsed, updateTextController: false);
+                  }
+                },
               ),
 
               const SizedBox(height: Spacing.lg),

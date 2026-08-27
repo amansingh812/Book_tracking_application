@@ -18,7 +18,16 @@ class LibraryPage extends StatelessWidget {
     return BlocBuilder<LibraryBloc, LibraryState>(
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(title: const Text('Library')),
+          appBar: AppBar(
+            title: const Text('Library'),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.bookmark_outlined),
+                tooltip: 'Shelves',
+                onPressed: () => context.push('/library/shelves'),
+              ),
+            ],
+          ),
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () => context.push('/library/add'),
             icon: const Icon(Icons.add),
@@ -96,7 +105,7 @@ class _LibraryTile extends StatelessWidget {
 
     return PaperCard.flat(
       padding: const EdgeInsets.all(Spacing.md),
-      onTap: () => ProgressUpdateSheet.show(context, book: book),
+      onTap: () => context.push('/library/${book.id}'),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

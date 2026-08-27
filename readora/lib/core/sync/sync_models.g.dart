@@ -89,7 +89,7 @@ const OutboxEntrySchema = CollectionSchema(
   getId: _outboxEntryGetId,
   getLinks: _outboxEntryGetLinks,
   attach: _outboxEntryAttach,
-  version: '3.3.2',
+  version: '3.3.0',
 );
 
 int _outboxEntryEstimateSize(
@@ -1648,7 +1648,7 @@ const SyncCursorSchema = CollectionSchema(
   getId: _syncCursorGetId,
   getLinks: _syncCursorGetLinks,
   attach: _syncCursorAttach,
-  version: '3.3.2',
+  version: '3.3.0',
 );
 
 int _syncCursorEstimateSize(

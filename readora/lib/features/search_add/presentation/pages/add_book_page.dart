@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:readora/design_system/tokens/readora_spacing.dart';
 import 'package:readora/design_system/widgets/book_cover.dart';
 import 'package:readora/design_system/widgets/paper_card.dart';
@@ -51,6 +52,16 @@ class _AddBookPageState extends State<AddBookPage> {
                   context.read<SearchBloc>().add(SearchQueryChanged(q)),
             ),
             actions: [
+              IconButton(
+                icon: const Icon(Icons.qr_code_scanner),
+                tooltip: 'Scan ISBN',
+                onPressed: () async {
+                  final isbn = await context.push<String>('/library/add/scan');
+                  if (isbn == null || !context.mounted) return;
+                  _controller.text = isbn;
+                  context.read<SearchBloc>().add(SearchQueryChanged(isbn));
+                },
+              ),
               if (_controller.text.isNotEmpty)
                 IconButton(
                   icon: const Icon(Icons.close),

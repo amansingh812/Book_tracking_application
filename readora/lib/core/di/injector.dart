@@ -11,6 +11,14 @@ import 'package:readora/features/library/data/datasources/library_sync_tables.da
 import 'package:readora/features/library/data/models/library_models.dart';
 import 'package:readora/features/library/data/repositories/library_repository_impl.dart';
 import 'package:readora/features/library/domain/repositories/library_repository.dart';
+import 'package:readora/features/reading/data/datasources/reading_sync_tables.dart';
+import 'package:readora/features/reading/data/models/reading_models.dart';
+import 'package:readora/features/reading/data/repositories/reading_repository_impl.dart';
+import 'package:readora/features/reading/domain/repositories/reading_repository.dart';
+import 'package:readora/features/shelves/data/datasources/shelves_sync_tables.dart';
+import 'package:readora/features/shelves/data/models/shelf_models.dart';
+import 'package:readora/features/shelves/data/repositories/shelf_repository_impl.dart';
+import 'package:readora/features/shelves/domain/repositories/shelf_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -37,7 +45,11 @@ Future<void> configureDependencies() async {
   sl.registerSingleton<List<SyncableTable>>([
     BooksSyncTable(),
     UserBooksSyncTable(),
-    // notes, reading_sessions, goals... register here as each feature lands.
+    ReadingSessionsSyncTable(),
+    ReadingDaysSyncTable(),
+    GoalsSyncTable(),
+    ShelvesSyncTable(),
+    ShelfItemsSyncTable(),
   ]);
   sl.registerSingleton<SyncEngine>(
     SyncEngine(
@@ -66,6 +78,25 @@ Future<void> configureDependencies() async {
     ),
   );
 
+  sl.registerSingleton<ShelfRepository>(
+    ShelfRepositoryImpl(
+      isar: isar,
+      outbox: sl<Outbox>(),
+      syncEngine: sl<SyncEngine>(),
+      auth: sl<AuthRepository>(),
+    ),
+  );
+
+  sl.registerSingleton<ReadingRepository>(
+    ReadingRepositoryImpl(
+      isar: isar,
+      outbox: sl<Outbox>(),
+      syncEngine: sl<SyncEngine>(),
+      auth: sl<AuthRepository>(),
+      prefs: sl<SharedPreferences>(),
+    ),
+  );
+
   await sl<SyncEngine>().start();
 }
 
@@ -74,6 +105,14 @@ Future<void> configureDependencies() async {
 final List<CollectionSchema<dynamic>> _schemas = [
   OutboxEntrySchema,
   SyncCursorSchema,
+  // library
   BookEntitySchema,
   UserBookEntitySchema,
+  // reading (M2)
+  ReadingSessionEntitySchema,
+  ReadingDayEntitySchema,
+  GoalEntitySchema,
+  // shelves (M2)
+  ShelfEntitySchema,
+  ShelfItemEntitySchema,
 ];

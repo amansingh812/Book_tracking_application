@@ -10,11 +10,23 @@ import 'package:readora/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:readora/features/auth/presentation/pages/welcome_page.dart';
 import 'package:readora/features/discover/presentation/pages/discover_page.dart';
 import 'package:readora/features/home/presentation/pages/home_page.dart';
+import 'package:readora/features/library/domain/entities/library_book.dart';
 import 'package:readora/features/library/domain/repositories/library_repository.dart';
+import 'package:readora/features/library/presentation/book_detail/bloc/book_detail_bloc.dart';
+import 'package:readora/features/library/presentation/book_detail/book_detail_page.dart';
 import 'package:readora/features/library/presentation/pages/library_page.dart';
 import 'package:readora/features/profile/presentation/pages/profile_page.dart';
+import 'package:readora/features/reading/domain/repositories/reading_repository.dart';
+import 'package:readora/features/reading/presentation/bloc/reading_session_bloc.dart';
+import 'package:readora/features/reading/presentation/pages/reading_session_page.dart';
 import 'package:readora/features/search_add/presentation/bloc/search_bloc.dart';
 import 'package:readora/features/search_add/presentation/pages/add_book_page.dart';
+import 'package:readora/features/search_add/presentation/pages/isbn_scan_page.dart';
+import 'package:readora/features/shelves/domain/repositories/shelf_repository.dart';
+import 'package:readora/features/shelves/presentation/bloc/shelves_bloc.dart';
+import 'package:readora/features/shelves/presentation/pages/shelf_detail_page.dart';
+import 'package:readora/features/shelves/presentation/pages/shelves_page.dart';
+import 'package:readora/features/stats/presentation/pages/stats_page.dart';
 
 /// Five destinations, no more. Every V1 feature reaches the user through one of
 /// these tabs; anything that needs a sixth tab is a sign the feature belongs
@@ -79,6 +91,71 @@ class AppRouter {
                         ..add(const SearchStarted()),
                       child: const AddBookPage(),
                     ),
+                    routes: [
+                      GoRoute(
+                        path: 'scan',
+                        parentNavigatorKey: rootNavigatorKey,
+                        builder: (_, __) => const IsbnScanPage(),
+                      ),
+                    ],
+                  ),
+                  GoRoute(
+                    path: 'shelves',
+                    parentNavigatorKey: rootNavigatorKey,
+                    builder: (_, __) => BlocProvider(
+                      create: (_) => ShelvesBloc(sl<ShelfRepository>())
+                        ..add(const ShelvesStarted()),
+                      child: const ShelvesPage(),
+                    ),
+                    routes: [
+                      GoRoute(
+                        path: ':shelfId',
+                        parentNavigatorKey: rootNavigatorKey,
+                        builder: (_, state) {
+                          final shelfId = state.pathParameters['shelfId']!;
+                          final shelfName = state.extra as String? ?? 'Shelf';
+                          return MultiBlocProvider(
+                            providers: [
+                              BlocProvider(
+                                create: (_) => ShelvesBloc(sl<ShelfRepository>())
+                                  ..add(const ShelvesStarted()),
+                              ),
+                              BlocProvider(
+                                create: (_) => ShelfDetailBloc(sl<ShelfRepository>())
+                                  ..add(ShelfDetailStarted(shelfId)),
+                              ),
+                            ],
+                            child: ShelfDetailPage(
+                              shelfId: shelfId,
+                              shelfName: shelfName,
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  GoRoute(
+                    path: ':userBookId',
+                    parentNavigatorKey: rootNavigatorKey,
+                    builder: (_, state) => BlocProvider(
+                      create: (_) => BookDetailBloc(sl<LibraryRepository>())
+                        ..add(BookDetailStarted(
+                            state.pathParameters['userBookId']!)),
+                      child: const BookDetailPage(),
+                    ),
+                    routes: [
+                      GoRoute(
+                        path: 'read',
+                        parentNavigatorKey: rootNavigatorKey,
+                        builder: (_, state) {
+                          final book = state.extra as LibraryBook;
+                          return BlocProvider(
+                            create: (_) => ReadingSessionBloc(sl<ReadingRepository>()),
+                            child: ReadingSessionPage(book: book),
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -91,7 +168,19 @@ class AppRouter {
             routes: [GoRoute(path: '/ai', builder: (_, __) => const AiPage())],
           ),
           StatefulShellBranch(
-            routes: [GoRoute(path: '/profile', builder: (_, __) => const ProfilePage())],
+            routes: [
+              GoRoute(
+                path: '/profile',
+                builder: (_, __) => const ProfilePage(),
+                routes: [
+                  GoRoute(
+                    path: 'stats',
+                    parentNavigatorKey: rootNavigatorKey,
+                    builder: (_, __) => const StatsPage(),
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),

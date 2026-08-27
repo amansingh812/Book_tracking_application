@@ -113,7 +113,7 @@ const BookEntitySchema = CollectionSchema(
   getId: _bookEntityGetId,
   getLinks: _bookEntityGetLinks,
   attach: _bookEntityAttach,
-  version: '3.3.2',
+  version: '3.3.0',
 );
 
 int _bookEntityEstimateSize(
@@ -3226,7 +3226,7 @@ const UserBookEntitySchema = CollectionSchema(
   getId: _userBookEntityGetId,
   getLinks: _userBookEntityGetLinks,
   attach: _userBookEntityAttach,
-  version: '3.3.2',
+  version: '3.3.0',
 );
 
 int _userBookEntityEstimateSize(

@@ -45,6 +45,30 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: Spacing.lg),
+                PaperCard.flat(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Spacing.lg,
+                    vertical: Spacing.md,
+                  ),
+                  onTap: () => context.push('/profile/stats'),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.bar_chart_rounded),
+                      const SizedBox(width: Spacing.md),
+                      Expanded(
+                        child: Text(
+                          'Reading stats',
+                          style: theme.textTheme.titleMedium,
+                        ),
+                      ),
+                      Icon(
+                        Icons.chevron_right,
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: Spacing.lg),
                 if (isGuest) ...[
                   PaperCard(
                     child: Column(
