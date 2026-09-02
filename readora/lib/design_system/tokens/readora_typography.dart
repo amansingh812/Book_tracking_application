@@ -109,13 +109,13 @@ abstract final class ReadoraType {
       height: 1.5,
       fontWeight: FontWeight.w300,
     ),
-    // Buttons.
+    // Buttons — 11px, wide-tracked uppercase (caller must `.toUpperCase()`).
     labelLarge: TextStyle(
       fontFamily: bodyFamily,
-      fontSize: 13,
+      fontSize: 11,
       height: 1.2,
       fontWeight: FontWeight.w500,
-      letterSpacing: 0.52, // --tracking-wide (0.04em)
+      letterSpacing: 2.2, // 0.2em — matches the design's button labels
     ),
     // .swr-eyebrow — see [eyebrow]; callers must uppercase the string.
     labelMedium: TextStyle(
@@ -162,6 +162,33 @@ abstract final class ReadoraType {
     fontSize: 26,
     height: 1.1,
     fontWeight: FontWeight.w500,
+    fontFeatures: [FontFeature.tabularFigures()],
+  );
+
+  /// Welcome headline — 44px, the largest in-page heading.
+  static const hero = TextStyle(
+    fontFamily: displayFamily,
+    fontSize: 44,
+    height: 1.1,
+    fontWeight: FontWeight.w400,
+    letterSpacing: -0.88, // -0.02em
+  );
+
+  /// Reading-session timer clock — 56px tabular numerals.
+  static const clock = TextStyle(
+    fontFamily: displayFamily,
+    fontSize: 56,
+    height: 1.0,
+    fontWeight: FontWeight.w400,
+    fontFeatures: [FontFeature.tabularFigures()],
+  );
+
+  /// Quiz score / mega-stat hero — 76px.
+  static const megaStat = TextStyle(
+    fontFamily: displayFamily,
+    fontSize: 76,
+    height: 1.0,
+    fontWeight: FontWeight.w400,
     fontFeatures: [FontFeature.tabularFigures()],
   );
 }

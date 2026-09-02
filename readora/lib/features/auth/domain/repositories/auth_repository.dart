@@ -27,4 +27,11 @@ abstract interface class AuthRepository {
   Future<AppUser> continueAsGuest();
 
   Future<void> signOut();
+
+  /// Permanently deletes the account and everything tied to it — library,
+  /// notes, quizzes, flashcards, reading history, subscription. Every
+  /// per-user table cascades from `auth.users`, so this one call is
+  /// enough server-side. Cannot be undone. Signs the reader out locally
+  /// on success.
+  Future<void> deleteAccount();
 }

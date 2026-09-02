@@ -51,6 +51,9 @@ verify_jwt = true
 [functions.ai-generate]
 verify_jwt = true
 
+[functions.delete-account]
+verify_jwt = true
+
 # RevenueCat cannot present a Supabase JWT; this function authenticates with a
 # shared secret in the Authorization header instead. See its source header.
 [functions.revenuecat-webhook]

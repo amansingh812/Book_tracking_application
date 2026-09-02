@@ -147,6 +147,11 @@ class _BookDetailView extends StatelessWidget {
               const SizedBox(height: Spacing.xl),
             ],
 
+            _eyebrow(context, 'Notes & AI'),
+            const SizedBox(height: Spacing.sm),
+            _StudyToolsRow(book: book),
+            const SizedBox(height: Spacing.xl),
+
             _eyebrow(context, 'Your rating'),
             const SizedBox(height: Spacing.sm),
             _StarRating(
@@ -478,6 +483,88 @@ class _ProgressRow extends StatelessWidget {
           child: const Text('Update'),
         ),
       ],
+    );
+  }
+}
+
+/// Notes, Quiz, and Flashcards all key off this book, and all three read the
+/// notes the reader saves here — that dependency is why they sit together as
+/// one row rather than being scattered across the page.
+class _StudyToolsRow extends StatelessWidget {
+  const _StudyToolsRow({required this.book});
+  final LibraryBook book;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: _StudyToolTile(
+            icon: Icons.edit_note,
+            label: 'Notes',
+            caption: book.notesCount == 0 ? 'Add one' : '${book.notesCount}',
+            onTap: () => context.push('/library/${book.id}/notes', extra: book),
+          ),
+        ),
+        const SizedBox(width: Spacing.sm),
+        Expanded(
+          child: _StudyToolTile(
+            icon: Icons.quiz_outlined,
+            label: 'Quiz',
+            caption: 'Test yourself',
+            onTap: () => context.push('/library/${book.id}/quiz', extra: book),
+          ),
+        ),
+        const SizedBox(width: Spacing.sm),
+        Expanded(
+          child: _StudyToolTile(
+            icon: Icons.style_outlined,
+            label: 'Flashcards',
+            caption: 'Review',
+            onTap: () => context.push('/library/${book.id}/flashcards', extra: book),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _StudyToolTile extends StatelessWidget {
+  const _StudyToolTile({
+    required this.icon,
+    required this.label,
+    required this.caption,
+    required this.onTap,
+  });
+  final IconData icon;
+  final String label;
+  final String caption;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(Radii.md),
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: Spacing.md, horizontal: Spacing.sm),
+        decoration: BoxDecoration(
+          color: context.surface,
+          border: Border.all(color: context.hairline),
+          borderRadius: BorderRadius.circular(Radii.md),
+        ),
+        child: Column(
+          children: [
+            Icon(icon, color: context.gold, size: 22),
+            const SizedBox(height: Spacing.xs),
+            Text(label, style: Theme.of(context).textTheme.labelMedium),
+            Text(
+              caption,
+              style: Theme.of(context).textTheme.labelSmall?.copyWith(color: context.ink3),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

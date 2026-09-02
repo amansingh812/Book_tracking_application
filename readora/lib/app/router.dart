@@ -11,13 +11,27 @@ import 'package:readora/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:readora/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:readora/features/auth/presentation/pages/welcome_page.dart';
 import 'package:readora/features/discover/presentation/pages/discover_page.dart';
+import 'package:readora/features/flashcards/domain/repositories/flashcards_repository.dart';
+import 'package:readora/features/flashcards/presentation/bloc/flashcards_bloc.dart';
+import 'package:readora/features/flashcards/presentation/pages/flashcards_review_page.dart';
 import 'package:readora/features/home/presentation/pages/home_page.dart';
 import 'package:readora/features/library/domain/entities/library_book.dart';
 import 'package:readora/features/library/domain/repositories/library_repository.dart';
 import 'package:readora/features/library/presentation/book_detail/bloc/book_detail_bloc.dart';
 import 'package:readora/features/library/presentation/book_detail/book_detail_page.dart';
 import 'package:readora/features/library/presentation/pages/library_page.dart';
+import 'package:readora/features/notes/domain/repositories/notes_repository.dart';
+import 'package:readora/features/notes/presentation/bloc/notes_bloc.dart';
+import 'package:readora/features/notes/presentation/pages/notes_page.dart';
+import 'package:readora/features/paywall/domain/repositories/billing_repository.dart';
+import 'package:readora/features/paywall/presentation/bloc/paywall_bloc.dart';
+import 'package:readora/features/paywall/presentation/pages/paywall_page.dart';
 import 'package:readora/features/profile/presentation/pages/profile_page.dart';
+import 'package:readora/features/quiz/domain/entities/quiz.dart';
+import 'package:readora/features/quiz/domain/repositories/quiz_repository.dart';
+import 'package:readora/features/quiz/presentation/bloc/quiz_bloc.dart';
+import 'package:readora/features/quiz/presentation/pages/quiz_list_page.dart';
+import 'package:readora/features/quiz/presentation/pages/quiz_take_page.dart';
 import 'package:readora/features/reading/domain/repositories/reading_repository.dart';
 import 'package:readora/features/reading/presentation/bloc/reading_session_bloc.dart';
 import 'package:readora/features/reading/presentation/pages/reading_session_page.dart';
@@ -28,6 +42,7 @@ import 'package:readora/features/shelves/domain/repositories/shelf_repository.da
 import 'package:readora/features/shelves/presentation/bloc/shelves_bloc.dart';
 import 'package:readora/features/shelves/presentation/pages/shelf_detail_page.dart';
 import 'package:readora/features/shelves/presentation/pages/shelves_page.dart';
+import 'package:readora/features/splash/presentation/pages/splash_page.dart';
 import 'package:readora/features/stats/presentation/pages/stats_page.dart';
 
 /// Five destinations, no more. Every V1 feature reaches the user through one of
@@ -43,23 +58,27 @@ class AppRouter {
 
   late final GoRouter router = GoRouter(
     navigatorKey: rootNavigatorKey,
-    initialLocation: '/home',
+    initialLocation: '/',
     refreshListenable: _BlocRefresh(authBloc.stream),
     redirect: (context, state) {
       final status = authBloc.state.status;
       final atAuth = state.matchedLocation.startsWith('/auth');
+      final atSplash = state.matchedLocation == '/';
 
-      // Still restoring the session: hold wherever we are.
-      if (status == AuthStatus.unknown) return null;
+      // Still restoring the session from disk: hold on the splash screen,
+      // not wherever go_router happened to start (e.g. a deep link — those
+      // aren't preserved through the splash gate today, a known gap).
+      if (status == AuthStatus.unknown) return atSplash ? null : '/';
+
+      // Session resolved: nobody should still be sitting on the splash.
+      if (atSplash) return status == AuthStatus.unauthenticated ? '/auth' : '/home';
 
       // Unauthenticated users must go to /auth.
       if (status == AuthStatus.unauthenticated) return atAuth ? null : '/auth';
 
       // Fully-authenticated users are redirected away from the welcome screen
       // only (not sign-in — guests can visit sign-in to upgrade their account).
-      if (status == AuthStatus.authenticated && state.matchedLocation == '/auth') {
-        return '/home';
-      }
+      if (status == AuthStatus.authenticated && atAuth) return '/home';
 
       // Guests may visit /auth/sign-in to upgrade to a full account.
       // Once they complete sign-up, status becomes authenticated and they land on /home.
@@ -67,11 +86,29 @@ class AppRouter {
     },
     routes: [
       GoRoute(
+        path: '/',
+        parentNavigatorKey: rootNavigatorKey,
+        builder: (_, __) => const SplashPage(),
+      ),
+      GoRoute(
         path: '/auth',
         builder: (_, __) => const WelcomePage(),
         routes: [
           GoRoute(path: 'sign-in', builder: (_, __) => const SignInPage()),
         ],
+      ),
+      GoRoute(
+        path: '/paywall',
+        parentNavigatorKey: rootNavigatorKey,
+        builder: (_, __) => BlocProvider(
+          create: (_) => PaywallBloc(sl<BillingRepository>())..add(const PaywallStarted()),
+          child: const PaywallPage(),
+        ),
+      ),
+      GoRoute(
+        path: '/quiz/:quizId/take',
+        parentNavigatorKey: rootNavigatorKey,
+        builder: (_, state) => QuizTakePage(quiz: state.extra as Quiz),
       ),
       StatefulShellRoute.indexedStack(
         builder: (_, __, shell) => _AppShell(shell: shell),
@@ -157,6 +194,44 @@ class AppRouter {
                           );
                         },
                       ),
+                      GoRoute(
+                        path: 'notes',
+                        parentNavigatorKey: rootNavigatorKey,
+                        builder: (_, state) {
+                          final book = state.extra as LibraryBook;
+                          return BlocProvider(
+                            create: (_) => NotesBloc(sl<NotesRepository>())
+                              ..add(NotesStarted(book.id)),
+                            child: NotesPage(bookTitle: book.title),
+                          );
+                        },
+                      ),
+                      GoRoute(
+                        path: 'quiz',
+                        parentNavigatorKey: rootNavigatorKey,
+                        builder: (_, state) {
+                          final book = state.extra as LibraryBook;
+                          return BlocProvider(
+                            create: (_) => QuizBloc(sl<QuizRepository>())
+                              ..add(QuizStarted(book.id)),
+                            child: QuizListPage(bookTitle: book.title),
+                          );
+                        },
+                      ),
+                      GoRoute(
+                        path: 'flashcards',
+                        parentNavigatorKey: rootNavigatorKey,
+                        builder: (_, state) {
+                          final book = state.extra as LibraryBook;
+                          return BlocProvider(
+                            create: (_) => FlashcardsBloc(
+                              sl<FlashcardsRepository>(),
+                              userBookId: book.id,
+                            ),
+                            child: FlashcardsReviewPage(bookTitle: book.title),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ],
@@ -187,6 +262,14 @@ class AppRouter {
                     path: 'stats',
                     parentNavigatorKey: rootNavigatorKey,
                     builder: (_, __) => const StatsPage(),
+                  ),
+                  GoRoute(
+                    path: 'study',
+                    parentNavigatorKey: rootNavigatorKey,
+                    builder: (_, __) => BlocProvider(
+                      create: (_) => FlashcardsBloc(sl<FlashcardsRepository>()),
+                      child: const FlashcardsReviewPage(),
+                    ),
                   ),
                 ],
               ),

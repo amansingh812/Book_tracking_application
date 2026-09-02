@@ -21,6 +21,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthSignUpRequested>(_onSignUp);
     on<AuthGuestRequested>(_onGuest);
     on<AuthSignOutRequested>(_onSignOut);
+    on<AuthAccountDeletionRequested>(_onDeleteAccount);
 
     _sub = _repository.changes.listen((user) => add(AuthIdentityChanged(user)));
     add(AuthIdentityChanged(_repository.current));
@@ -84,6 +85,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> _onSignOut(AuthSignOutRequested event, Emitter<AuthState> emit) async {
     await _repository.signOut();
     emit(const AuthState(status: AuthStatus.unauthenticated));
+  }
+
+  Future<void> _onDeleteAccount(
+    AuthAccountDeletionRequested event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(state.copyWith(isSubmitting: true, clearMessages: true));
+    try {
+      await _repository.deleteAccount();
+      emit(const AuthState(status: AuthStatus.unauthenticated));
+    } catch (error) {
+      emit(state.copyWith(isSubmitting: false, failure: mapError(error)));
+    }
   }
 
   @override

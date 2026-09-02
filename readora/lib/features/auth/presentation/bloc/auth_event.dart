@@ -46,3 +46,7 @@ final class AuthGuestRequested extends AuthEvent {
 final class AuthSignOutRequested extends AuthEvent {
   const AuthSignOutRequested();
 }
+
+final class AuthAccountDeletionRequested extends AuthEvent {
+  const AuthAccountDeletionRequested();
+}

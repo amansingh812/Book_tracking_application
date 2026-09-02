@@ -127,6 +127,25 @@ class AuthRepositoryImpl implements AuthRepository {
     _controller.add(null);
   }
 
+  @override
+  Future<void> deleteAccount() async {
+    // Must succeed before anything local changes — if the edge function
+    // fails, the account still exists and the reader should see the error,
+    // not a local sign-out that leaves the server-side account orphaned.
+    await guard(() => _supabase.functions.invoke('delete-account'));
+
+    // Best-effort local cleanup. The account is already gone server-side at
+    // this point, so a failure here (e.g. the SDK's revoke call erroring on
+    // an already-deleted user) must not make deletion look like it failed.
+    try {
+      await _supabase.auth.signOut();
+    } catch (_) {
+      // Ignore — the account is deleted either way.
+    }
+    await _syncEngine.resetCursors();
+    _controller.add(null);
+  }
+
   Future<void> dispose() async {
     await _authSub?.cancel();
     await _controller.close();

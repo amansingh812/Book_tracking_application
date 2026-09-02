@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:readora/core/di/injector.dart';
+import 'package:readora/core/sync/sync_engine.dart';
 import 'package:readora/design_system/tokens/readora_spacing.dart';
 import 'package:readora/design_system/tokens/readora_typography.dart';
 import 'package:readora/design_system/widgets/book_cover.dart';
 import 'package:readora/design_system/widgets/paper_card.dart';
 import 'package:readora/design_system/widgets/progress_ring.dart';
+import 'package:readora/design_system/widgets/sync_badge.dart';
 import 'package:readora/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:readora/features/library/data/models/library_models.dart';
 import 'package:readora/features/library/domain/entities/library_book.dart';
@@ -36,9 +38,21 @@ class HomePage extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.all(Spacing.gutter),
             children: [
-              Text(
-                '${greeting(DateTime.now())}, $name',
-                style: theme.textTheme.displayMedium,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Text(
+                      '${greeting(DateTime.now())}, $name',
+                      style: theme.textTheme.displayMedium,
+                    ),
+                  ),
+                  const SizedBox(width: Spacing.sm),
+                  Padding(
+                    padding: const EdgeInsets.only(top: Spacing.sm),
+                    child: SyncBadge(engine: sl<SyncEngine>()),
+                  ),
+                ],
               ),
               const SizedBox(height: Spacing.xl),
               const _ContinueReading(),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:readora/core/config/env.dart';
+import 'package:readora/core/di/injector.dart';
+import 'package:readora/features/ai_companion/data/repositories/ai_usage_repository.dart';
+import 'package:readora/features/paywall/domain/repositories/billing_repository.dart';
 import '../bloc/ai_chat_bloc.dart';
 import '../widgets/ai_chat_bubble.dart';
 import '../widgets/tool_chips_row.dart';
@@ -48,7 +52,7 @@ class BookSelectorCard extends StatelessWidget {
                   isScrollControlled: true,
                   builder: (context) => const BookSelectionModal(),
                 );
-                
+
                 if (selected != null && context.mounted) {
                   context.read<AiChatBloc>().add(LoadThread(selected.bookId));
                 }
@@ -143,15 +147,51 @@ class _AiHomeView extends StatelessWidget {
           const Spacer(),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: UsageMeter(
-              used: 3,
-              total: 300,
-              description: '3 of 300 this month',
-            ),
+            child: _LiveUsageMeter(),
           ),
           const _ChatInputArea(),
         ],
       ),
+    );
+  }
+}
+
+/// Replaces the old hardcoded `UsageMeter(used: 3, total: 300)` placeholder
+/// with the reader's real monthly count from `ai_usage`, and the real free
+/// allowance from [Env.freeAiInteractions] (5, not 300).
+class _LiveUsageMeter extends StatefulWidget {
+  const _LiveUsageMeter();
+
+  @override
+  State<_LiveUsageMeter> createState() => _LiveUsageMeterState();
+}
+
+class _LiveUsageMeterState extends State<_LiveUsageMeter> {
+  late Future<AiUsageInfo> _future = _load();
+
+  Future<AiUsageInfo> _load() {
+    return sl<AiUsageRepository>().fetchCurrent(
+      isPlus: sl<BillingRepository>().isPlusNow,
+      freeLimit: Env.freeAiInteractions,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<AiUsageInfo>(
+      future: _future,
+      builder: (context, snapshot) {
+        final info = snapshot.data;
+        if (info == null) return const SizedBox(height: 44);
+        if (info.isPlus) {
+          return UsageMeter(used: 0, total: 1, description: 'Plus — unlimited AI');
+        }
+        return UsageMeter(
+          used: info.used,
+          total: info.limit,
+          description: '${info.used} of ${info.limit} this month',
+        );
+      },
     );
   }
 }

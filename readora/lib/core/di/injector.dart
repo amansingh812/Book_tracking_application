@@ -11,8 +11,23 @@ import 'package:readora/features/library/data/datasources/library_sync_tables.da
 import 'package:readora/features/library/data/models/library_models.dart';
 import 'package:readora/features/library/data/repositories/library_repository_impl.dart';
 import 'package:readora/features/ai_companion/data/repositories/ai_chat_repository_impl.dart';
+import 'package:readora/features/ai_companion/data/repositories/ai_usage_repository.dart';
 import 'package:readora/features/ai_companion/domain/repositories/ai_chat_repository.dart';
+import 'package:readora/features/flashcards/data/datasources/flashcards_sync_tables.dart';
+import 'package:readora/features/flashcards/data/models/flashcard_models.dart';
+import 'package:readora/features/flashcards/data/repositories/flashcards_repository_impl.dart';
+import 'package:readora/features/flashcards/domain/repositories/flashcards_repository.dart';
 import 'package:readora/features/library/domain/repositories/library_repository.dart';
+import 'package:readora/features/notes/data/datasources/notes_sync_tables.dart';
+import 'package:readora/features/notes/data/models/note_models.dart';
+import 'package:readora/features/notes/data/repositories/notes_repository_impl.dart';
+import 'package:readora/features/notes/domain/repositories/notes_repository.dart';
+import 'package:readora/features/paywall/data/repositories/billing_repository_impl.dart';
+import 'package:readora/features/paywall/domain/repositories/billing_repository.dart';
+import 'package:readora/features/quiz/data/datasources/quiz_sync_tables.dart';
+import 'package:readora/features/quiz/data/models/quiz_models.dart';
+import 'package:readora/features/quiz/data/repositories/quiz_repository_impl.dart';
+import 'package:readora/features/quiz/domain/repositories/quiz_repository.dart';
 import 'package:readora/features/reading/data/datasources/reading_sync_tables.dart';
 import 'package:readora/features/reading/data/models/reading_models.dart';
 import 'package:readora/features/reading/data/repositories/reading_repository_impl.dart';
@@ -52,6 +67,11 @@ Future<void> configureDependencies() async {
     GoalsSyncTable(),
     ShelvesSyncTable(),
     ShelfItemsSyncTable(),
+    NotesSyncTable(),
+    QuizzesSyncTable(),
+    QuizQuestionsSyncTable(),
+    QuizAttemptsSyncTable(),
+    FlashcardsSyncTable(),
   ]);
   sl.registerSingleton<SyncEngine>(
     SyncEngine(
@@ -103,6 +123,46 @@ Future<void> configureDependencies() async {
     AiChatRepositoryImpl(sl<SupabaseClient>()),
   );
 
+  sl.registerSingleton<AiUsageRepository>(
+    AiUsageRepository(sl<SupabaseClient>()),
+  );
+
+  sl.registerSingleton<NotesRepository>(
+    NotesRepositoryImpl(
+      isar: isar,
+      outbox: sl<Outbox>(),
+      syncEngine: sl<SyncEngine>(),
+      auth: sl<AuthRepository>(),
+    ),
+  );
+
+  sl.registerSingleton<QuizRepository>(
+    QuizRepositoryImpl(
+      isar: isar,
+      outbox: sl<Outbox>(),
+      syncEngine: sl<SyncEngine>(),
+      supabase: sl<SupabaseClient>(),
+      auth: sl<AuthRepository>(),
+    ),
+  );
+
+  sl.registerSingleton<FlashcardsRepository>(
+    FlashcardsRepositoryImpl(
+      isar: isar,
+      outbox: sl<Outbox>(),
+      syncEngine: sl<SyncEngine>(),
+      supabase: sl<SupabaseClient>(),
+      auth: sl<AuthRepository>(),
+    ),
+  );
+
+  // Billing depends only on AuthRepository (to keep identity in sync with
+  // RevenueCat) — never the other way around, so no feature needs to know
+  // billing exists just to authenticate.
+  final billing = BillingRepositoryImpl(auth: sl<AuthRepository>());
+  sl.registerSingleton<BillingRepository>(billing);
+  await billing.configure();
+
   await sl<SyncEngine>().start();
 }
 
@@ -121,4 +181,10 @@ final List<CollectionSchema<dynamic>> _schemas = [
   // shelves (M2)
   ShelfEntitySchema,
   ShelfItemEntitySchema,
+  // notes, quiz, flashcards (M3)
+  NoteEntitySchema,
+  QuizEntitySchema,
+  QuizQuestionEntitySchema,
+  QuizAttemptEntitySchema,
+  FlashcardEntitySchema,
 ];

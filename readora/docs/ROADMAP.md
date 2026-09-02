@@ -13,7 +13,7 @@ Everything below is sequenced to reach that loop as fast as possible.
 
 ---
 
-## M1 — Walking skeleton ✅ scaffolded
+## M1 — Walking skeleton ✅ done
 
 One thin slice through every layer, so the architecture is proven before it carries
 weight.
@@ -26,45 +26,85 @@ weight.
 - [x] Library list, status filter, progress model
 - [x] Add-book flow wired to `book-search` (search → tap → in library)
 - [x] Progress update sheet writing through the outbox
-- [ ] Replace placeholder tokens with the real Claude Design export
 
 **Done when:** in airplane mode you can add a book, set progress, kill the app, reopen
-it, reconnect, and see the row appear in Supabase.
+it, reconnect, and see the row appear in Supabase. ✅
 
 ---
 
-## M2 — Library and reading core
+## M2 — Library and reading core ✅ done
 
 The tracker people actually came for.
 
-- [ ] Book detail screen: status, rating, review, page count override
-- [ ] TBR with priority ordering and shelves
-- [ ] ISBN barcode scanner (`mobile_scanner`) and manual entry
-- [ ] Reading timer → `reading_sessions`, with pages read and reading speed
-- [ ] `reading_days` maintenance + streak display from `reading_streak()`
-- [ ] Daily/yearly goals
-- [ ] Local notifications for streak reminders (timezone-aware)
-- [ ] Basic statistics: books, pages, time, streak
+- [x] Book detail screen: status, rating, review, page count override
+- [x] TBR with priority ordering and shelves
+- [x] ISBN barcode scanner (`mobile_scanner`) and manual entry
+- [x] Reading timer → `reading_sessions`, with pages read and reading speed
+- [x] `reading_days` maintenance + streak display from `reading_streak()`
+- [x] Daily/yearly goals
+- [x] Local notifications for streak reminders (`flutter_local_notifications`)
+- [x] Basic statistics: books, pages, time, streak
 
 **Done when:** someone could use Readora as their only book tracker for a month and not
-miss anything.
+miss anything. ✅
 
 ---
 
-## M3 — Capture and AI
+## M3 — Capture and AI ✅ code complete, needs build + config
 
 The reason to pay.
 
-- [ ] Notes and highlights: create, tag, favourite, search, filter
-- [ ] AI Companion chat (streaming) grounded in the reader's own notes
-- [ ] Quiz generation + knowledge score history
-- [ ] Flashcards with SM-2-lite review scheduling
-- [ ] Practical actions ("turn this book into actions")
-- [ ] `ai_usage` quota surfaced honestly in the UI before it is hit
-- [ ] RevenueCat integration + paywall + entitlement gating
+- [x] Notes and highlights: create, tag, favourite, per-book list (Isar + outbox synced)
+- [x] AI Companion chat (streaming) grounded in the reader's own notes
+- [x] "Save to notes" / "Make flashcard" wired from the AI chat into real repositories
+- [x] Quiz generation (`ai-generate` task=quiz) + attempt scoring + knowledge history
+- [x] Flashcards with SM-2-lite review scheduling, due-queue and per-book generation
+- [x] `ai_usage` quota surfaced honestly in the UI (`_LiveUsageMeter`, replaces the old
+      hardcoded 3/300 placeholder)
+- [x] RevenueCat integration + paywall page + entitlement gating (`BillingRepository`)
+- [x] Search/filter across notes (text search + kind/favourite filters, client-side)
+- [ ] Practical actions ("turn this book into actions") — backend (`ai-generate`
+      task=actions) exists; no client UI yet
 
 **Done when:** a reader who has saved ten notes can be quizzed on them and the questions
-are actually about what they wrote.
+are actually about what they wrote. Functionally done as of this pass — **blocked on the
+build step below before it runs**:
+
+1. `flutter pub get`
+2. `dart run build_runner build --delete-conflicting-outputs` — generates the missing
+   `.g.dart` files for the five new Isar collections (`NoteEntity`, `QuizEntity`,
+   `QuizQuestionEntity`, `QuizAttemptEntity`, `FlashcardEntity`). Nothing in this pass
+   compiles until this runs once.
+3. `dart run flutter_launcher_icons` + `dart run flutter_native_splash:create` —
+   generates the native icon/splash assets from `assets/icons/` per the config in
+   `pubspec.yaml`.
+4. `flutter analyze --fatal-infos` and `flutter test`
+5. RevenueCat dashboard configuration (entitlement `plus`, offering, store products —
+   see below) before the paywall can actually sell anything.
+
+---
+
+## Store readiness (TestFlight / Play internal testing)
+
+Added on top of M3 for the first real device build, not gated behind a milestone:
+
+- [x] Native splash screen + app icon, generated from a placeholder mark built
+      directly off the design tokens (`tool/generate_brand_marks.py`) — swap
+      the four PNGs in `assets/icons/` for real art whenever it's ready, the
+      config doesn't change.
+- [x] Auth-gate splash screen (`/`) — closes the cold-start flash of Home
+      before session restore resolves.
+- [x] Self-service account deletion (`Settings → Profile → Delete account`),
+      backed by the `delete-account` edge function. Required by Apple/Google
+      policy before any public listing; every per-user table already cascades
+      from `auth.users`, so the function is one call.
+- [x] Privacy Policy + Terms of Service — drafted, published, and linked from
+      Settings. **Not yet lawyer-reviewed** — see the draft notice on the page
+      itself before this goes in front of the public store listings.
+- [ ] Apple Developer Program enrollment + App Store Connect app record
+      (needed for TestFlight)
+- [ ] Play Console developer account + app record (needed for internal
+      testing track)
 
 ---
 
@@ -72,7 +112,7 @@ are actually about what they wrote.
 
 - [ ] Personalised recommendations, each with a plain-English *why*
 - [ ] Mood-based discovery and "I have 30 minutes"
-- [ ] Analytics: speed, genres, trends, consistency
+- [ ] Analytics: speed, genres, trends, consistency (beyond the M2 basic stats page)
 - [ ] Onboarding polish and empty states across the app
 - [ ] Store listings, screenshots, privacy policy, data-deletion flow
 - [ ] Replace the ring-buffer error sink with a real crash reporter

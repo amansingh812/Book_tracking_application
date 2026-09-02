@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:readora/core/di/injector.dart';
+import 'package:readora/core/sync/sync_engine.dart';
 import 'package:readora/design_system/tokens/readora_spacing.dart';
 import 'package:readora/design_system/widgets/book_cover.dart';
 import 'package:readora/design_system/widgets/paper_card.dart';
 import 'package:readora/design_system/widgets/progress_ring.dart';
+import 'package:readora/design_system/widgets/sync_badge.dart';
 import 'package:readora/features/library/data/models/library_models.dart';
 import 'package:readora/features/library/domain/entities/library_book.dart';
 import 'package:readora/features/library/presentation/bloc/library_bloc.dart';
@@ -25,6 +28,10 @@ class LibraryPage extends StatelessWidget {
                 icon: const Icon(Icons.bookmark_outlined),
                 tooltip: 'Shelves',
                 onPressed: () => context.push('/library/shelves'),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: Spacing.md),
+                child: SyncBadge(engine: sl<SyncEngine>()),
               ),
             ],
           ),

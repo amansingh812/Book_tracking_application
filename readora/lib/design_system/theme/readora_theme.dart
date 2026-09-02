@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:readora/design_system/tokens/readora_colors.dart';
 import 'package:readora/design_system/tokens/readora_spacing.dart';
@@ -147,15 +146,22 @@ abstract final class ReadoraTheme {
         ),
       ),
 
-      // No `cardTheme`: nothing uses Material's Card — PaperCard is the
-      // surface, and it reads the tokens directly.
+      cardTheme: CardThemeData(
+        color: surface,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Radii.lg),
+          side: BorderSide(color: hairline),
+        ),
+      ),
 
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: surface,
+        backgroundColor: bg,
         surfaceTintColor: Colors.transparent,
         indicatorColor: gold.withValues(alpha: 0.16),
         elevation: 0,
-        height: 68,
+        height: 88,
         labelTextStyle: WidgetStatePropertyAll(
           textTheme.labelMedium?.copyWith(letterSpacing: 0.6),
         ),
@@ -186,7 +192,7 @@ abstract final class ReadoraTheme {
       ),
 
       bottomSheetTheme: BottomSheetThemeData(
-        backgroundColor: surface,
+        backgroundColor: bg,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         shape: const RoundedRectangleBorder(
@@ -223,7 +229,7 @@ abstract final class ReadoraTheme {
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {
           TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          //TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
         },
       ),
     );
